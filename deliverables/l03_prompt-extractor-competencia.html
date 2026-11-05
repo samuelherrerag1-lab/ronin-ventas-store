@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L03 — El Meta-Prompt de Ingeniería Inversa (Versión Lite) | Ronin Ventas OS</title><meta name="description" content="Meta-prompt de nivel sistema para extraer dolor, prueba, oferta y vacíos de mercado de cualquier cuenta. Incluye probador interactivo offline."><style>
+:root{--bg:#08080c;--panel:#0e0e15;--panel2:#12121b;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);--ink:#f4f4f5;--ink2:#c7c7d0;--muted:#8b8b99;--dim:#787887;--em:#10b981;--ems:rgba(16,185,129,.12);--eml:rgba(16,185,129,.35);--gold:#f59e0b;--golds:rgba(245,158,11,.12);--goldl:rgba(245,158,11,.35);--red:#ef4444;--reds:rgba(239,68,68,.12);--blue:#60a5fa;--sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,"Cascadia Code","SFMono-Regular",Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans);background-image:radial-gradient(900px 500px at 6% -10%,rgba(16,185,129,.08),transparent 60%),radial-gradient(800px 500px at 98% 0%,rgba(245,158,11,.055),transparent 58%);background-attachment:fixed;-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.3;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E")}
+button,input,select{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none}
+::selection{background:rgba(16,185,129,.35);color:#fff}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#262633;border-radius:20px;border:2px solid var(--bg)}
+.wrap{max-width:1480px;margin:0 auto;padding:0 24px;position:relative;z-index:1}.mono{font-family:var(--mono)}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(8,8,12,.9);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.topbar-in{height:62px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}.brand-mark{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--em),var(--gold));color:#050509;font-weight:900}.brand small{display:block;font:8.5px var(--mono);letter-spacing:.17em;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border:1px solid var(--line);border-radius:99px;font:9.5px var(--mono);letter-spacing:.08em;color:var(--ink2);background:rgba(255,255,255,.02);white-space:nowrap}.chip.em{border-color:var(--eml);color:var(--em);background:var(--ems)}.chip.gold{border-color:var(--goldl);color:var(--gold);background:var(--golds)}.dot{width:6px;height:6px;border-radius:50%;background:var(--em);box-shadow:0 0 8px var(--em)}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line)}.hero .kicker{font:10px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-size:clamp(38px,5vw,70px);line-height:.98;letter-spacing:-.05em;margin:14px 0;max-width:1100px}.hero h1 em{font-style:normal;color:var(--gold)}.hero p{max-width:800px;color:var(--ink2);font-size:15.5px}.hero-stats{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.controls{position:sticky;top:62px;z-index:40;background:rgba(8,8,12,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:12px 0}
+.controls-in{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.search{flex:1;min-width:230px}.search input{width:100%;height:38px;background:#0a0a10;border:1px solid var(--line2);border-radius:8px;padding:0 12px;font-size:12.5px;outline:none}.search input:focus{border-color:var(--em);box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+select{height:38px;background:#0a0a10;border:1px solid var(--line2);border-radius:8px;padding:0 30px 0 10px;font-size:11.5px;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238b8b99' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 11px;border:1px solid var(--line2);border-radius:7px;background:var(--panel2);font-size:11px;font-weight:650;transition:.15s;white-space:nowrap}.btn:hover{border-color:var(--eml);background:#171722}.btn.primary{background:var(--em);border-color:var(--em);color:#04110c}.btn.gold{background:var(--gold);border-color:var(--gold);color:#160e01}.btn.sm{min-height:28px;padding:0 8px;font-size:9.5px}
+.count-line{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:14px 0 10px;font:10px var(--mono);letter-spacing:.07em;color:var(--muted)}.count-line b{color:var(--em);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 14px}.fchip{padding:5px 9px;border:1px solid var(--line);border-radius:99px;font-size:10px;color:var(--muted)}.fchip.active{border-color:var(--eml);background:var(--ems);color:var(--em)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:11px;padding-bottom:34px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.025),transparent 65%),var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 17px;position:relative;transition:border-color .15s,transform .15s}.card:hover{border-color:rgba(16,185,129,.28);transform:translateY(-1px)}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}.id{font:8.5px var(--mono);color:var(--dim);letter-spacing:.08em}.tag{font:8px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}.tag.em{border-color:var(--eml);color:var(--em);background:var(--ems)}.tag.gold{border-color:var(--goldl);color:var(--gold);background:var(--golds)}
+.card h3{font-size:16px;line-height:1.25;letter-spacing:-.02em;margin:0 0 7px;color:#fff}.card p{font-size:11.5px;line-height:1.55;color:var(--ink2);margin:0 0 7px}.card p b{color:var(--ink)}.muted{color:var(--muted)}
+.card-foot{display:flex;justify-content:flex-end;gap:6px;margin-top:9px;padding-top:8px;border-top:1px solid var(--line);flex-wrap:wrap}
+.empty{padding:40px;text-align:center;border:1px dashed var(--line2);border-radius:10px;color:var(--muted);font-size:12px;margin-bottom:30px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:24px 0}.stat{border:1px solid var(--line);border-radius:8px;padding:11px 12px;background:var(--panel)}.stat .k{font:8px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--dim)}.stat .v{font:20px var(--mono);font-weight:700;margin-top:4px;color:var(--ink)}.stat .v.em{color:var(--em)}.stat .v.gold{color:var(--gold)}
+.manual{border-top:1px solid var(--line);padding:30px 0 48px}.manual h2{font-size:22px;letter-spacing:-.03em;margin:0 0 8px}.manual p{font-size:12px;line-height:1.7;color:var(--muted);max-width:860px;margin:0 0 10px}.manual table{width:100%;border-collapse:collapse;font-size:11px;margin:14px 0;border:1px solid var(--line);border-radius:8px;overflow:hidden}.manual th{text-align:left;background:var(--panel2);color:var(--muted);font:8.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:8px 9px;border-bottom:1px solid var(--line2)}.manual td{padding:8px 9px;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top}
+.footer{border-top:1px solid var(--line);padding:20px 0 34px;font:9px var(--mono);letter-spacing:.05em;color:var(--dim);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.toast{position:fixed;right:18px;bottom:18px;z-index:99;display:flex;flex-direction:column;gap:6px;pointer-events:none}.toast-item{padding:9px 13px;background:#12121b;border:1px solid var(--eml);border-radius:7px;font-size:11px;box-shadow:0 18px 50px rgba(0,0,0,.4);animation:rise .22s ease both}@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+pre.code{white-space:pre-wrap;background:#0a0a10;border:1px solid var(--line);border-radius:8px;padding:12px;font:10.5px/1.65 var(--mono);color:var(--ink2);max-height:360px;overflow:auto}
+pre.code .v{color:var(--gold)}pre.code .h{color:var(--em);font-weight:700}pre.code .s{color:#93c5fd}
+@media(max-width:760px){.wrap{padding:0 14px}.hero h1{font-size:40px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.controls{top:56px}.topbar-in{height:56px}.hide-sm{display:none}}
+@media print{body{background:#fff;color:#111}body:before,.topbar,.controls,.chips,.card-foot,.toast,.footer{display:none!important}.card,.stat,.manual table{background:#fff;border-color:#ccc;color:#111;page-break-inside:avoid}.card h3,.card p,.manual td,.manual p{color:#111}.hero{padding:0 0 12pt;border-color:#ccc}.hero h1{color:#111}.grid{grid-template-columns:1fr 1fr}.wrap{max-width:none;padding:0}}
+
+.hero h1{max-width:1180px}
+.section{padding:34px 0;border-top:1px solid var(--line)}
+.section:first-of-type{border-top:0}
+.section h2{font-size:clamp(24px,3vw,34px);letter-spacing:-.035em;line-height:1.05;margin:0 0 10px;color:#fff}
+.section h2 em{font-style:normal;color:var(--gold)}
+.section .dek{font-size:13px;line-height:1.7;color:var(--muted);max-width:900px;margin:0 0 18px}
+.prose p{font-size:13.2px;line-height:1.78;color:var(--ink2);max-width:920px;margin:0 0 12px}
+.prose strong{color:#fff}
+.prompt-card{border:1px solid var(--eml);border-radius:11px;background:linear-gradient(180deg,rgba(16,185,129,.08),transparent 60%),var(--panel);padding:15px;margin:14px 0}
+.prompt-card .bar{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:9px}
+.prompt-card .bar span{font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--em)}
+pre.prompt{white-space:pre-wrap;background:#08080d;border:1px solid var(--line);border-radius:8px;padding:13px;font:10.8px/1.65 var(--mono);color:var(--ink2);max-height:520px;overflow:auto}
+pre.prompt b{color:var(--gold)}
+.var-table td code{font:10px var(--mono);color:var(--gold);background:#0a0a10;padding:1px 4px;border-radius:3px}
+.phase-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}
+.phase{border:1px solid var(--line);border-radius:9px;background:var(--panel);padding:14px 15px}
+.phase .n{font:9px var(--mono);letter-spacing:.1em;color:var(--em)}
+.phase h3{font-size:16px;color:#fff;margin:4px 0 6px}
+.phase p{font-size:11.8px;line-height:1.65;color:var(--ink2);margin:0 0 7px}
+.phase ul{margin:4px 0 0 17px;color:var(--muted);font-size:11.2px;line-height:1.55}
+.tester{display:grid;grid-template-columns:1.02fr .98fr;gap:14px;align-items:start;margin:14px 0}
+.tester-box{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:15px}
+.tester-box h3{font-size:15px;color:#fff;margin:0 0 8px}
+textarea{width:100%;min-height:230px;background:#0a0a10;border:1px solid var(--line2);border-radius:8px;color:var(--ink);padding:10px 11px;font:11.5px/1.6 var(--mono);resize:vertical;outline:none}
+textarea:focus{border-color:var(--em);box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+.tester-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.result{border:1px solid var(--line);border-radius:9px;background:var(--panel);padding:14px;margin-bottom:8px}
+.result .rh{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:5px}
+.result .rh b{font-size:12px;color:#fff}.result .rh span{font:9px var(--mono);color:var(--em)}
+.result p{font-size:11.5px;line-height:1.6;color:var(--ink2);margin:0}
+.result .snippet{border-left:2px solid var(--gold);padding-left:8px;margin:5px 0;font-size:11px;color:var(--muted)}
+.score{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:9px;background:var(--panel);padding:12px 14px;margin-bottom:8px}
+.score .big{font:30px var(--mono);font-weight:800;color:var(--em);line-height:1}
+.score .lbl{font:8px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.score .track{flex:1;height:6px;border-radius:99px;background:#1b1b26;overflow:hidden}
+.score .fill{height:100%;background:linear-gradient(90deg,var(--em),var(--gold));width:0;transition:width .4s}
+.gapchips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.gapchip{font:9px var(--mono);border:1px solid var(--reds);border-radius:4px;color:#fca5a5;background:rgba(239,68,68,.08);padding:2px 6px}
+.lead-form{border:1px solid var(--goldl);border-radius:12px;background:linear-gradient(180deg,rgba(245,158,11,.08),transparent 70%),var(--panel);padding:18px;margin:18px 0}
+.lead-form h3{font-size:20px;color:#fff;margin:0 0 6px}
+.lead-form p{font-size:12px;line-height:1.65;color:var(--ink2);margin:0 0 12px}
+.lead-form .row{display:flex;gap:7px;flex-wrap:wrap}
+.lead-form input{flex:1;min-width:230px;height:40px;border:1px solid var(--line2);border-radius:8px;background:#0a0a10;color:var(--ink);padding:0 12px;font-size:12px}
+.lead-form .btn{min-height:40px;padding:0 14px;font-size:11.5px}
+.lead-ok{display:none;margin-top:10px;border:1px solid var(--eml);border-radius:8px;background:var(--ems);padding:9px 11px;font-size:11.5px;color:var(--em)}
+.lead-ok.show{display:block}
+.bridge{border-top:1px solid var(--line);padding:26px 0 42px}
+.bridge .box{border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:9px;background:var(--panel);padding:16px 18px;max-width:940px}
+.bridge h3{font-size:18px;color:#fff;margin:0 0 6px}
+.bridge p{font-size:12.4px;line-height:1.7;color:var(--ink2);margin:0 0 10px}
+.bridge a{color:var(--em);text-decoration:none;font-weight:650}
+@media(max-width:900px){.phase-grid,.tester{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header class="topbar"><div class="wrap topbar-in"><div class="brand"><span class="brand-mark">R</span><span>RONIN <small>LEAD MAGNET · L03</small></span></div><div style="display:flex;gap:7px;align-items:center"><span class="chip em"><span class="dot"></span> OFFLINE</span><span class="chip gold hide-sm">EDICIÓN OPERADOR</span></div></div></header>
+<section class="hero"><div class="wrap"><div class="kicker">LEAD MAGNET · L03</div><h1>El Meta-Prompt de<br><em>Ingeniería Inversa (Versión Lite)</em></h1><p>Extrae la oferta y el gancho de cualquier cuenta en 30 segundos. Versión Lite con variables explicadas, restricciones anti-slop, formato de salida estructurado y un probador interactivo que funciona sin conexión.</p><div class="hero-stats"><span class="chip em"><span class="dot"></span> META-PROMPT</span><span class="chip gold">4 FASES</span><span class="chip">PROBADOR OFFLINE</span><span class="chip">LEAD MAGNET $0</span></div></div></section>
+
+<main class="wrap">
+  <section class="section" id="prompt">
+    <h2>El Meta-Prompt de <em>Ingeniería Inversa</em></h2>
+    <p class="dek">Un sistema completo para deconstruir una pieza de competencia en cuatro fases: dolor agudo, mecanismo de prueba, oferta y vacíos de mercado. No analiza a la persona: analiza la estructura que puedes replicar sin copiar.</p>
+    <div class="prose">
+      <p>La mayoría de los análisis de competencia terminan en una lista de adjetivos: «su diseño es limpio», «su copy es directo», «su oferta es fuerte». Eso no sirve para tomar decisiones. Este prompt obliga a extraer frases exactas, separar hechos de inferencias y devolver un mapa con evidencia. Si un dato no está en el texto, se marca como no declarado.</p>
+      <p>El prompt está diseñado para ejecutarse en cualquier modelo de lenguaje, pero también puedes usarlo a mano. La estructura de salida es un JSON con seis bloques: resumen, dolor, prueba, oferta, vacíos y siguiente prueba. Esa estructura es la que convierte una lectura en un experimento.</p>
+    </div>
+
+    <div class="prompt-card">
+      <div class="bar"><span>Meta-Prompt · versión Lite · nivel sistema</span><button class="btn primary" id="copyPrompt">Copiar Meta-Prompt Completo</button></div>
+      <pre class="prompt" id="promptBox">Actúa como un analista senior de oferta, copy y posicionamiento. Tu trabajo no es opinar sobre una cuenta: es deconstruir una pieza de comunicación competitiva y devolver un mapa accionable de lo que funciona, lo que falta y lo que se puede replicar sin copiar.
+
+VARIABLES DE ENTRADA
+- {{TEXTO_COMPETENCIA}}: el texto público que vas a analizar. Puede ser un post, una página de venta, una bio, un anuncio o una secuencia de correos. Pégalo completo, sin recortar el contexto.
+- {{NICHO}}: el mercado concreto en el que compite la pieza. Ejemplos: repostería casera, consultoría contable, entrenamiento para oposiciones, ecommerce de café.
+- {{PRECIO_OBJETIVO}}: el precio que quieres sostener en tu propia oferta. Sirve para comparar el anclaje de la competencia, no para copiarlo.
+- {{CANAL}}: el canal donde vive la pieza. Ejemplos: Pinterest, Threads, correo, página de venta, TikTok.
+- {{NIVEL_CONCIENCIA}}: qué tanto sabe el comprador sobre su problema y sobre las soluciones disponibles. Usa uno de estos valores: inconsciente, consciente del problema, consciente de la solución, consciente del producto, listo para comprar.
+
+REGLAS ANTI-SLOP
+1. No inventes cifras, testimonios, clientes ni resultados. Si un dato no está en el texto, escribe &quot;no declarado&quot;.
+2. Cita frases exactas entre comillas. Separa siempre el hecho de la inferencia.
+3. Prohibido usar lenguaje de humo: &quot;revolucionario&quot;, &quot;secreto&quot;, &quot;libertad financiera&quot;, &quot;sin esfuerzo&quot;, &quot;método infalible&quot;, &quot;transforma tu vida&quot;. Si aparecen en el texto analizado, señálalos como riesgo.
+4. No recomiendes copiar el copy. Recomienda replicar la estructura, el ángulo o el orden de la prueba.
+5. Si el texto es demasiado corto para analizar una fase, dilo y explica qué falta.
+6. No des consejos legales, médicos ni financieros. Si la pieza los insinúa, marca la zona de riesgo.
+7. No evalúes a la persona. Evalúa la pieza, el mecanismo y la oferta.
+8. Devuelve el análisis en español LatAm, sin emojis y sin relleno.
+
+FASE 1: DOLOR AGUDO
+Identifica el dolor que la pieza pone en la primera línea. Extrae:
+- La frase exacta que nombra el dolor.
+- El sujeto del dolor: quién lo sufre y en qué situación.
+- La consecuencia que el texto insinúa si no se resuelve.
+- El nivel de urgencia: inmediato, latente o inexistente.
+- El disfraz: ¿el dolor se nombra directo o se insinúa con una pregunta, una cifra o una escena?
+Puntúa la intensidad del dolor de 1 a 5. Un 5 es una herida que el comprador ya siente y puede describir con sus palabras. Un 1 es una categoría abstracta que nadie reconoce como propia.
+
+FASE 2: MECANISMO DE PRUEBA
+Extrae el mecanismo que la pieza usa para hacer creíble la promesa. Clasifícalo en una de estas familias:
+- Prueba numérica: cifras, porcentajes, ventas, horas, tamaños.
+- Prueba social: testimonios, nombres, capturas, comunidades.
+- Prueba de proceso: pasos, checklist, capturas de pantalla, archivos.
+- Prueba de autoridad: credenciales, años, medios, clientes conocidos.
+- Prueba de riesgo: garantía, reembolso, prueba gratuita.
+- Ninguna: la promesa se sostiene solo con adjetivos.
+Cita la prueba exacta. Si no existe, escribe &quot;no declarada&quot;. Explica qué objeción desarma y qué objeción deja abierta.
+
+FASE 3: OFERTA
+Descompón la oferta en seis piezas:
+- Promesa principal: qué resultado promete y en cuánto tiempo.
+- Entregables: qué recibe el comprador exactamente.
+- Precio y anclaje: cuánto cuesta, contra qué se compara y qué se presenta antes del precio.
+- Bonos: qué se añade y si tienen valor percibido o solo volumen.
+- Garantía: qué riesgo se retira y con qué condiciones.
+- Llamado a la acción: qué acción pide, dónde ocurre y qué fricción tiene.
+Marca cada pieza como presente, ausente o ambigua. No completes lo que el texto no dice.
+
+FASE 4: VACÍOS DE MERCADO
+Compara la pieza con lo que el nicho ya está saturado de decir. Identifica:
+- Vacío de prueba: todos prometen, nadie muestra.
+- Vacío de especificidad: todos hablan del resultado, nadie del proceso.
+- Vacío de audiencia: todos hablan a &quot;emprendedores&quot;, nadie a un segmento concreto.
+- Vacío de riesgo: todos venden, nadie garantiza.
+- Vacío de precio: todos compiten por lo barato, nadie explica el costo de no actuar.
+- Vacío de canal: todos publican en el mismo formato, nadie usa el formato que el comprador ya consume.
+Para cada vacío, escribe una hipótesis de ángulo que tú podrías usar sin copiar el texto analizado.
+
+FORMATO DE SALIDA
+Devuelve un bloque JSON con esta estructura y, después, una tabla legible con las mismas ideas:
+{
+  &quot;resumen&quot;: &quot;una frase sobre qué vende la pieza y a quién&quot;,
+  &quot;dolor&quot;: {&quot;frase&quot;: &quot;&quot;, &quot;sujeto&quot;: &quot;&quot;, &quot;consecuencia&quot;: &quot;&quot;, &quot;intensidad&quot;: 0, &quot;disfraz&quot;: &quot;&quot;},
+  &quot;prueba&quot;: {&quot;familia&quot;: &quot;&quot;, &quot;frase&quot;: &quot;&quot;, &quot;objecion_que_desarma&quot;: &quot;&quot;, &quot;objecion_que_deja_abierta&quot;: &quot;&quot;},
+  &quot;oferta&quot;: {&quot;promesa&quot;: &quot;&quot;, &quot;entregables&quot;: [], &quot;precio&quot;: &quot;&quot;, &quot;anclaje&quot;: &quot;&quot;, &quot;bonos&quot;: [], &quot;garantia&quot;: &quot;&quot;, &quot;cta&quot;: &quot;&quot;, &quot;friccion&quot;: &quot;&quot;},
+  &quot;vacios&quot;: [{&quot;tipo&quot;: &quot;&quot;, &quot;evidencia&quot;: &quot;&quot;, &quot;angulo_propio&quot;: &quot;&quot;}],
+  &quot;riesgos&quot;: [&quot;...&quot;],
+  &quot;siguiente_prueba&quot;: &quot;un experimento concreto para validar el ángulo propio&quot;
+}
+
+Si el texto no alcanza para llenar un campo, usa &quot;no declarado&quot;. No rellenes con suposiciones. La calidad del análisis se mide por lo que puedes probar, no por lo que puedes imaginar.</pre>
+    </div>
+
+    <h3 style="font-size:16px;color:#fff;margin:18px 0 6px">Variables de entrada explicadas</h3>
+    <div class="table-wrap" style="overflow:auto;border:1px solid var(--line);border-radius:9px">
+      <table class="var-table" style="width:100%;border-collapse:collapse;font-size:11.2px;min-width:680px">
+        <thead><tr><th>Variable</th><th>Qué debes pegar</th><th>Por qué importa</th></tr></thead>
+        <tbody>
+          <tr><td><code>TEXTO_COMPETENCIA</code></td><td>El post, la página, la bio o el correo completo.</td><td>Sin el texto completo, el análisis inventa contexto.</td></tr>
+          <tr><td><code>NICHO</code></td><td>El mercado concreto, no la categoría amplia.</td><td>Un mismo copy cambia de sentido entre nichos.</td></tr>
+          <tr><td><code>PRECIO_OBJETIVO</code></td><td>Tu precio, no el de la competencia.</td><td>Sirve para comparar el anclaje, no para copiarlo.</td></tr>
+          <tr><td><code>CANAL</code></td><td>Pinterest, Threads, correo, página de venta.</td><td>El formato cambia la función de cada línea.</td></tr>
+          <tr><td><code>NIVEL_CONCIENCIA</code></td><td>Inconsciente, problema, solución, producto o compra.</td><td>Determina si el copy debe educar o cerrar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="fases">
+    <h2>Las 4 fases de la autopsia competitiva</h2>
+    <p class="dek">Cada fase produce una pieza distinta del mapa. Si una falta, el análisis se convierte en una opinión con formato bonito.</p>
+    <div class="phase-grid">
+      <div class="phase"><div class="n">FASE 01</div><h3>Dolor agudo</h3><p>Qué herida nombra la pieza, a quién se la atribuye y con qué urgencia. El dolor no es el tema: es la escena que el comprador reconoce.</p><ul><li>Frase exacta del dolor</li><li>Sujeto y situación</li><li>Consecuencia si no se resuelve</li><li>Intensidad de 1 a 5</li></ul></div>
+      <div class="phase"><div class="n">FASE 02</div><h3>Mecanismo de prueba</h3><p>Qué hace creíble la promesa: una cifra, un caso, un proceso, una garantía o nada. La prueba es lo que separa una promesa de una estafa.</p><ul><li>Familia de prueba</li><li>Frase exacta</li><li>Objeción que desarma</li><li>Objeción que deja abierta</li></ul></div>
+      <div class="phase"><div class="n">FASE 03</div><h3>Oferta</h3><p>Qué vende, a qué precio, con qué bonos, garantía y llamado. La oferta no es el producto: es la suma de todo lo que el comprador recibe y arriesga.</p><ul><li>Promesa y entregables</li><li>Precio y anclaje</li><li>Bonos y garantía</li><li>CTA y fricción</li></ul></div>
+      <div class="phase"><div class="n">FASE 04</div><h3>Vacíos de mercado</h3><p>Qué no está diciendo nadie, o qué están diciendo todos igual. El vacío es la oportunidad de posicionarte sin pelearte por el mismo espacio.</p><ul><li>Vacío de prueba</li><li>Vacío de especificidad</li><li>Vacío de riesgo</li><li>Vacío de canal</li></ul></div>
+    </div>
+    <div class="prose">
+      <p>El orden importa. Si empiezas por la oferta, conviertes el análisis en una comparación de precios. Si empiezas por el dolor, entiendes por qué el comprador paga. Si empiezas por la prueba, descubres qué necesita creer antes de comprar. La oferta es la conclusión, no el punto de partida.</p>
+      <p>La fase cuatro es la que produce dinero. No se trata de encontrar un hueco abstracto, sino de encontrar una promesa que la competencia no puede hacer porque su estructura no se lo permite. Si todos venden rapidez, tú vendes profundidad. Si todos venden profundidad, tú vendes implementación. El vacío no es una idea: es una restricción del modelo contrario.</p>
+    </div>
+  </section>
+
+  <section class="section" id="probador">
+    <h2>Probador interactivo: pega un texto y mira la autopsia</h2>
+    <p class="dek">El analizador es heurístico y funciona offline: detecta dolor, prueba, oferta y vacíos con reglas de lenguaje. No es un modelo de IA, pero te da un primer mapa en segundos y te obliga a mirar las frases exactas.</p>
+    <div class="tester">
+      <div class="tester-box">
+        <h3>Texto de la competencia</h3>
+        <textarea id="input" placeholder="Pega aquí un post, una bio o el copy de una página de venta…" aria-label="Texto de la competencia"></textarea>
+        <div class="tester-actions">
+          <button class="btn primary" id="analyze">Analizar texto</button>
+          <button class="btn" id="sample">Cargar ejemplo</button>
+          <button class="btn ghost" id="clear">Limpiar</button>
+        </div>
+        <p style="font-size:10px;color:var(--muted);margin-top:8px">El texto se procesa en tu navegador. No se envía a ningún servidor.</p>
+      </div>
+      <div>
+        <div class="score"><div class="big" id="score">0</div><div style="flex:1"><div class="lbl">Índice de completitud de la pieza</div><div class="track"><div class="fill" id="fill"></div></div></div></div>
+        <div class="result"><div class="rh"><b>Dolor agudo</b><span id="painScore">0</span></div><p id="painOut">Pega un texto y pulsa Analizar.</p></div>
+        <div class="result"><div class="rh"><b>Mecanismo de prueba</b><span id="proofScore">0</span></div><p id="proofOut">Sin analizar.</p></div>
+        <div class="result"><div class="rh"><b>Oferta</b><span id="offerScore">0</span></div><p id="offerOut">Sin analizar.</p></div>
+        <div class="result"><div class="rh"><b>Vacíos detectados</b><span id="gapScore">0</span></div><p id="gapOut">Sin analizar.</p><div class="gapchips" id="gapChips"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="manual">
+    <h2>Cómo usar el prompt en 30 segundos (y no morir en el intento)</h2>
+    <div class="prose">
+      <p><b>Paso 1.</b> Copia el meta-prompt completo con el botón de arriba. <b>Paso 2.</b> Pega el texto de la competencia en el campo TEXTO_COMPETENCIA. <b>Paso 3.</b> Completa NICHO, PRECIO_OBJETIVO, CANAL y NIVEL_CONCIENCIA. <b>Paso 4.</b> Ejecútalo en tu modelo de lenguaje. <b>Paso 5.</b> Compara el JSON con el texto original: cada afirmación debe tener una cita. Si no la tiene, el modelo inventó.</p>
+      <p>El error más común es pegar solo el gancho y pedir un análisis completo. Un gancho no contiene la oferta ni la prueba. Si el texto es corto, el análisis debe decirlo. La calidad del resultado depende de la calidad del contexto, no de la longitud del prompt.</p>
+    </div>
+    <h3 style="font-size:16px;color:#fff;margin:18px 0 6px">Las 7 reglas anti-slop del análisis</h3>
+    <ol style="margin:8px 0 14px 20px;color:var(--ink2);font-size:12.3px;line-height:1.7;max-width:920px">
+      <li><b>Una cita por afirmación.</b> Si no puedes señalar la frase, no es un hallazgo: es una impresión.</li>
+      <li><b>Hecho antes que interpretación.</b> Primero lo que el texto dice; después lo que crees que significa.</li>
+      <li><b>Prohibido completar datos.</b> Si no hay precio, escribe no declarado. No supongas.</li>
+      <li><b>Distingue prueba de promesa.</b> «Más de 2.000 alumnos» es prueba; «método probado» es adjetivo.</li>
+      <li><b>No confundas urgencia con ansiedad.</b> Una fecha límite real es urgencia; un contador falso es manipulación.</li>
+      <li><b>No copies el copy.</b> Copia la estructura, el orden de la prueba o el ángulo. El texto es del autor.</li>
+      <li><b>Termina con un experimento.</b> Un análisis sin siguiente prueba es entretenimiento.</li>
+    </ol>
+    <div class="panel" style="border:1px solid var(--line);border-left:2px solid var(--gold);border-radius:8px;padding:13px 15px;max-width:940px;background:var(--panel)">
+      <p style="font-size:11.8px;color:var(--ink2);margin:0"><b style="color:var(--gold)">Regla de ética:</b> analiza solo material público. No extraigas datos privados, no suplantes la identidad de la cuenta y no publiques el texto de la competencia como si fuera tuyo. La ingeniería inversa es un mapa; el mapa no te da permiso para robar el territorio.</p>
+    </div>
+  </section>
+
+  <section class="section" id="ejemplo">
+    <h2>Ejemplo de autopsia: un competidor de $97</h2>
+    <p class="dek">Texto analizado: «¿Cansado de publicar todos los días y no vender? Nuestro sistema de 7 pasos ayuda a creadores a convertir seguidores en clientes. Incluye 12 plantillas, 3 bonos y acceso a la comunidad. Más de 2.400 alumnos ya lo usaron. Precio $97. Haz clic en el enlace de la bio y empieza hoy.»</p>
+    <div class="table-wrap" style="overflow:auto;border:1px solid var(--line);border-radius:9px">
+      <table style="width:100%;border-collapse:collapse;font-size:11.2px;min-width:720px">
+        <thead><tr><th>Fase</th><th>Hallazgo</th><th>Evidencia</th><th>Lectura</th></tr></thead>
+        <tbody>
+          <tr><td><b>Dolor</b></td><td>Publicar sin vender</td><td>«¿Cansado de publicar todos los días y no vender?»</td><td>Intensidad 4/5. El sujeto es un creador que ya ejecuta, no un principiante. La consecuencia es el agotamiento sin retorno.</td></tr>
+          <tr><td><b>Prueba</b></td><td>Prueba social numérica</td><td>«Más de 2.400 alumnos ya lo usaron»</td><td>Desarma «no funciona para mí». Deja abierta la pregunta de si esos alumnos vendieron o solo compraron.</td></tr>
+          <tr><td><b>Oferta</b></td><td>Sistema + plantillas + bonos + comunidad</td><td>«12 plantillas, 3 bonos y acceso a la comunidad»</td><td>El precio de $97 se sostiene por volumen de entregables, no por un mecanismo único. No hay garantía declarada.</td></tr>
+          <tr><td><b>Vacío</b></td><td>Falta el mecanismo</td><td>«Sistema de 7 pasos» sin nombrar los pasos</td><td>El competidor vende una categoría, no un mecanismo. Ahí cabe un ángulo propio: mostrar los 7 pasos y el tiempo real de implementación.</td></tr>
+          <tr><td><b>Vacío</b></td><td>Falta el riesgo</td><td>No hay garantía, reembolso ni prueba gratuita</td><td>Una garantía de 7 días con una condición clara puede diferenciar sin copiar el copy.</td></tr>
+          <tr><td><b>Vacío</b></td><td>Falta la especificidad</td><td>«Convertir seguidores en clientes»</td><td>No dice en cuánto tiempo, con qué canal ni con qué tipo de oferta. El comprador no puede imaginarse el resultado.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p>La autopsia no concluye «el competidor es malo». Concluye que su oferta tiene tres huecos que se pueden ocupar sin repetir su texto: el mecanismo, el riesgo y la especificidad. El ángulo propio no sería «mi sistema es mejor», sino «el sistema de 7 pasos que se implementa en 90 minutos y tiene garantía de implementación». Ese es un posicionamiento distinto, no una copia con otro adjetivo.</p>
+      <p>El siguiente experimento no es escribir la página: es validar si el hueco importa. Publica un post que explique los 7 pasos en 90 minutos y mide guardados, respuestas y clics. Si el ángulo genera interés, la página tiene una hipótesis. Si no, el hueco era una fantasía del analista.</p>
+    </div>
+  </section>
+
+  <section class="section" id="lectura">
+    <h2>Cómo leer la salida del prompt sin engañarte</h2>
+    <div class="prose">
+      <p>El JSON no es la verdad: es una hipótesis estructurada. Cada campo tiene un uso distinto y una forma de fallar. Si lees la salida como un veredicto, conviertes el análisis en una profecía. Si la lees como un mapa de preguntas, conviertes el mapa en un experimento.</p>
+    </div>
+    <div class="table-wrap" style="overflow:auto;border:1px solid var(--line);border-radius:9px">
+      <table style="width:100%;border-collapse:collapse;font-size:11.2px;min-width:720px">
+        <thead><tr><th>Campo</th><th>Qué te dice</th><th>Cómo se usa</th><th>Cómo falla</th></tr></thead>
+        <tbody>
+          <tr><td><code>resumen</code></td><td>Qué vende la pieza y a quién.</td><td>Para alinear al equipo antes de discutir tácticas.</td><td>Si es genérico, el análisis no entendió el nicho.</td></tr>
+          <tr><td><code>dolor</code></td><td>La herida que abre la pieza.</td><td>Para escribir el primer párrafo de tu propia página.</td><td>Si confunde tema con escena, el dolor no duele.</td></tr>
+          <tr><td><code>prueba</code></td><td>Qué hace creíble la promesa.</td><td>Para decidir qué prueba te falta antes de vender.</td><td>Si acepta adjetivos como prueba, el análisis es blando.</td></tr>
+          <tr><td><code>oferta</code></td><td>Qué recibe el comprador y cuánto arriesga.</td><td>Para comparar tu estructura, no tu precio.</td><td>Si completa datos ausentes, inventa una oferta.</td></tr>
+          <tr><td><code>vacios</code></td><td>Qué no está diciendo el mercado.</td><td>Para elegir un ángulo propio y una promesa distinta.</td><td>Si confunde un vacío con una preferencia personal, el ángulo no vende.</td></tr>
+          <tr><td><code>riesgos</code></td><td>Qué puede explotar en la cara del autor.</td><td>Para no copiar una promesa imposible.</td><td>Si no marca los absolutos, el riesgo pasa a tu página.</td></tr>
+          <tr><td><code>siguiente_prueba</code></td><td>El experimento que valida el ángulo.</td><td>Para convertir el análisis en una acción de 48 horas.</td><td>Si es una tarea vaga, no es un experimento.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p>La prueba de fuego de cualquier salida es simple: cada afirmación debe poder rastrearse hasta una frase del texto original. Si el análisis dice «el dolor es la falta de tiempo» y no hay una frase sobre tiempo, el modelo lo inventó. Si dice «la prueba es débil» y no cita la prueba, es una opinión. La trazabilidad es lo que separa un analista de un loro.</p>
+      <p>El segundo filtro es la acción. Un buen análisis termina con una prueba que se puede ejecutar esta semana: un post, una página, un correo o una llamada. Si el siguiente paso es «mejorar el posicionamiento», el análisis no terminó. La ambigüedad es cómoda; la acción es incómoda. El prompt está diseñado para forzar la segunda.</p>
+    </div>
+  </section>
+
+  <section class="section" id="sesgos">
+    <h2>Los siete sesgos que arruinan una autopsia competitiva</h2>
+    <div class="prose">
+      <p>El analista no es neutral. Tiene un modelo mental, una oferta propia y un miedo a equivocarse. Estos siete sesgos aparecen en casi todos los análisis que terminan en una página que no convierte.</p>
+    </div>
+    <div class="element"><div class="num">SESGO 01</div><h3>Confirmación</h3><p>Buscas pruebas de que el competidor es malo porque ya decidiste que tu ángulo es mejor. El prompt lo combate con una regla: cita la frase exacta y marca lo que no está. Si no hay evidencia, no hay hallazgo. La incomodidad de encontrar algo bueno en el competidor es parte del trabajo.</p></div>
+    <div class="element"><div class="num">SESGO 02</div><h3>Autoridad</h3><p>Si la cuenta tiene 200.000 seguidores, asumes que su copy es bueno. La audiencia puede ser comprada, heredada o curiosa. El análisis debe separar alcance de conversión. Un post con 2.000 likes y cero ventas no es un modelo: es un espectáculo.</p></div>
+    <div class="element"><div class="num">SESGO 03</div><h3>Novedad</h3><p>Lo nuevo parece mejor porque no lo has visto antes. El comprador no compara contra tu archivo mental: compara contra lo que ya conoce. Un ángulo viejo bien ejecutado puede vender más que uno nuevo mal explicado.</p></div>
+    <div class="element"><div class="num">SESGO 04</div><h3>Supervivencia</h3><p>Analizas al que ganó y no al que quebró con la misma estrategia. El sesgo de supervivencia convierte una anécdota en una ley. Para cada caso de éxito, busca dos casos del mismo método que no funcionaron y pregunta qué cambió.</p></div>
+    <div class="element"><div class="num">SESGO 05</div><h3>Causalidad falsa</h3><p>El competidor publicó a las 3 AM y vendió; tú publicas a las 3 AM y no vendes. La hora no era la causa. El análisis debe separar la escena del mecanismo. La escena se copia; el mecanismo se entiende.</p></div>
+    <div class="element"><div class="num">SESGO 06</div><h3>Anclaje de precio</h3><p>Ves un precio de $97 y asumes que tu producto de $27 es barato. El comprador no compara precios absolutos: compara el precio con el costo del problema. Un producto de $27 que no resuelve nada es más caro que uno de $97 que sí.</p></div>
+    <div class="element"><div class="num">SESGO 07</div><h3>Copycat</h3><p>Copias la estructura y también las palabras. El resultado se lee como una imitación y la audiencia lo detecta. La regla es simple: copia el orden de la prueba, no la prueba; copia la función del gancho, no el gancho. El texto debe sonar a tu diagnóstico, no al suyo.</p></div>
+  </section>
+
+  <section class="section" id="plan">
+    <h2>Plan de 7 días para convertir el análisis en una oferta</h2>
+    <div class="timeline" style="display:grid;gap:7px;margin:14px 0">
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:10px;border:1px solid var(--line);border-radius:7px;padding:9px 11px;background:#0b0b11"><div style="font:10px var(--mono);color:var(--gold);font-weight:700">DÍA 01</div><div style="font-size:11.8px;line-height:1.6;color:var(--ink2)"><b style="color:#fff">Elige tres competidores.</b> Uno grande, uno mediano y uno que venda con una estética horrible. El tercero suele tener el mejor mecanismo.</div></div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:10px;border:1px solid var(--line);border-radius:7px;padding:9px 11px;background:#0b0b11"><div style="font:10px var(--mono);color:var(--gold);font-weight:700">DÍA 02</div><div style="font-size:11.8px;line-height:1.6;color:var(--ink2)"><b style="color:#fff">Pega el texto y ejecuta el prompt.</b> No edites la salida todavía. Primero mira qué frases extrajo y cuáles ignoró.</div></div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:10px;border:1px solid var(--line);border-radius:7px;padding:9px 11px;background:#0b0b11"><div style="font:10px var(--mono);color:var(--gold);font-weight:700">DÍA 03</div><div style="font-size:11.8px;line-height:1.6;color:var(--ink2)"><b style="color:#fff">Marca los vacíos.</b> Elige uno solo: prueba, riesgo, especificidad o mecanismo. No intentes ocupar los cuatro en la misma página.</div></div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:10px;border:1px solid var(--line);border-radius:7px;padding:9px 11px;background:#0b0b11"><div style="font:10px var(--mono);color:var(--gold);font-weight:700">DÍA 04</div><div style="font-size:11.8px;line-height:1.6;color:var(--ink2)"><b style="color:#fff">Escribe el ángulo propio.</b> Una frase con el hueco, tu mecanismo y el resultado. Si no cabe en una línea, todavía no está claro.</div></div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:10px;border:1px solid var(--line);border-radius:7px;padding:9px 11px;background:#0b0b11"><div style="font:10px var(--mono);color:var(--gold);font-weight:700">DÍA 05</div><div style="font-size:11.8px;line-height:1.6;color:var(--ink2)"><b style="color:#fff">Publica la prueba.</b> Un post con el mecanismo, una captura y el hueco que el competidor no cubre. Mide guardados y respuestas.</div></div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:10px;border:1px solid var(--line);border-radius:7px;padding:9px 11px;background:#0b0b11"><div style="font:10px var(--mono);color:var(--gold);font-weight:700">DÍA 06</div><div style="font-size:11.8px;line-height:1.6;color:var(--ink2)"><b style="color:#fff">Monta la página.</b> Nueve bloques, una promesa, una prueba, una garantía. Sin diseño nuevo; usa la plantilla que ya tienes.</div></div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:10px;border:1px solid var(--line);border-radius:7px;padding:9px 11px;background:#0b0b11"><div style="font:10px var(--mono);color:var(--gold);font-weight:700">DÍA 07</div><div style="font-size:11.8px;line-height:1.6;color:var(--ink2)"><b style="color:#fff">Mide y decide.</b> Si hay clics y no ventas, corrige la oferta. Si hay ventas y no clics, corrige el gancho. Si no hay nada, corrige el nicho.</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <h2>Preguntas frecuentes antes de usar el prompt</h2>
+    <div class="element"><div class="num">01</div><h3>¿Necesito un modelo de lenguaje para usarlo?</h3><p>No. El prompt está escrito para ejecutarse en un LLM, pero también funciona como checklist manual. Puedes leer cada fase y responder con las frases del texto. El probador interactivo de esta página es una versión heurística que no usa IA.</p></div>
+    <div class="element"><div class="num">02</div><h3>¿Cuánto texto necesito para que funcione?</h3><p>Una página de venta completa es el caso ideal. Un post corto solo alcanza para el dolor y el gancho; la oferta y la prueba probablemente no estén. Si el texto es corto, el prompt debe decirlo en lugar de inventar.</p></div>
+    <div class="element"><div class="num">03</div><h3>¿Puedo analizar a un competidor directo?</h3><p>Sí, si el material es público y lo usas para entender el mercado, no para copiar su texto. No extraigas datos privados, no suplantes la identidad y no publiques su contenido como si fuera tuyo. La ética no es un adorno: es lo que te permite dormir cuando creces.</p></div>
+    <div class="element"><div class="num">04</div><h3>¿Qué hago si el análisis no encuentra prueba?</h3><p>Ese es un hallazgo, no un error. Una oferta sin prueba es una oportunidad: puedes entrar con un caso, una captura o una garantía. Pero primero verifica que el comprador necesite esa prueba; a veces el mercado ya confía y la prueba no es el cuello de botella.</p></div>
+    <div class="element"><div class="num">05</div><h3>¿Cómo evito que el modelo invente?</h3><p>Pide siempre la cita exacta y prohíbe completar datos ausentes. Si la salida no cita, vuelve a ejecutar con una instrucción más estricta. La creatividad del modelo es útil para los ángulos, peligrosa para los hechos.</p></div>
+    <div class="element"><div class="num">06</div><h3>¿Este prompt reemplaza a un analista?</h3><p>No. Reemplaza la parte repetitiva de la primera lectura. El analista sigue decidiendo qué hueco importa, qué prueba es creíble y qué ángulo es propio. El prompt ordena; el criterio sigue siendo humano.</p></div>
+  </section>
+
+  <section class="section" id="adaptar">
+    <h2>Cómo adaptar el prompt a cinco tipos de oferta</h2>
+    <p class="dek">El mismo esqueleto cambia de énfasis según lo que vendes. No cambies las cuatro fases; cambia la prueba que pides y el vacío que buscas.</p>
+    <div class="table-wrap" style="overflow:auto;border:1px solid var(--line);border-radius:9px">
+      <table style="width:100%;border-collapse:collapse;font-size:11.2px;min-width:720px">
+        <thead><tr><th>Tipo de oferta</th><th>Prueba que más importa</th><th>Vacío más frecuente</th><th>Ajuste al prompt</th></tr></thead>
+        <tbody>
+          <tr><td><b>Infoproducto de entrada ($9–$29)</b></td><td>Volumen de compradores y velocidad de implementación.</td><td>Especificidad: todos prometen «paso a paso» sin mostrar el paso.</td><td>Pide el tiempo real de implementación y una captura del archivo.</td></tr>
+          <tr><td><b>Curso o membresía ($97–$497)</b></td><td>Casos con nombre, comunidad activa y garantía.</td><td>Riesgo: el comprador no sabe si va a terminar.</td><td>Añade una fase de retención: qué pasa si abandona.</td></tr>
+          <tr><td><b>Servicio de alto ticket ($1.000+)</b></td><td>Proceso, diagnóstico y prueba de criterio.</td><td>Confianza: el comprador no puede ver el resultado antes de pagar.</td><td>Pide el mecanismo de diagnóstico y el primer entregable.</td></tr>
+          <tr><td><b>Herramienta o plantilla</b></td><td>Demostración visual y tiempo ahorrado.</td><td>Prueba: todos dicen «ahorra horas» sin mostrar la hora.</td><td>Pide un antes/después con cronómetro y una captura de la herramienta.</td></tr>
+          <tr><td><b>Newsletter o comunidad</b></td><td>Frecuencia, calidad de la curaduría y voz.</td><td>Diferenciación: todos curan las mismas fuentes.</td><td>Pide las fuentes que nadie más está leyendo y el filtro editorial.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p>El error es adaptar el prompt cambiando el tono. El tono es la superficie; la estructura es lo que produce el análisis. Si cambias las cuatro fases por «hazme un análisis más agresivo», pierdes la trazabilidad y vuelves a la opinión. Si cambias la prueba que pides, conservas el mapa y afinas la lupa.</p>
+      <p>Para un infoproducto de $19, la prueba más valiosa no es un testimonio: es la captura del archivo y el tiempo de implementación. Para un servicio de $3.000, la prueba más valiosa no es un logo: es el proceso de diagnóstico. El prompt debe pedir la prueba que el comprador necesita para dar el siguiente paso, no la que el vendedor presume.</p>
+      <p>El vacío también cambia por precio. En $19, el vacío suele ser la especificidad. En $497, el vacío suele ser el riesgo. En $3.000, el vacío suele ser la confianza en el criterio. Si buscas el vacío equivocado, escribes una página que resuelve un problema que el comprador no tenía.</p>
+    </div>
+  </section>
+
+  <section class="section" id="limites">
+    <h2>Lo que este prompt no hace</h2>
+    <div class="prose">
+      <p>No reemplaza la investigación de mercado. Un texto de competencia te dice cómo se presenta una oferta, no si el mercado existe. No reemplaza las conversaciones con compradores. No valida un precio. No convierte una mala oferta en una buena. No elimina el trabajo de escribir, probar y medir.</p>
+      <p>Lo que sí hace es ahorrarte la primera hora de lectura y obligarte a separar hechos de interpretaciones. Esa hora es la que suele decidir si el resto del proyecto se construye sobre una hipótesis o sobre una corazonada. La diferencia entre ambas se nota en la primera venta.</p>
+      <p>Si el prompt te devuelve un análisis que halaga tu idea, sospecha. Un buen análisis incomoda: encuentra algo bueno en el competidor, algo débil en tu ángulo y un vacío que no habías visto. La comodidad es una señal de que el modelo te está diciendo lo que querías oír.</p>
+    </div>
+  </section>
+
+  <section class="section" id="lead">
+    <div class="lead-form">
+      <h3>Recibe la versión completa y el enlace a la bóveda de prompts</h3>
+      <p>Déjame tu correo y te envío la versión extendida del meta-prompt, el ejemplo de autopsia completo y el acceso a la Bóveda de 120 Prompts de Ingeniería Inversa de $27.</p>
+      <form id="leadForm" novalidate>
+        <div class="row">
+          <input id="email" type="email" placeholder="tu@correo.com" aria-label="Correo electrónico" required>
+          <button class="btn gold" type="submit">Quiero la versión completa</button>
+        </div>
+        <div class="lead-ok" id="leadOk">Listo. Revisa tu correo y abre la ruta de la bóveda.</div>
+      </form>
+    </div>
+  </section>
+
+  <section class="bridge">
+    <div class="box">
+      <h3>El siguiente nivel: 120 prompts y una arquitectura de clonación</h3>
+      <p>Este meta-prompt es la versión Lite. La <b>Bóveda de 120 Prompts de Ingeniería Inversa</b> contiene 120 prompts organizados por fase, canal y tipo de oferta, con casos y restricciones anti-slop. Cuesta $27 USD.</p>
+      <p><a href="/boveda/120-prompts-ingenieria-inversa">Abrir la Bóveda de 120 Prompts · $27 →</a></p>
+      <p>Si quieres construir el sistema completo de activos, el blueprint <b>E05 · Arquitectura de Clonación IA</b> muestra cómo convertir un análisis en una oferta publicable sin escribir desde cero. <a href="/blueprint/arquitectura-clonacion-ia">Ver E05 →</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="wrap" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><span>RONIN VENTAS OS · L03</span><span>100% OFFLINE · SIN CDN · SIN DEPENDENCIAS</span></div></footer>
+<div class="toast" id="toast" aria-live="polite"></div>
+<script>const DATA={};
+
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(msg){const b=$('#toast');const e=document.createElement('div');e.className='toast-item';e.textContent=msg;b.appendChild(e);setTimeout(()=>{e.style.opacity='0';setTimeout(()=>e.remove(),220)},1800)}
+async function copyText(txt,msg='Copiado'){try{await navigator.clipboard.writeText(txt);toast(msg)}catch(e){const t=document.createElement('textarea');t.value=txt;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');toast(msg)}catch(_){toast('No se pudo copiar')}t.remove()}}
+function download(filename,content,mime='text/plain'){const blob=new Blob([content],{type:mime+';charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},300)}
+
+
+const painWords=['cansado','cansada','frustrado','frustrada','miedo','error','deuda','perder','pierdes','ansiedad','estancado','estancada','no vende','no crece','problema','dolor','harto','harta','solo','sola','quemado','quemada'];
+const proofWords=['cliente','clientes','alumno','alumnos','caso','casos','testimonio','resultado','resultados','captura','garantía','garantia','reembolso','prueba','antes','después','despues'];
+const offerWords=['precio','$','comprar','compra','acceso','curso','plantilla','bóveda','boveda','método','metodo','sistema','link','bio','gratis','descuento','inscripción','inscripcion','cupo'];
+const ctaWords=['haz clic','haz click','entra','compra','reserva','inscríbete','inscribete','descarga','link','bio','escríbeme','escribeme','agenda'];
+const vague=['revolucionario','secreto','libertad','sin esfuerzo','infalible','transforma','mejorar','éxito','exito','dinero','crecer','escala'];
+function sentences(t){return t.replace(/\s+/g,' ').split(/(?<=[.!?])\s+/).map(s=>s.trim()).filter(s=>s.length>8)}
+function hasAny(s,arr){const l=s.toLowerCase();return arr.some(w=>l.includes(w))}
+function pick(sents,arr,n=3){return sents.filter(s=>hasAny(s,arr)).slice(0,n)}
+function countScore(sents,arr,max=4){return Math.min(max,sents.filter(s=>hasAny(s,arr)).length)}
+function render(){
+  const raw=$('#input').value.trim();
+  if(!raw){toast('Pega un texto primero');return}
+  const sents=sentences(raw);
+  const pain=pick(sents,painWords), proof=pick(sents,proofWords), offer=pick(sents,offerWords), cta=pick(sents,ctaWords);
+  const numbers=(raw.match(/\d+([.,]\d+)?%?|\$\s?\d+/g)||[]).length;
+  const pScore=countScore(sents,painWords), prScore=countScore(sents,proofWords)+Math.min(2,numbers), oScore=countScore(sents,offerWords), cScore=countScore(sents,ctaWords);
+  const total=Math.min(100,Math.round((pScore*7+prScore*8+oScore*7+cScore*7)));
+  $('#score').textContent=total; $('#fill').style.width=total+'%';
+  $('#painScore').textContent=pScore+'/4'; $('#proofScore').textContent=Math.min(6,prScore)+'/6';
+  $('#offerScore').textContent=oScore+'/4'; $('#gapScore').textContent=(4-[pScore>0,prScore>0,oScore>0,cScore>0].filter(Boolean).length)+'/4';
+  const block=(arr,empty)=>{if(!arr.length)return empty;return arr.map(s=>`<span class="snippet">${esc(s)}</span>`).join('')};
+  $('#painOut').innerHTML=block(pain,'No se detectó una frase de dolor explícito. La pieza puede estar educando, pero no está hiriendo.');
+  $('#proofOut').innerHTML=block(proof,'No hay prueba declarada. Si la promesa no se sostiene con un dato, es una opinión.');
+  $('#offerOut').innerHTML=block(offer,'No se detectó una oferta clara: precio, entregable o llamado a la acción.');
+  const gaps=[];
+  if(!pScore)gaps.push('Sin dolor explícito');
+  if(!prScore)gaps.push('Sin prueba');
+  if(!oScore)gaps.push('Sin oferta');
+  if(!cScore)gaps.push('Sin CTA');
+  if(numbers<2)gaps.push('Poca especificidad numérica');
+  if(!/garant|reembolso/i.test(raw))gaps.push('Sin garantía');
+  if(vague.some(w=>raw.toLowerCase().includes(w)))gaps.push('Lenguaje de humo');
+  if(/(todos|nadie|siempre|nunca)/i.test(raw))gaps.push('Absolutos sin evidencia');
+  $('#gapOut').textContent=gaps.length?gaps.length+' vacíos detectados. Revisa las frases y decide cuál puedes ocupar.':'La pieza cubre las cuatro fases. El siguiente paso es diferenciar el ángulo, no copiar el texto.';
+  $('#gapChips').innerHTML=gaps.map(g=>`<span class="gapchip">${esc(g)}</span>`).join('');
+}
+$('#analyze').onclick=render;
+let liveTimer;
+$('#input').addEventListener('input',()=>{
+  clearTimeout(liveTimer);
+  liveTimer=setTimeout(()=>{if($('#input').value.trim().length>60) render();},350);
+});
+$('#sample').onclick=()=>{
+  $('#input').value='¿Cansado de publicar todos los días y no vender? Nuestro sistema de 7 pasos ayuda a creadores a convertir seguidores en clientes. Incluye 12 plantillas, 3 bonos y acceso a la comunidad. Más de 2.400 alumnos ya lo usaron. Precio $97. Haz clic en el enlace de la bio y empieza hoy.';
+  render();
+};
+$('#clear').onclick=()=>{$('#input').value='';$('#score').textContent='0';$('#fill').style.width='0';$('#painOut').textContent='Pega un texto y pulsa Analizar.';$('#proofOut').textContent='Sin analizar.';$('#offerOut').textContent='Sin analizar.';$('#gapOut').textContent='Sin analizar.';$('#gapChips').innerHTML='';};
+$('#copyPrompt').onclick=()=>copyText($('#promptBox').textContent,'Meta-prompt copiado');
+$('#leadForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const em=$('#email').value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){toast('Escribe un correo válido');$('#email').focus();return}
+  $('#leadOk').classList.add('show');toast('Versión completa desbloqueada');
+});
+
+</script></body></html>

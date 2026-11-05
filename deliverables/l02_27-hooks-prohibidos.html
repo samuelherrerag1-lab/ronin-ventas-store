@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L02 — 27 Hooks de Polarización que Paran el Scroll en 1.5 Segundos | Ronin Ventas OS</title><meta name="description" content="Muestra gratuita de 27 ganchos de polarización extraídos de la Bóveda de 500 Hooks Cínicos. Buscador, filtros, copiado y puente a B01."><style>
+:root{--bg:#08080c;--panel:#0e0e15;--panel2:#12121b;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);--ink:#f4f4f5;--ink2:#c7c7d0;--muted:#8b8b99;--dim:#787887;--em:#10b981;--ems:rgba(16,185,129,.12);--eml:rgba(16,185,129,.35);--gold:#f59e0b;--golds:rgba(245,158,11,.12);--goldl:rgba(245,158,11,.35);--red:#ef4444;--reds:rgba(239,68,68,.12);--blue:#60a5fa;--sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,"Cascadia Code","SFMono-Regular",Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans);background-image:radial-gradient(900px 500px at 6% -10%,rgba(16,185,129,.08),transparent 60%),radial-gradient(800px 500px at 98% 0%,rgba(245,158,11,.055),transparent 58%);background-attachment:fixed;-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.3;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E")}
+button,input,select{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none}
+::selection{background:rgba(16,185,129,.35);color:#fff}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#262633;border-radius:20px;border:2px solid var(--bg)}
+.wrap{max-width:1480px;margin:0 auto;padding:0 24px;position:relative;z-index:1}.mono{font-family:var(--mono)}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(8,8,12,.9);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.topbar-in{height:62px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}.brand-mark{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--em),var(--gold));color:#050509;font-weight:900}.brand small{display:block;font:8.5px var(--mono);letter-spacing:.17em;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border:1px solid var(--line);border-radius:99px;font:9.5px var(--mono);letter-spacing:.08em;color:var(--ink2);background:rgba(255,255,255,.02);white-space:nowrap}.chip.em{border-color:var(--eml);color:var(--em);background:var(--ems)}.chip.gold{border-color:var(--goldl);color:var(--gold);background:var(--golds)}.dot{width:6px;height:6px;border-radius:50%;background:var(--em);box-shadow:0 0 8px var(--em)}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line)}.hero .kicker{font:10px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-size:clamp(38px,5vw,70px);line-height:.98;letter-spacing:-.05em;margin:14px 0;max-width:1100px}.hero h1 em{font-style:normal;color:var(--gold)}.hero p{max-width:800px;color:var(--ink2);font-size:15.5px}.hero-stats{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.controls{position:sticky;top:62px;z-index:40;background:rgba(8,8,12,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:12px 0}
+.controls-in{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.search{flex:1;min-width:230px}.search input{width:100%;height:38px;background:#0a0a10;border:1px solid var(--line2);border-radius:8px;padding:0 12px;font-size:12.5px;outline:none}.search input:focus{border-color:var(--em);box-shadow:0 0 0 3px rgba(16,185,129,.12)}
+select{height:38px;background:#0a0a10;border:1px solid var(--line2);border-radius:8px;padding:0 30px 0 10px;font-size:11.5px;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238b8b99' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 11px;border:1px solid var(--line2);border-radius:7px;background:var(--panel2);font-size:11px;font-weight:650;transition:.15s;white-space:nowrap}.btn:hover{border-color:var(--eml);background:#171722}.btn.primary{background:var(--em);border-color:var(--em);color:#04110c}.btn.gold{background:var(--gold);border-color:var(--gold);color:#160e01}.btn.sm{min-height:28px;padding:0 8px;font-size:9.5px}
+.count-line{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:14px 0 10px;font:10px var(--mono);letter-spacing:.07em;color:var(--muted)}.count-line b{color:var(--em);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 14px}.fchip{padding:5px 9px;border:1px solid var(--line);border-radius:99px;font-size:10px;color:var(--muted)}.fchip.active{border-color:var(--eml);background:var(--ems);color:var(--em)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:11px;padding-bottom:34px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.025),transparent 65%),var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 17px;position:relative;transition:border-color .15s,transform .15s}.card:hover{border-color:rgba(16,185,129,.28);transform:translateY(-1px)}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}.id{font:8.5px var(--mono);color:var(--dim);letter-spacing:.08em}.tag{font:8px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}.tag.em{border-color:var(--eml);color:var(--em);background:var(--ems)}.tag.gold{border-color:var(--goldl);color:var(--gold);background:var(--golds)}
+.card h3{font-size:16px;line-height:1.25;letter-spacing:-.02em;margin:0 0 7px;color:#fff}.card p{font-size:11.5px;line-height:1.55;color:var(--ink2);margin:0 0 7px}.card p b{color:var(--ink)}.muted{color:var(--muted)}
+.card-foot{display:flex;justify-content:flex-end;gap:6px;margin-top:9px;padding-top:8px;border-top:1px solid var(--line);flex-wrap:wrap}
+.empty{padding:40px;text-align:center;border:1px dashed var(--line2);border-radius:10px;color:var(--muted);font-size:12px;margin-bottom:30px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:24px 0}.stat{border:1px solid var(--line);border-radius:8px;padding:11px 12px;background:var(--panel)}.stat .k{font:8px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--dim)}.stat .v{font:20px var(--mono);font-weight:700;margin-top:4px;color:var(--ink)}.stat .v.em{color:var(--em)}.stat .v.gold{color:var(--gold)}
+.manual{border-top:1px solid var(--line);padding:30px 0 48px}.manual h2{font-size:22px;letter-spacing:-.03em;margin:0 0 8px}.manual p{font-size:12px;line-height:1.7;color:var(--muted);max-width:860px;margin:0 0 10px}.manual table{width:100%;border-collapse:collapse;font-size:11px;margin:14px 0;border:1px solid var(--line);border-radius:8px;overflow:hidden}.manual th{text-align:left;background:var(--panel2);color:var(--muted);font:8.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:8px 9px;border-bottom:1px solid var(--line2)}.manual td{padding:8px 9px;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top}
+.footer{border-top:1px solid var(--line);padding:20px 0 34px;font:9px var(--mono);letter-spacing:.05em;color:var(--dim);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.toast{position:fixed;right:18px;bottom:18px;z-index:99;display:flex;flex-direction:column;gap:6px;pointer-events:none}.toast-item{padding:9px 13px;background:#12121b;border:1px solid var(--eml);border-radius:7px;font-size:11px;box-shadow:0 18px 50px rgba(0,0,0,.4);animation:rise .22s ease both}@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+pre.code{white-space:pre-wrap;background:#0a0a10;border:1px solid var(--line);border-radius:8px;padding:12px;font:10.5px/1.65 var(--mono);color:var(--ink2);max-height:360px;overflow:auto}
+pre.code .v{color:var(--gold)}pre.code .h{color:var(--em);font-weight:700}pre.code .s{color:#93c5fd}
+@media(max-width:760px){.wrap{padding:0 14px}.hero h1{font-size:40px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.controls{top:56px}.topbar-in{height:56px}.hide-sm{display:none}}
+@media print{body{background:#fff;color:#111}body:before,.topbar,.controls,.chips,.card-foot,.toast,.footer{display:none!important}.card,.stat,.manual table{background:#fff;border-color:#ccc;color:#111;page-break-inside:avoid}.card h3,.card p,.manual td,.manual p{color:#111}.hero{padding:0 0 12pt;border-color:#ccc}.hero h1{color:#111}.grid{grid-template-columns:1fr 1fr}.wrap{max-width:none;padding:0}}
+
+.hero h1{max-width:1180px}
+.cat-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0 4px}
+.cat-cell{border:1px solid var(--line);border-radius:9px;background:var(--panel);padding:10px 12px;cursor:pointer;transition:.15s}
+.cat-cell:hover{border-color:var(--eml)}.cat-cell.active{border-color:var(--em);background:var(--ems)}
+.cat-cell .n{font:8px var(--mono);letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+.cat-cell .t{font-size:11px;font-weight:700;margin-top:3px;line-height:1.25}
+.cat-cell .c{font:9px var(--mono);color:var(--em);margin-top:3px}
+.hook{background:linear-gradient(180deg,rgba(255,255,255,.025),transparent 65%),var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column}
+.hook:hover{border-color:rgba(16,185,129,.28);transform:translateY(-1px)}
+.hook-top{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:7px}
+.hid{font:8.5px var(--mono);color:var(--dim);letter-spacing:.08em}
+.htag{font:8px var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:2px 6px;border:1px solid var(--line);border-radius:4px;color:var(--muted);text-align:right}
+.hook .txt{font-size:16px;line-height:1.38;letter-spacing:-.015em;color:#fff;font-weight:650;margin:2px 0 9px}
+.hook .why{font-size:11px;line-height:1.6;color:var(--muted);border-left:2px solid var(--gold);padding-left:8px;margin:0 0 10px}
+.hook .why b{color:var(--gold);font:8px var(--mono);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:2px}
+.hook .card-foot{margin-top:auto}
+.manual h2{font-size:26px}.manual h3{font-size:16px;margin:22px 0 7px;color:#fff}
+.manual p{font-size:12.3px;line-height:1.72;color:var(--ink2);max-width:930px;margin:0 0 10px}
+.manual ul,.manual ol{margin:8px 0 14px 20px;color:var(--ink2);font-size:12.3px;line-height:1.7;max-width:930px}
+.manual li{margin-bottom:5px}.manual strong{color:#fff}
+.manual table{width:100%;border-collapse:collapse;font-size:11px;margin:14px 0;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.manual th{text-align:left;background:var(--panel2);color:var(--muted);font:8.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:8px 9px;border-bottom:1px solid var(--line2)}
+.manual td{padding:8px 9px;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top}
+.manual .box{border:1px solid var(--line);border-left:2px solid var(--gold);background:var(--panel);border-radius:8px;padding:13px 15px;margin:14px 0;max-width:940px}
+.manual .box p{margin:0;font-size:11.8px;color:var(--ink2)}
+.manual .box .k{font:8px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.lead-form{border:1px solid var(--goldl);border-radius:12px;background:linear-gradient(180deg,rgba(245,158,11,.08),transparent 70%),var(--panel);padding:18px;margin:18px 0}
+.lead-form h3{font-size:20px;color:#fff;margin:0 0 6px}
+.lead-form p{font-size:12px;line-height:1.65;color:var(--ink2);margin:0 0 12px}
+.lead-form .row{display:flex;gap:7px;flex-wrap:wrap}
+.lead-form input{flex:1;min-width:230px;height:40px;border:1px solid var(--line2);border-radius:8px;background:#0a0a10;color:var(--ink);padding:0 12px;font-size:12px}
+.lead-form .btn{min-height:40px;padding:0 14px;font-size:11.5px}
+.lead-ok{display:none;margin-top:10px;border:1px solid var(--eml);border-radius:8px;background:var(--ems);padding:9px 11px;font-size:11.5px;color:var(--em)}
+.lead-ok.show{display:block}
+.bridge{border-top:1px solid var(--line);padding:26px 0 42px}
+.bridge .box{border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:9px;background:var(--panel);padding:16px 18px;max-width:900px}
+.bridge h3{font-size:18px;color:#fff;margin:0 0 6px}
+.bridge p{font-size:12.4px;line-height:1.7;color:var(--ink2);margin:0 0 10px}
+.bridge a{color:var(--em);text-decoration:none;font-weight:650}
+@media(max-width:900px){.cat-strip{grid-template-columns:repeat(2,1fr)}}
+</style></head>
+<body>
+<header class="topbar"><div class="wrap topbar-in"><div class="brand"><span class="brand-mark">R</span><span>RONIN <small>LEAD MAGNET · L02</small></span></div><div style="display:flex;gap:7px;align-items:center"><span class="chip em"><span class="dot"></span> OFFLINE</span><span class="chip gold hide-sm">EDICIÓN OPERADOR</span></div></div></header>
+<section class="hero"><div class="wrap"><div class="kicker">LEAD MAGNET · L02</div><h1>27 Hooks de Polarización<br><em>que Paran el Scroll en 1.5 Segundos</em></h1><p>Muestra gratuita extraída de la Bóveda de 500 Hooks Cínicos. 27 ganchos de alto voltaje, divididos en cinco familias de psicología oscura, con la explicación de por qué detienen el pulgar en 1,5 segundos.</p><div class="hero-stats"><span class="chip em"><span class="dot"></span> 27 HOOKS</span><span class="chip gold">5 FAMILIAS</span><span class="chip">MUESTRA GRATIS</span><span class="chip">COPIA EN 1 CLIC</span></div></div></section>
+
+<main class="wrap">
+  <div class="cat-strip" id="catStrip"></div>
+  <div class="stats">
+    <div class="stat"><div class="k">Hooks en la muestra</div><div class="v em">27</div></div>
+    <div class="stat"><div class="k">Categorías</div><div class="v">5</div></div>
+    <div class="stat"><div class="k">Ataque al ego</div><div class="v gold">6</div></div>
+    <div class="stat"><div class="k">Ventana de atención</div><div class="v">1,5 s</div></div>
+  </div>
+
+  <section class="controls" aria-label="Controles de la muestra">
+    <div class="wrap controls-in" style="padding:0">
+      <div class="search"><input id="q" type="search" placeholder="Buscar gancho, categoría o explicación…" aria-label="Buscar hooks"></div>
+      <select id="catSel" aria-label="Filtrar por categoría"><option value="">Todas las categorías</option></select>
+      <button class="btn" id="copyFiltered">Copiar filtrados</button>
+      <button class="btn" data-exp="md">Markdown</button>
+      <button class="btn gold" data-exp="json">JSON</button>
+    </div>
+  </section>
+
+  <div class="chips" id="chips"></div>
+  <div class="count-line"><span><b id="count">27</b> hooks visibles de 27</span><span>Muestra gratuita · Bóveda de 500 Hooks Cínicos</span></div>
+
+  <div class="grid" id="grid"><article class="hook" id="L02-001" data-id="L02-001" data-item="L02-001" data-cat="Ataque al Ego">
+  <div class="hook-top"><span class="hid">L02-001</span><span class="htag">Ataque al Ego</span></div>
+  <div class="txt">Si tu cuenta no crece, no es el algoritmo: es que nadie te extraña cuando no publicas.</div>
+  <div class="why"><b>Por qué para el scroll</b>El ego se activa antes que la razón. El lector siente la acusación como propia y necesita responder, aunque sea para negarla. La ausencia de una salida fácil obliga a quedarse en el post.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="001">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-002" data-id="L02-002" data-item="L02-002" data-cat="Ataque al Ego">
+  <div class="hook-top"><span class="hid">L02-002</span><span class="htag">Ataque al Ego</span></div>
+  <div class="txt">Llevas tres años aprendiendo marketing y todavía no sabes cobrar. Eso no es formación, es entretenimiento.</div>
+  <div class="why"><b>Por qué para el scroll</b>La frase separa dos identidades que el lector confunde: el que consume y el que ejecuta. El dolor de reconocerse en la primera produce un clic de defensa o de compra.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="002">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-003" data-id="L02-003" data-item="L02-003" data-cat="Ataque al Ego">
+  <div class="hook-top"><span class="hid">L02-003</span><span class="htag">Ataque al Ego</span></div>
+  <div class="txt">Tu bio no dice qué vendes porque tú tampoco lo tienes claro.</div>
+  <div class="why"><b>Por qué para el scroll</b>Es una acusación específica sobre un objeto visible. El lector puede ir a mirar su bio en el mismo segundo, lo que convierte el post en una prueba interactiva.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="003">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-004" data-id="L02-004" data-item="L02-004" data-cat="Ataque al Ego">
+  <div class="hook-top"><span class="hid">L02-004</span><span class="htag">Ataque al Ego</span></div>
+  <div class="txt">El problema no es que nadie te compre: es que tu oferta da pena ajena.</div>
+  <div class="why"><b>Por qué para el scroll</b>La hipérbole controlada rompe la cortesía del feed. El lector no puede ignorar la frase sin preguntarse si su oferta también da pena. La incomodidad es el gancho.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="004">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-005" data-id="L02-005" data-item="L02-005" data-cat="Ataque al Ego">
+  <div class="hook-top"><span class="hid">L02-005</span><span class="htag">Ataque al Ego</span></div>
+  <div class="txt">Puedes seguir culpando al alcance orgánico o aceptar que tu contenido no le importa a nadie.</div>
+  <div class="why"><b>Por qué para el scroll</b>Ofrece dos opciones y ninguna es cómoda. El cerebro prefiere una explicación externa, pero la segunda opción se queda dando vueltas y genera comentarios.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="005">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-006" data-id="L02-006" data-item="L02-006" data-cat="Ataque al Ego">
+  <div class="hook-top"><span class="hid">L02-006</span><span class="htag">Ataque al Ego</span></div>
+  <div class="txt">No tienes un nicho, tienes un pasatiempo con logo.</div>
+  <div class="why"><b>Por qué para el scroll</b>La metáfora reduce años de trabajo a un objeto doméstico. Es humillante en la medida justa para provocar una respuesta, y suficientemente precisa para parecer un diagnóstico.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="006">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-007" data-id="L02-007" data-item="L02-007" data-cat="Curiosidad &amp; Morbo Numérico">
+  <div class="hook-top"><span class="hid">L02-007</span><span class="htag">Curiosidad &amp; Morbo Numérico</span></div>
+  <div class="txt">22 ventas en 4 horas con un PDF de 18 páginas. El precio no era el problema.</div>
+  <div class="why"><b>Por qué para el scroll</b>La cifra impar y el objeto pequeño crean una desproporción que el cerebro quiere explicar. El cierre elimina la objeción más obvia y abre una pregunta distinta.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="007">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-008" data-id="L02-008" data-item="L02-008" data-cat="Curiosidad &amp; Morbo Numérico">
+  <div class="hook-top"><span class="hid">L02-008</span><span class="htag">Curiosidad &amp; Morbo Numérico</span></div>
+  <div class="txt">El 93% de los que guardan un post no vuelve a abrirlo. Tú probablemente eres uno de ellos.</div>
+  <div class="why"><b>Por qué para el scroll</b>El porcentaje alto y la segunda persona convierten un dato abstracto en una acusación personal. El lector guarda el post para no ser parte del 93%, lo que ya es una interacción.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="008">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-009" data-id="L02-009" data-item="L02-009" data-cat="Curiosidad &amp; Morbo Numérico">
+  <div class="hook-top"><span class="hid">L02-009</span><span class="htag">Curiosidad &amp; Morbo Numérico</span></div>
+  <div class="txt">Un archivo de 47 KB generó más ingresos que 300 posts de motivación. Te muestro la captura.</div>
+  <div class="why"><b>Por qué para el scroll</b>El contraste entre tamaño y resultado es la historia completa en una línea. La promesa de la captura da una razón concreta para quedarse y verificar.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="009">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-010" data-id="L02-010" data-item="L02-010" data-cat="Curiosidad &amp; Morbo Numérico">
+  <div class="hook-top"><span class="hid">L02-010</span><span class="htag">Curiosidad &amp; Morbo Numérico</span></div>
+  <div class="txt">A las 3:14 AM publiqué una cifra impar y el algoritmo hizo el resto.</div>
+  <div class="why"><b>Por qué para el scroll</b>La hora exacta y la cifra impar parecen un parte de guerra. El lector quiere saber qué pasó a esa hora y por qué el algoritmo reaccionó; la explicación queda pendiente.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="010">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-011" data-id="L02-011" data-item="L02-011" data-cat="Curiosidad &amp; Morbo Numérico">
+  <div class="hook-top"><span class="hid">L02-011</span><span class="htag">Curiosidad &amp; Morbo Numérico</span></div>
+  <div class="txt">3,7 segundos fue el tiempo promedio que aguantó mi primer gancho. El segundo aguantó 41.</div>
+  <div class="why"><b>Por qué para el scroll</b>Dos cifras comparables con un decimal incómodo. La brecha entre 3,7 y 41 es tan grande que el lector necesita saber qué cambió entre uno y otro.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="011">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-012" data-id="L02-012" data-item="L02-012" data-cat="Curiosidad &amp; Morbo Numérico">
+  <div class="hook-top"><span class="hid">L02-012</span><span class="htag">Curiosidad &amp; Morbo Numérico</span></div>
+  <div class="txt">El correo que nadie abre cuesta más que el anuncio que sí ves.</div>
+  <div class="why"><b>Por qué para el scroll</b>Invierte la intuición del costo. El lector que invierte en anuncios se detiene a calcular cuánto pierde en una lista muerta, y ese cálculo lo lleva al comentario.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="012">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-013" data-id="L02-013" data-item="L02-013" data-cat="Contrarian &amp; Falsos Dilemas">
+  <div class="hook-top"><span class="hid">L02-013</span><span class="htag">Contrarian &amp; Falsos Dilemas</span></div>
+  <div class="txt">Publicar todos los días es la forma más elegante de no tener nada que decir.</div>
+  <div class="why"><b>Por qué para el scroll</b>Ataca una norma sagrada del creador. El lector que publica a diario se siente aludido y el que no publica encuentra una excusa; ambos tienen un motivo para responder.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="013">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-014" data-id="L02-014" data-item="L02-014" data-cat="Contrarian &amp; Falsos Dilemas">
+  <div class="hook-top"><span class="hid">L02-014</span><span class="htag">Contrarian &amp; Falsos Dilemas</span></div>
+  <div class="txt">El nicho no existe. Existe un problema que alguien ya está pagando por resolver.</div>
+  <div class="why"><b>Por qué para el scroll</b>Desplaza la conversación de identidad a transacción. Es una tesis discutible, lo que garantiza comentarios de gente que quiere defender su nicho o su categoría.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="014">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-015" data-id="L02-015" data-item="L02-015" data-cat="Contrarian &amp; Falsos Dilemas">
+  <div class="hook-top"><span class="hid">L02-015</span><span class="htag">Contrarian &amp; Falsos Dilemas</span></div>
+  <div class="txt">Si necesitas motivación para ejecutar, tu modelo de negocio es la motivación.</div>
+  <div class="why"><b>Por qué para el scroll</b>Convierte la motivación en una dependencia. El lector que consume frases de ánimo siente que lo están desnudando; el que ejecuta se siente superior y comparte.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="015">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-016" data-id="L02-016" data-item="L02-016" data-cat="Contrarian &amp; Falsos Dilemas">
+  <div class="hook-top"><span class="hid">L02-016</span><span class="htag">Contrarian &amp; Falsos Dilemas</span></div>
+  <div class="txt">Las 5 AM no te hacen rico; te hacen dormir mal y creer que produces.</div>
+  <div class="why"><b>Por qué para el scroll</b>Ataca un símbolo del hustle sin atacar a una persona. La frase es corta, visual y suficientemente polémica para dividir a la audiencia en dos bandos.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="016">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-017" data-id="L02-017" data-item="L02-017" data-cat="Contrarian &amp; Falsos Dilemas">
+  <div class="hook-top"><span class="hid">L02-017</span><span class="htag">Contrarian &amp; Falsos Dilemas</span></div>
+  <div class="txt">Elegir entre calidad y cantidad es una trampa: la mayoría no tiene ninguna de las dos.</div>
+  <div class="why"><b>Por qué para el scroll</b>Rompe el falso dilema con una tercera opción incómoda. El lector que se identifica con la calidad o con la cantidad queda expuesto y quiere justificarse.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="017">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-018" data-id="L02-018" data-item="L02-018" data-cat="Envidia &amp; Asimetría">
+  <div class="hook-top"><span class="hid">L02-018</span><span class="htag">Envidia &amp; Asimetría</span></div>
+  <div class="txt">Mientras tú ves historias de Lamborghinis, alguien vende una plantilla de $19 y cobra sin mostrar la cara.</div>
+  <div class="why"><b>Por qué para el scroll</b>La envidia se activa por comparación de estilos de vida. La plantilla de $19 parece accesible y la ausencia de cara elimina la excusa de la vergüenza.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="018">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-019" data-id="L02-019" data-item="L02-019" data-cat="Envidia &amp; Asimetría">
+  <div class="hook-top"><span class="hid">L02-019</span><span class="htag">Envidia &amp; Asimetría</span></div>
+  <div class="txt">La cuenta que admiras factura menos que el community manager que la escribe.</div>
+  <div class="why"><b>Por qué para el scroll</b>Invierte la jerarquía visible. El lector descubre que el escaparate no es el negocio, y esa revelación lo lleva a mirar su propia estructura.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="019">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-020" data-id="L02-020" data-item="L02-020" data-cat="Envidia &amp; Asimetría">
+  <div class="hook-top"><span class="hid">L02-020</span><span class="htag">Envidia &amp; Asimetría</span></div>
+  <div class="txt">No envidies el resultado: envidia el aburrimiento de hacer lo mismo 200 veces.</div>
+  <div class="why"><b>Por qué para el scroll</b>Reencuadra la envidia como admiración por el proceso. La frase es incómoda porque quita el glamour y deja solo el trabajo repetido.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="020">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-021" data-id="L02-021" data-item="L02-021" data-cat="Envidia &amp; Asimetría">
+  <div class="hook-top"><span class="hid">L02-021</span><span class="htag">Envidia &amp; Asimetría</span></div>
+  <div class="txt">El creador que te vende libertad trabaja más horas que tú y lo esconde en el funnel.</div>
+  <div class="why"><b>Por qué para el scroll</b>Expone una contradicción del discurso de libertad. El lector que compra cursos de estilo de vida siente que lo están estafando y quiere confirmarlo.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="021">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-022" data-id="L02-022" data-item="L02-022" data-cat="Envidia &amp; Asimetría">
+  <div class="hook-top"><span class="hid">L02-022</span><span class="htag">Envidia &amp; Asimetría</span></div>
+  <div class="txt">Tu jefe tiene un sueldo; el que vende un PDF tiene un activo. La diferencia se nota en diciembre.</div>
+  <div class="why"><b>Por qué para el scroll</b>Contrasta dos formas de ingreso con un mes concreto. La referencia a diciembre hace que el lector piense en su propio cierre de año y en su brecha.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="022">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-023" data-id="L02-023" data-item="L02-023" data-cat="Aversión a la Pérdida">
+  <div class="hook-top"><span class="hid">L02-023</span><span class="htag">Aversión a la Pérdida</span></div>
+  <div class="txt">Cada día que no publicas, alguien que empezó después ya te está robando el nicho.</div>
+  <div class="why"><b>Por qué para el scroll</b>Activa el miedo a la pérdida de posición. La palabra «robando» es agresiva y hace que el lector imagine un competidor concreto avanzando mientras él duda.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="023">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-024" data-id="L02-024" data-item="L02-024" data-cat="Aversión a la Pérdida">
+  <div class="hook-top"><span class="hid">L02-024</span><span class="htag">Aversión a la Pérdida</span></div>
+  <div class="txt">No estás perdiendo dinero por no vender: lo estás perdiendo por no cobrar lo que ya haces gratis.</div>
+  <div class="why"><b>Por qué para el scroll</b>Señala una pérdida que ya ocurre, no una futura. El lector no puede defenderse con «todavía no es el momento» porque la fuga es presente.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="024">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-025" data-id="L02-025" data-item="L02-025" data-cat="Aversión a la Pérdida">
+  <div class="hook-top"><span class="hid">L02-025</span><span class="htag">Aversión a la Pérdida</span></div>
+  <div class="txt">El costo de esperar no es el precio del curso: es el año que no vas a recuperar.</div>
+  <div class="why"><b>Por qué para el scroll</b>Sustituye el precio visible por el costo invisible. La frase obliga a comparar el gasto de hoy con un año de ingresos no generados.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="025">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-026" data-id="L02-026" data-item="L02-026" data-cat="Aversión a la Pérdida">
+  <div class="hook-top"><span class="hid">L02-026</span><span class="htag">Aversión a la Pérdida</span></div>
+  <div class="txt">Tu competencia no es mejor; solo publicó antes y tú sigues preparándote.</div>
+  <div class="why"><b>Por qué para el scroll</b>Ataca la procrastinación disfrazada de perfeccionismo. El lector se reconoce en la segunda parte y siente urgencia por cerrar la brecha.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="026">Copiar gancho</button></div>
+</article>
+<article class="hook" id="L02-027" data-id="L02-027" data-item="L02-027" data-cat="Aversión a la Pérdida">
+  <div class="hook-top"><span class="hid">L02-027</span><span class="htag">Aversión a la Pérdida</span></div>
+  <div class="txt">Si tu producto no está publicado, no tienes un negocio: tienes un archivo con fecha de muerte.</div>
+  <div class="why"><b>Por qué para el scroll</b>Convierte un archivo digital en un objeto con caducidad. La imagen de la fecha de muerte es lo bastante visceral para generar guardados y respuestas.</div>
+  <div class="card-foot"><button class="btn sm primary" data-copy="027">Copiar gancho</button></div>
+</article></div>
+  <div class="empty" id="empty" hidden>Ningún hook coincide con el filtro.</div>
+
+  <section class="manual" id="manual">
+    <h2>Por qué 1,5 segundos deciden si tu hook existe</h2>
+    <p>El scroll no es una lectura: es un reflejo. El pulgar se detiene cuando el cerebro detecta una amenaza, una anomalía o una oportunidad. Un hook de polarización no necesita ser verdadero para detener el scroll; necesita ser específico, incómodo y verificable. La verdad llega después, cuando el lector ya está dentro.</p>
+    <p>La ventana de 1,5 segundos es el tiempo que tarda una persona en decidir si sigue mirando o sigue bajando. En esa ventana no caben tres ideas: cabe una tensión. Los 27 hooks de esta muestra están construidos para abrir una tensión en la primera línea y no resolverla hasta la segunda.</p>
+
+    <h3>Las cinco familias y su mecánica</h3>
+    <table>
+      <thead><tr><th>Familia</th><th>Qué activa</th><th>Riesgo</th><th>Uso recomendado</th></tr></thead>
+      <tbody>
+        <tr><td><b>Ataque al Ego</b></td><td>La necesidad de defender la identidad.</td><td>Si atacas a la persona y no a la conducta, pierdes al comprador.</td><td>Posts de diagnóstico, hilos de errores y comparaciones de oficio.</td></tr>
+        <tr><td><b>Curiosidad & Morbo Numérico</b></td><td>La necesidad de explicar una cifra rara.</td><td>Si la cifra no se puede verificar, se convierte en humo.</td><td>Capturas, experimentos, dashboards y casos con fecha.</td></tr>
+        <tr><td><b>Contrarian & Falsos Dilemas</b></td><td>El deseo de discutir una norma.</td><td>Si solo contradices por atención, el lector lo detecta.</td><td>Posts de tesis, opiniones de industria y debates de método.</td></tr>
+        <tr><td><b>Envidia & Asimetría</b></td><td>La comparación con alguien que parece tener más.</td><td>Si idealizas al competidor, refuerzas la impotencia.</td><td>Casos de modelos pequeños, activos silenciosos y comparaciones de estructura.</td></tr>
+        <tr><td><b>Aversión a la Pérdida</b></td><td>El miedo a lo que se está perdiendo ahora.</td><td>Si inventas urgencia, quemas la lista.</td><td>Posts de costo de oportunidad, cierres de ciclo y decisiones postergadas.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Cómo se usa un hook sin quemar la cuenta</h3>
+    <ol>
+      <li><b>Un hook por post.</b> Dos tensiones compiten y ninguna gana. Elige la que corresponde al momento de tu audiencia.</li>
+      <li><b>Prueba la primera línea en aislamiento.</b> Si no detiene sin el resto del texto, el resto no existe.</li>
+      <li><b>No expliques el hook en el primer párrafo.</b> La explicación mata la curiosidad. Deja que el lector pregunte.</li>
+      <li><b>Ten la prueba lista.</b> Un hook de cifra sin captura es una promesa; con captura es un experimento.</li>
+      <li><b>No uses el mismo gancho dos semanas seguidas.</b> La audiencia se adapta y el efecto cae.</li>
+      <li><b>Responde a los comentarios con datos, no con sarcasmo.</b> El hook abre la puerta; la respuesta decide si entras.</li>
+      <li><b>Mide guardados, no solo likes.</b> Un hook que se guarda sigue trabajando cuando el feed ya lo olvidó.</li>
+    </ol>
+
+    <div class="box"><div class="k">Regla de honestidad</div><p>La polarización no es odio. Un hook que ataca a un grupo, a una persona vulnerable o a una característica que nadie eligió no es persuasión: es crueldad con métricas. Ataca la conducta, el supuesto o el sistema. Deja intacta la dignidad del lector y tendrás un gancho que se puede repetir sin crisis.</p></div>
+
+    <h3>Plan de 7 días para probar los 27</h3>
+    <p><b>Día 1:</b> elige cinco hooks de una sola familia y escribe la prueba que los sostiene. <b>Día 2:</b> publica el primero a una hora incómoda y mide la retención a los 1,5 segundos. <b>Día 3:</b> cambia solo la primera línea y vuelve a publicar. <b>Día 4:</b> revisa qué hooks generaron guardados y no solo comentarios. <b>Día 5:</b> escribe una variante con una cifra propia. <b>Día 6:</b> publica el hook que más discutió tu audiencia con una respuesta preparada. <b>Día 7:</b> elimina los tres que no movieron nada y quédate con los dos que sí.</p>
+    <p>La muestra es gratuita porque es una muestra. La Bóveda de 500 Hooks Cínicos contiene las 500 variantes completas, organizadas por familia, ocasión y nivel de agresividad. Si los 27 te sirven, la bóveda te ahorra seis meses de escribir ganchos desde cero.</p>
+
+    <h3>Anatomía de los 1,5 segundos</h3>
+    <p>Un hook que funciona en 1,5 segundos tiene cinco capas. La primera es visual: la primera línea debe verse distinta al resto del feed, aunque sea por longitud o por una cifra. La segunda es verbal: una frase que se pueda leer de un vistazo, sin subordinadas. La tercera es tensión: algo que no cierra. La cuarta es especificidad: un objeto, una hora, un número o una escena. La quinta es salida: el lector debe saber qué hacer si quiere resolver la tensión.</p>
+    <p>La mayoría de los hooks fallan en la capa tres. Son claros, son específicos, pero no dejan nada abierto. Un dato sin consecuencia es una estadística; una consecuencia sin dato es una opinión. El hook de polarización une las dos: muestra el dato y cobra una consecuencia incómoda.</p>
+    <p>La capa cinco también se olvida. Un hook que detiene pero no dice qué hacer produce un like y nada más. La salida no es un enlace en la primera línea; es una promesa de que el resto del post contiene la explicación. El lector sigue leyendo porque quiere cerrar la tensión, no porque le pidieron un favor.</p>
+
+    <h3>Los siete errores que convierten un hook en ruido</h3>
+    <ol>
+      <li><b>Empezar con una pregunta que se responde sola.</b> «¿Quieres ganar dinero?» no detiene a nadie porque la respuesta es obvia. La pregunta debe abrir una herida, no pedir un sí.</li>
+      <li><b>Usar una cifra redonda.</b> $1.000 suena a meta; $1.043 suena a extracto. La cifra impar es una señal de que alguien contó, no de que alguien imaginó.</li>
+      <li><b>Explicar la tensión en la misma línea.</b> Si el hook dice «esto pasa porque aquello», no queda nada por descubrir. La explicación pertenece al segundo párrafo.</li>
+      <li><b>Atacar a la persona en lugar de la conducta.</b> «Eres un fracasado» cierra la conversación; «tu oferta da pena ajena» abre una discusión sobre la oferta. La segunda se puede responder; la primera solo se puede bloquear.</li>
+      <li><b>Prometer un resultado que no puedes probar.</b> La polarización sin prueba se convierte en una captura de pantalla y la captura se convierte en una crisis. Ten el dashboard, el archivo o el caso listo.</li>
+      <li><b>Copiar el hook de otra cuenta.</b> La audiencia detecta el reciclaje y el autor original también. Copia la estructura, no la frase.</li>
+      <li><b>No medir la retención.</b> Un hook que te gusta y no retiene es una opinión. Mide el tiempo hasta el primer scroll, los guardados y las respuestas; esos tres números deciden si el hook existe.</li>
+    </ol>
+
+    <h3>Cómo elegir el hook correcto para tu momento</h3>
+    <p>Si tu cuenta es nueva, empieza por <b>Curiosidad & Morbo Numérico</b>: es la familia que menos exige reputación y la que más se apoya en una prueba visual. Si ya tienes una audiencia que te sigue por criterio, usa <b>Contrarian & Falsos Dilemas</b>: la gente te sigue para discutir, no para recibir consejos. Si vendes un activo de precio bajo, <b>Aversión a la Pérdida</b> funciona mejor que la envidia, porque el comprador ya sabe lo que está perdiendo y necesita permiso para actuar.</p>
+    <p>El <b>Ataque al Ego</b> es el más potente y el más peligroso. Úsalo cuando la conducta que criticas sea evidente y cuando tu audiencia pueda reírse de sí misma. Si la crítica cae sobre alguien que no puede cambiar, no es un hook: es una agresión. La diferencia entre un gancho que se comparte y uno que se denuncia es la dignidad del lector.</p>
+
+    <h3>La prueba de 24 horas: cómo saber si un hook sirve</h3>
+    <p>No necesitas una semana para saber si un hook funciona. Necesitas 24 horas y una métrica. Publica el hook a una hora incómoda, mide la retención a los 1,5 segundos, los guardados y las respuestas directas. Si el hook no movió ninguna de las tres, no es un hook: es una frase.</p>
+    <div class="table-wrap" style="overflow:auto;border:1px solid var(--line);border-radius:9px;margin:12px 0">
+      <table style="width:100%;border-collapse:collapse;font-size:11.2px;min-width:640px">
+        <thead><tr><th>Métrica</th><th>Qué mide</th><th>Umbral de señal</th><th>Qué hacer si falla</th></tr></thead>
+        <tbody>
+          <tr><td>Retención a 1,5 s</td><td>Si el lector se quedó después de la primera línea.</td><td>Más del 55% del promedio de tus posts.</td><td>Cambia la primera frase, no el resto.</td></tr>
+          <tr><td>Guardados</td><td>Si el hook promete algo que se quiere conservar.</td><td>Más de 3 por cada 1.000 impresiones.</td><td>Añade una cifra o una checklist concreta.</td></tr>
+          <tr><td>Respuestas directas</td><td>Si el hook abrió una tensión que necesita comentario.</td><td>Más de 5 en la primera hora.</td><td>Sube la especificidad o cambia de familia.</td></tr>
+          <tr><td>Clics al perfil</td><td>Si la curiosidad se convirtió en intención.</td><td>Más del 1,5% de las impresiones.</td><td>Revisa la bio y el primer comentario.</td></tr>
+          <tr><td>Ventas</td><td>Si el hook atrajo al comprador correcto.</td><td>Una venta por cada 60 clics de perfil.</td><td>Revisa la oferta y el precio, no el hook.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>La tabla es una guía, no una ley. Un hook puede tener pocos guardados y muchas ventas si la audiencia ya está caliente. Otro puede tener muchos guardados y cero ventas si promete entretenimiento en lugar de una solución. La única combinación que importa es la que mueve a tu comprador, no la que infla tu vanidad.</p>
+    <p>Si un hook funciona, no lo repitas textualmente: cambia el objeto, la cifra o la escena. La estructura se conserva; la superficie se renueva. Esa es la diferencia entre una cuenta que vive de un golpe viral y una que construye un sistema de ganchos.</p>
+
+    <div class="lead-form">
+      <h3>Recibe la muestra ampliada y el acceso a la bóveda</h3>
+      <p>Déjame tu correo y te envío la guía de uso de los 27 hooks más el enlace a la Bóveda de 500 Hooks Cínicos de $19. Sin ruido diario; solo lo que abre la puerta.</p>
+      <form id="leadForm" novalidate>
+        <div class="row">
+          <input id="email" type="email" placeholder="tu@correo.com" aria-label="Correo electrónico" required>
+          <button class="btn gold" type="submit">Quiero la muestra ampliada</button>
+        </div>
+        <div class="lead-ok" id="leadOk">Listo. Revisa tu correo y abre la ruta de la bóveda.</div>
+      </form>
+    </div>
+  </section>
+
+  <section class="bridge">
+    <div class="box">
+      <h3>La muestra termina aquí. La bóveda sigue.</h3>
+      <p>27 hooks son una muestra. La <b>Bóveda de 500 Hooks Cínicos</b> tiene 500 ganchos organizados por familia, ocasión y nivel de polarización, con la misma estructura de prueba y copia. Es el producto B01 del catálogo y cuesta $19 USD.</p>
+      <p><a href="/boveda/500-hooks-cinicos">Abrir la Bóveda de 500 Hooks Cínicos · $19 →</a></p>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:0">También puedes recorrer el catálogo completo de 55 rutas puente desde la página principal del sistema.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="wrap" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><span>RONIN VENTAS OS · L02</span><span>100% OFFLINE · SIN CDN · SIN DEPENDENCIAS</span></div></footer>
+<div class="toast" id="toast" aria-live="polite"></div>
+<script>const DATA=[{"id":"L02-001","categoria":"Ataque al Ego","gancho":"Si tu cuenta no crece, no es el algoritmo: es que nadie te extraña cuando no publicas.","por_que_funciona":"El ego se activa antes que la razón. El lector siente la acusación como propia y necesita responder, aunque sea para negarla. La ausencia de una salida fácil obliga a quedarse en el post."},{"id":"L02-002","categoria":"Ataque al Ego","gancho":"Llevas tres años aprendiendo marketing y todavía no sabes cobrar. Eso no es formación, es entretenimiento.","por_que_funciona":"La frase separa dos identidades que el lector confunde: el que consume y el que ejecuta. El dolor de reconocerse en la primera produce un clic de defensa o de compra."},{"id":"L02-003","categoria":"Ataque al Ego","gancho":"Tu bio no dice qué vendes porque tú tampoco lo tienes claro.","por_que_funciona":"Es una acusación específica sobre un objeto visible. El lector puede ir a mirar su bio en el mismo segundo, lo que convierte el post en una prueba interactiva."},{"id":"L02-004","categoria":"Ataque al Ego","gancho":"El problema no es que nadie te compre: es que tu oferta da pena ajena.","por_que_funciona":"La hipérbole controlada rompe la cortesía del feed. El lector no puede ignorar la frase sin preguntarse si su oferta también da pena. La incomodidad es el gancho."},{"id":"L02-005","categoria":"Ataque al Ego","gancho":"Puedes seguir culpando al alcance orgánico o aceptar que tu contenido no le importa a nadie.","por_que_funciona":"Ofrece dos opciones y ninguna es cómoda. El cerebro prefiere una explicación externa, pero la segunda opción se queda dando vueltas y genera comentarios."},{"id":"L02-006","categoria":"Ataque al Ego","gancho":"No tienes un nicho, tienes un pasatiempo con logo.","por_que_funciona":"La metáfora reduce años de trabajo a un objeto doméstico. Es humillante en la medida justa para provocar una respuesta, y suficientemente precisa para parecer un diagnóstico."},{"id":"L02-007","categoria":"Curiosidad & Morbo Numérico","gancho":"22 ventas en 4 horas con un PDF de 18 páginas. El precio no era el problema.","por_que_funciona":"La cifra impar y el objeto pequeño crean una desproporción que el cerebro quiere explicar. El cierre elimina la objeción más obvia y abre una pregunta distinta."},{"id":"L02-008","categoria":"Curiosidad & Morbo Numérico","gancho":"El 93% de los que guardan un post no vuelve a abrirlo. Tú probablemente eres uno de ellos.","por_que_funciona":"El porcentaje alto y la segunda persona convierten un dato abstracto en una acusación personal. El lector guarda el post para no ser parte del 93%, lo que ya es una interacción."},{"id":"L02-009","categoria":"Curiosidad & Morbo Numérico","gancho":"Un archivo de 47 KB generó más ingresos que 300 posts de motivación. Te muestro la captura.","por_que_funciona":"El contraste entre tamaño y resultado es la historia completa en una línea. La promesa de la captura da una razón concreta para quedarse y verificar."},{"id":"L02-010","categoria":"Curiosidad & Morbo Numérico","gancho":"A las 3:14 AM publiqué una cifra impar y el algoritmo hizo el resto.","por_que_funciona":"La hora exacta y la cifra impar parecen un parte de guerra. El lector quiere saber qué pasó a esa hora y por qué el algoritmo reaccionó; la explicación queda pendiente."},{"id":"L02-011","categoria":"Curiosidad & Morbo Numérico","gancho":"3,7 segundos fue el tiempo promedio que aguantó mi primer gancho. El segundo aguantó 41.","por_que_funciona":"Dos cifras comparables con un decimal incómodo. La brecha entre 3,7 y 41 es tan grande que el lector necesita saber qué cambió entre uno y otro."},{"id":"L02-012","categoria":"Curiosidad & Morbo Numérico","gancho":"El correo que nadie abre cuesta más que el anuncio que sí ves.","por_que_funciona":"Invierte la intuición del costo. El lector que invierte en anuncios se detiene a calcular cuánto pierde en una lista muerta, y ese cálculo lo lleva al comentario."},{"id":"L02-013","categoria":"Contrarian & Falsos Dilemas","gancho":"Publicar todos los días es la forma más elegante de no tener nada que decir.","por_que_funciona":"Ataca una norma sagrada del creador. El lector que publica a diario se siente aludido y el que no publica encuentra una excusa; ambos tienen un motivo para responder."},{"id":"L02-014","categoria":"Contrarian & Falsos Dilemas","gancho":"El nicho no existe. Existe un problema que alguien ya está pagando por resolver.","por_que_funciona":"Desplaza la conversación de identidad a transacción. Es una tesis discutible, lo que garantiza comentarios de gente que quiere defender su nicho o su categoría."},{"id":"L02-015","categoria":"Contrarian & Falsos Dilemas","gancho":"Si necesitas motivación para ejecutar, tu modelo de negocio es la motivación.","por_que_funciona":"Convierte la motivación en una dependencia. El lector que consume frases de ánimo siente que lo están desnudando; el que ejecuta se siente superior y comparte."},{"id":"L02-016","categoria":"Contrarian & Falsos Dilemas","gancho":"Las 5 AM no te hacen rico; te hacen dormir mal y creer que produces.","por_que_funciona":"Ataca un símbolo del hustle sin atacar a una persona. La frase es corta, visual y suficientemente polémica para dividir a la audiencia en dos bandos."},{"id":"L02-017","categoria":"Contrarian & Falsos Dilemas","gancho":"Elegir entre calidad y cantidad es una trampa: la mayoría no tiene ninguna de las dos.","por_que_funciona":"Rompe el falso dilema con una tercera opción incómoda. El lector que se identifica con la calidad o con la cantidad queda expuesto y quiere justificarse."},{"id":"L02-018","categoria":"Envidia & Asimetría","gancho":"Mientras tú ves historias de Lamborghinis, alguien vende una plantilla de $19 y cobra sin mostrar la cara.","por_que_funciona":"La envidia se activa por comparación de estilos de vida. La plantilla de $19 parece accesible y la ausencia de cara elimina la excusa de la vergüenza."},{"id":"L02-019","categoria":"Envidia & Asimetría","gancho":"La cuenta que admiras factura menos que el community manager que la escribe.","por_que_funciona":"Invierte la jerarquía visible. El lector descubre que el escaparate no es el negocio, y esa revelación lo lleva a mirar su propia estructura."},{"id":"L02-020","categoria":"Envidia & Asimetría","gancho":"No envidies el resultado: envidia el aburrimiento de hacer lo mismo 200 veces.","por_que_funciona":"Reencuadra la envidia como admiración por el proceso. La frase es incómoda porque quita el glamour y deja solo el trabajo repetido."},{"id":"L02-021","categoria":"Envidia & Asimetría","gancho":"El creador que te vende libertad trabaja más horas que tú y lo esconde en el funnel.","por_que_funciona":"Expone una contradicción del discurso de libertad. El lector que compra cursos de estilo de vida siente que lo están estafando y quiere confirmarlo."},{"id":"L02-022","categoria":"Envidia & Asimetría","gancho":"Tu jefe tiene un sueldo; el que vende un PDF tiene un activo. La diferencia se nota en diciembre.","por_que_funciona":"Contrasta dos formas de ingreso con un mes concreto. La referencia a diciembre hace que el lector piense en su propio cierre de año y en su brecha."},{"id":"L02-023","categoria":"Aversión a la Pérdida","gancho":"Cada día que no publicas, alguien que empezó después ya te está robando el nicho.","por_que_funciona":"Activa el miedo a la pérdida de posición. La palabra «robando» es agresiva y hace que el lector imagine un competidor concreto avanzando mientras él duda."},{"id":"L02-024","categoria":"Aversión a la Pérdida","gancho":"No estás perdiendo dinero por no vender: lo estás perdiendo por no cobrar lo que ya haces gratis.","por_que_funciona":"Señala una pérdida que ya ocurre, no una futura. El lector no puede defenderse con «todavía no es el momento» porque la fuga es presente."},{"id":"L02-025","categoria":"Aversión a la Pérdida","gancho":"El costo de esperar no es el precio del curso: es el año que no vas a recuperar.","por_que_funciona":"Sustituye el precio visible por el costo invisible. La frase obliga a comparar el gasto de hoy con un año de ingresos no generados."},{"id":"L02-026","categoria":"Aversión a la Pérdida","gancho":"Tu competencia no es mejor; solo publicó antes y tú sigues preparándote.","por_que_funciona":"Ataca la procrastinación disfrazada de perfeccionismo. El lector se reconoce en la segunda parte y siente urgencia por cerrar la brecha."},{"id":"L02-027","categoria":"Aversión a la Pérdida","gancho":"Si tu producto no está publicado, no tienes un negocio: tienes un archivo con fecha de muerte.","por_que_funciona":"Convierte un archivo digital en un objeto con caducidad. La imagen de la fecha de muerte es lo bastante visceral para generar guardados y respuestas."}];
+
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(msg){const b=$('#toast');const e=document.createElement('div');e.className='toast-item';e.textContent=msg;b.appendChild(e);setTimeout(()=>{e.style.opacity='0';setTimeout(()=>e.remove(),220)},1800)}
+async function copyText(txt,msg='Copiado'){try{await navigator.clipboard.writeText(txt);toast(msg)}catch(e){const t=document.createElement('textarea');t.value=txt;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');toast(msg)}catch(_){toast('No se pudo copiar')}t.remove()}}
+function download(filename,content,mime='text/plain'){const blob=new Blob([content],{type:mime+';charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},300)}
+
+
+const CATCOL={'Ataque al Ego':'em','Curiosidad & Morbo Numérico':'gold','Contrarian & Falsos Dilemas':'','Envidia & Asimetría':'gold','Aversión a la Pérdida':'em'};
+const CATS=Object.keys(CATCOL);
+let F={cat:'',q:''};
+function filtered(){
+  return DATA.filter(x=>{
+    if(F.cat && x.categoria!==F.cat) return false;
+    if(F.q && !norm([x.id,x.categoria,x.gancho,x.por_que_funciona].join(' ')).includes(F.q)) return false;
+    return true;
+  });
+}
+function renderFilters(){
+  $('#catSel').innerHTML='<option value="">Todas las categorías</option>'+CATS.map(c=>`<option value="${esc(c)}" ${F.cat===c?'selected':''}>${esc(c)}</option>`).join('');
+  $('#chips').innerHTML=`<button class="fchip ${!F.cat?'active':''}" data-cat="">Todas · 27</button>`+CATS.map(c=>`<button class="fchip ${F.cat===c?'active':''}" data-cat="${esc(c)}">${esc(c)} · ${DATA.filter(x=>x.categoria===c).length}</button>`).join('');
+  $$('#chips .fchip').forEach(b=>b.onclick=()=>{F.cat=b.dataset.cat;renderFilters();render()});
+  $('#catStrip').innerHTML=CATS.map(c=>{const n=DATA.filter(x=>x.categoria===c).length;return `<div class="cat-cell ${F.cat===c?'active':''}" data-strip="${esc(c)}"><div class="n">${n} hooks</div><div class="t">${esc(c)}</div><div class="c">ver familia</div></div>`}).join('');
+  $$('#catStrip [data-strip]').forEach(el=>el.onclick=()=>{F.cat=el.dataset.strip;renderFilters();render()});
+}
+function render(){
+  const rows=filtered();
+  $('#grid').innerHTML=rows.map(x=>`<article class="hook" id="${x.id}" data-id="${x.id}" data-item="${x.id}" data-cat="${esc(x.categoria)}">
+    <div class="hook-top"><span class="hid">${x.id}</span><span class="htag">${esc(x.categoria)}</span></div>
+    <div class="txt">${esc(x.gancho)}</div>
+    <div class="why"><b>Por qué para el scroll</b>${esc(x.por_que_funciona)}</div>
+    <div class="card-foot"><button class="btn sm primary" data-copy="${x.id}">Copiar gancho</button></div>
+  </article>`).join('');
+  $('#count').textContent=rows.length;
+  $('#empty').hidden=rows.length>0;
+}
+$('#q').addEventListener('input',e=>{F.q=norm(e.target.value);render()});
+$('#catSel').addEventListener('change',e=>{F.cat=e.target.value;renderFilters();render()});
+$('#grid').addEventListener('click',e=>{
+  const b=e.target.closest('[data-copy]'); if(!b) return;
+  const x=DATA.find(d=>d.id===b.dataset.copy); if(x) copyText(x.gancho,'Gancho copiado');
+});
+$('#copyFiltered').onclick=()=>{
+  const rows=filtered(); if(!rows.length){toast('No hay hooks visibles');return}
+  copyText(rows.map(x=>x.gancho).join('\n\n'),rows.length+' ganchos copiados');
+};
+$$('[data-exp]').forEach(b=>b.onclick=()=>{
+  const rows=filtered(); if(!rows.length){toast('No hay hooks para exportar');return}
+  if(b.dataset.exp==='json') download('l02-27-hooks.json',JSON.stringify(rows,null,2),'application/json');
+  else download('l02-27-hooks.md',rows.map(x=>`## ${x.id} · ${x.categoria}\n\n> ${x.gancho}\n\n**Por qué funciona:** ${x.por_que_funciona}\n`).join('\n---\n\n'),'text/markdown');
+  toast(rows.length+' hooks exportados');
+});
+$('#leadForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const em=$('#email').value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){toast('Escribe un correo válido');$('#email').focus();return}
+  $('#leadOk').classList.add('show');toast('Muestra desbloqueada');
+});
+renderFilters();render();
+
+</script></body></html>

@@ -1,0 +1,1088 @@
+{
+  "generated_at": "2026-11-04T21:58:38",
+  "base_url": "",
+  "site_dir": "data/publish_site",
+  "skus": 55,
+  "paid_skus": 52,
+  "lead_magnets": 3,
+  "routes": [
+    "/blueprint/maquina-silenciosa-pdf",
+    "/blueprint/pinterest-cajero-oculto",
+    "/blueprint/threads-algoritmo-polarizacion",
+    "/blueprint/imperio-faceless-48h",
+    "/blueprint/arquitectura-clonacion-ia",
+    "/blueprint/fabrica-productos-1-hora",
+    "/blueprint/empleados-fantasma-ia",
+    "/blueprint/psicologia-oscura-precio",
+    "/blueprint/secuestro-atencion-3-segundos",
+    "/blueprint/efecto-halo-autoridad",
+    "/blueprint/mentira-ahorro-escape-9a5",
+    "/blueprint/arbitraje-moneda-latam",
+    "/boveda/boveda-500-hooks-cinicos",
+    "/boveda/arsenal-100-nichos-faceless",
+    "/boveda/boveda-guiones-hilos-efectivo",
+    "/boveda/arsenal-pines-caballo-troya",
+    "/boveda/boveda-prompts-ingenieria-inversa",
+    "/boveda/arsenal-prompts-creacion-ebooks",
+    "/boveda/boveda-flujos-automatizacion-local",
+    "/boveda/arsenal-disparadores-psicologia-oscura",
+    "/boveda/boveda-respuestas-polemicas",
+    "/boveda/arsenal-objeciones-destructores",
+    "/boveda/boveda-modelos-ingresos-asimetricos",
+    "/boveda/arsenal-auditoria-fugas-dinero",
+    "/app/app-forjador-hooks-virales",
+    "/app/app-simulador-ingresos-catalogo",
+    "/app/app-multiplicador-1a20-piezas",
+    "/app/app-radar-rutas-pinterest",
+    "/app/app-laboratorio-prompts-inversa",
+    "/app/app-arquitecto-ebooks-express",
+    "/app/app-calculadora-roi-automatizacion",
+    "/app/app-escaner-voltaje-emocional",
+    "/app/app-constructor-ofertas-irresistibles",
+    "/app/app-generador-pruebas-angulo",
+    "/app/app-reloj-escape-9a5",
+    "/app/app-tablero-arbitraje-divisas",
+    "/sistema/kit-sistema-maquina-silenciosa-pdf",
+    "/sistema/kit-sistema-pinterest-cajero-oculto",
+    "/sistema/kit-sistema-threads-algoritmo-polarizacion",
+    "/sistema/kit-sistema-imperio-faceless-48h",
+    "/sistema/kit-sistema-arquitectura-clonacion-ia",
+    "/sistema/kit-sistema-fabrica-productos-1-hora",
+    "/sistema/kit-sistema-empleados-fantasma-ia",
+    "/sistema/kit-sistema-psicologia-oscura-precio",
+    "/sistema/kit-sistema-secuestro-atencion-3-segundos",
+    "/sistema/kit-sistema-efecto-halo-autoridad",
+    "/vault/bundle-imperio-faceless",
+    "/vault/bundle-ia-injusta",
+    "/vault/bundle-psicologia-oscura",
+    "/vault/bundle-escape-dolar",
+    "/vault/suite-12-micro-apps-html",
+    "/vault/ronin-all-access-vault",
+    "/gratis/anatomia-post-418-usd",
+    "/gratis/27-hooks-prohibidos",
+    "/gratis/prompt-extractor-competencia"
+  ],
+  "legal_routes": [
+    "/legal/terminos",
+    "/legal/privacidad",
+    "/legal/reembolso",
+    "/legal/licencia"
+  ],
+  "pages": [
+    {
+      "sku_id": "E01",
+      "route": "/blueprint/maquina-silenciosa-pdf",
+      "file": "blueprint/maquina-silenciosa-pdf/index.html",
+      "bytes": 5999,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "E02",
+      "route": "/blueprint/pinterest-cajero-oculto",
+      "file": "blueprint/pinterest-cajero-oculto/index.html",
+      "bytes": 6061,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "E03",
+      "route": "/blueprint/threads-algoritmo-polarizacion",
+      "file": "blueprint/threads-algoritmo-polarizacion/index.html",
+      "bytes": 6076,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "E04",
+      "route": "/blueprint/imperio-faceless-48h",
+      "file": "blueprint/imperio-faceless-48h/index.html",
+      "bytes": 5918,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "E05",
+      "route": "/blueprint/arquitectura-clonacion-ia",
+      "file": "blueprint/arquitectura-clonacion-ia/index.html",
+      "bytes": 6016,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "E06",
+      "route": "/blueprint/fabrica-productos-1-hora",
+      "file": "blueprint/fabrica-productos-1-hora/index.html",
+      "bytes": 6090,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "E07",
+      "route": "/blueprint/empleados-fantasma-ia",
+      "file": "blueprint/empleados-fantasma-ia/index.html",
+      "bytes": 6089,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "E08",
+      "route": "/blueprint/psicologia-oscura-precio",
+      "file": "blueprint/psicologia-oscura-precio/index.html",
+      "bytes": 6062,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "E09",
+      "route": "/blueprint/secuestro-atencion-3-segundos",
+      "file": "blueprint/secuestro-atencion-3-segundos/index.html",
+      "bytes": 6001,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "E10",
+      "route": "/blueprint/efecto-halo-autoridad",
+      "file": "blueprint/efecto-halo-autoridad/index.html",
+      "bytes": 6021,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "E11",
+      "route": "/blueprint/mentira-ahorro-escape-9a5",
+      "file": "blueprint/mentira-ahorro-escape-9a5/index.html",
+      "bytes": 6057,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "E12",
+      "route": "/blueprint/arbitraje-moneda-latam",
+      "file": "blueprint/arbitraje-moneda-latam/index.html",
+      "bytes": 6122,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "B01",
+      "route": "/boveda/boveda-500-hooks-cinicos",
+      "file": "boveda/boveda-500-hooks-cinicos/index.html",
+      "bytes": 6085,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "B02",
+      "route": "/boveda/arsenal-100-nichos-faceless",
+      "file": "boveda/arsenal-100-nichos-faceless/index.html",
+      "bytes": 6108,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "B03",
+      "route": "/boveda/boveda-guiones-hilos-efectivo",
+      "file": "boveda/boveda-guiones-hilos-efectivo/index.html",
+      "bytes": 6072,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "B04",
+      "route": "/boveda/arsenal-pines-caballo-troya",
+      "file": "boveda/arsenal-pines-caballo-troya/index.html",
+      "bytes": 6152,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "B05",
+      "route": "/boveda/boveda-prompts-ingenieria-inversa",
+      "file": "boveda/boveda-prompts-ingenieria-inversa/index.html",
+      "bytes": 6171,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "B06",
+      "route": "/boveda/arsenal-prompts-creacion-ebooks",
+      "file": "boveda/arsenal-prompts-creacion-ebooks/index.html",
+      "bytes": 6160,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "B07",
+      "route": "/boveda/boveda-flujos-automatizacion-local",
+      "file": "boveda/boveda-flujos-automatizacion-local/index.html",
+      "bytes": 6095,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "B08",
+      "route": "/boveda/arsenal-disparadores-psicologia-oscura",
+      "file": "boveda/arsenal-disparadores-psicologia-oscura/index.html",
+      "bytes": 6148,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "B09",
+      "route": "/boveda/boveda-respuestas-polemicas",
+      "file": "boveda/boveda-respuestas-polemicas/index.html",
+      "bytes": 6108,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "B10",
+      "route": "/boveda/arsenal-objeciones-destructores",
+      "file": "boveda/arsenal-objeciones-destructores/index.html",
+      "bytes": 6120,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "B11",
+      "route": "/boveda/boveda-modelos-ingresos-asimetricos",
+      "file": "boveda/boveda-modelos-ingresos-asimetricos/index.html",
+      "bytes": 6106,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "B12",
+      "route": "/boveda/arsenal-auditoria-fugas-dinero",
+      "file": "boveda/arsenal-auditoria-fugas-dinero/index.html",
+      "bytes": 6113,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "A01",
+      "route": "/app/app-forjador-hooks-virales",
+      "file": "app/app-forjador-hooks-virales/index.html",
+      "bytes": 6187,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "A02",
+      "route": "/app/app-simulador-ingresos-catalogo",
+      "file": "app/app-simulador-ingresos-catalogo/index.html",
+      "bytes": 6231,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "A03",
+      "route": "/app/app-multiplicador-1a20-piezas",
+      "file": "app/app-multiplicador-1a20-piezas/index.html",
+      "bytes": 6180,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "A04",
+      "route": "/app/app-radar-rutas-pinterest",
+      "file": "app/app-radar-rutas-pinterest/index.html",
+      "bytes": 6148,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "A05",
+      "route": "/app/app-laboratorio-prompts-inversa",
+      "file": "app/app-laboratorio-prompts-inversa/index.html",
+      "bytes": 6196,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "A06",
+      "route": "/app/app-arquitecto-ebooks-express",
+      "file": "app/app-arquitecto-ebooks-express/index.html",
+      "bytes": 6225,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "A07",
+      "route": "/app/app-calculadora-roi-automatizacion",
+      "file": "app/app-calculadora-roi-automatizacion/index.html",
+      "bytes": 6166,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "A08",
+      "route": "/app/app-escaner-voltaje-emocional",
+      "file": "app/app-escaner-voltaje-emocional/index.html",
+      "bytes": 6196,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "A09",
+      "route": "/app/app-constructor-ofertas-irresistibles",
+      "file": "app/app-constructor-ofertas-irresistibles/index.html",
+      "bytes": 6172,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "A10",
+      "route": "/app/app-generador-pruebas-angulo",
+      "file": "app/app-generador-pruebas-angulo/index.html",
+      "bytes": 6143,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "A11",
+      "route": "/app/app-reloj-escape-9a5",
+      "file": "app/app-reloj-escape-9a5/index.html",
+      "bytes": 6157,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "A12",
+      "route": "/app/app-tablero-arbitraje-divisas",
+      "file": "app/app-tablero-arbitraje-divisas/index.html",
+      "bytes": 6290,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "K01",
+      "route": "/sistema/kit-sistema-maquina-silenciosa-pdf",
+      "file": "sistema/kit-sistema-maquina-silenciosa-pdf/index.html",
+      "bytes": 6191,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "K02",
+      "route": "/sistema/kit-sistema-pinterest-cajero-oculto",
+      "file": "sistema/kit-sistema-pinterest-cajero-oculto/index.html",
+      "bytes": 6259,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "K03",
+      "route": "/sistema/kit-sistema-threads-algoritmo-polarizacion",
+      "file": "sistema/kit-sistema-threads-algoritmo-polarizacion/index.html",
+      "bytes": 6264,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "K04",
+      "route": "/sistema/kit-sistema-imperio-faceless-48h",
+      "file": "sistema/kit-sistema-imperio-faceless-48h/index.html",
+      "bytes": 6155,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "K05",
+      "route": "/sistema/kit-sistema-arquitectura-clonacion-ia",
+      "file": "sistema/kit-sistema-arquitectura-clonacion-ia/index.html",
+      "bytes": 6209,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "K06",
+      "route": "/sistema/kit-sistema-fabrica-productos-1-hora",
+      "file": "sistema/kit-sistema-fabrica-productos-1-hora/index.html",
+      "bytes": 6258,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "K07",
+      "route": "/sistema/kit-sistema-empleados-fantasma-ia",
+      "file": "sistema/kit-sistema-empleados-fantasma-ia/index.html",
+      "bytes": 6269,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "K08",
+      "route": "/sistema/kit-sistema-psicologia-oscura-precio",
+      "file": "sistema/kit-sistema-psicologia-oscura-precio/index.html",
+      "bytes": 6230,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "K09",
+      "route": "/sistema/kit-sistema-secuestro-atencion-3-segundos",
+      "file": "sistema/kit-sistema-secuestro-atencion-3-segundos/index.html",
+      "bytes": 6210,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "K10",
+      "route": "/sistema/kit-sistema-efecto-halo-autoridad",
+      "file": "sistema/kit-sistema-efecto-halo-autoridad/index.html",
+      "bytes": 6265,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "M01",
+      "route": "/vault/bundle-imperio-faceless",
+      "file": "vault/bundle-imperio-faceless/index.html",
+      "bytes": 6053,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "M02",
+      "route": "/vault/bundle-ia-injusta",
+      "file": "vault/bundle-ia-injusta/index.html",
+      "bytes": 6067,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "M03",
+      "route": "/vault/bundle-psicologia-oscura",
+      "file": "vault/bundle-psicologia-oscura/index.html",
+      "bytes": 6086,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "M04",
+      "route": "/vault/bundle-escape-dolar",
+      "file": "vault/bundle-escape-dolar/index.html",
+      "bytes": 6112,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "M05",
+      "route": "/vault/suite-12-micro-apps-html",
+      "file": "vault/suite-12-micro-apps-html/index.html",
+      "bytes": 6137,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "M06",
+      "route": "/vault/ronin-all-access-vault",
+      "file": "vault/ronin-all-access-vault/index.html",
+      "bytes": 6168,
+      "checkout_ready": false
+    },
+    {
+      "sku_id": "L01",
+      "route": "/gratis/anatomia-post-418-usd",
+      "file": "gratis/anatomia-post-418-usd/index.html",
+      "bytes": 5950,
+      "checkout_ready": true
+    },
+    {
+      "sku_id": "L02",
+      "route": "/gratis/27-hooks-prohibidos",
+      "file": "gratis/27-hooks-prohibidos/index.html",
+      "bytes": 5835,
+      "checkout_ready": true
+    },
+    {
+      "sku_id": "L03",
+      "route": "/gratis/prompt-extractor-competencia",
+      "file": "gratis/prompt-extractor-competencia/index.html",
+      "bytes": 5835,
+      "checkout_ready": true
+    }
+  ],
+  "index": {
+    "file": "index.html",
+    "bytes": 36745
+  },
+  "files": 138,
+  "file_list": [
+    {
+      "path": "404.html",
+      "bytes": 4403
+    },
+    {
+      "path": "app/app-arquitecto-ebooks-express/index.html",
+      "bytes": 6225
+    },
+    {
+      "path": "app/app-calculadora-roi-automatizacion/index.html",
+      "bytes": 6166
+    },
+    {
+      "path": "app/app-constructor-ofertas-irresistibles/index.html",
+      "bytes": 6172
+    },
+    {
+      "path": "app/app-escaner-voltaje-emocional/index.html",
+      "bytes": 6196
+    },
+    {
+      "path": "app/app-forjador-hooks-virales/index.html",
+      "bytes": 6187
+    },
+    {
+      "path": "app/app-generador-pruebas-angulo/index.html",
+      "bytes": 6143
+    },
+    {
+      "path": "app/app-laboratorio-prompts-inversa/index.html",
+      "bytes": 6196
+    },
+    {
+      "path": "app/app-multiplicador-1a20-piezas/index.html",
+      "bytes": 6180
+    },
+    {
+      "path": "app/app-radar-rutas-pinterest/index.html",
+      "bytes": 6148
+    },
+    {
+      "path": "app/app-reloj-escape-9a5/index.html",
+      "bytes": 6157
+    },
+    {
+      "path": "app/app-simulador-ingresos-catalogo/index.html",
+      "bytes": 6231
+    },
+    {
+      "path": "app/app-tablero-arbitraje-divisas/index.html",
+      "bytes": 6290
+    },
+    {
+      "path": "assets/covers/A01_v1.webp",
+      "bytes": 11708
+    },
+    {
+      "path": "assets/covers/A02_v1.webp",
+      "bytes": 13618
+    },
+    {
+      "path": "assets/covers/A03_v1.webp",
+      "bytes": 6610
+    },
+    {
+      "path": "assets/covers/A04_v1.webp",
+      "bytes": 9402
+    },
+    {
+      "path": "assets/covers/A05_v1.webp",
+      "bytes": 10772
+    },
+    {
+      "path": "assets/covers/A06_v1.webp",
+      "bytes": 7610
+    },
+    {
+      "path": "assets/covers/A07_v1.webp",
+      "bytes": 11600
+    },
+    {
+      "path": "assets/covers/A08_v1.webp",
+      "bytes": 9112
+    },
+    {
+      "path": "assets/covers/A09_v1.webp",
+      "bytes": 8408
+    },
+    {
+      "path": "assets/covers/A10_v1.webp",
+      "bytes": 9600
+    },
+    {
+      "path": "assets/covers/A11_v1.webp",
+      "bytes": 10532
+    },
+    {
+      "path": "assets/covers/A12_v1.webp",
+      "bytes": 13006
+    },
+    {
+      "path": "assets/covers/B01_v1.webp",
+      "bytes": 37662
+    },
+    {
+      "path": "assets/covers/B02_v1.webp",
+      "bytes": 31486
+    },
+    {
+      "path": "assets/covers/B03_v1.webp",
+      "bytes": 24088
+    },
+    {
+      "path": "assets/covers/B04_v1.webp",
+      "bytes": 26198
+    },
+    {
+      "path": "assets/covers/B05_v1.webp",
+      "bytes": 27778
+    },
+    {
+      "path": "assets/covers/B06_v1.webp",
+      "bytes": 25292
+    },
+    {
+      "path": "assets/covers/B07_v1.webp",
+      "bytes": 24608
+    },
+    {
+      "path": "assets/covers/B08_v1.webp",
+      "bytes": 25810
+    },
+    {
+      "path": "assets/covers/B09_v1.webp",
+      "bytes": 31026
+    },
+    {
+      "path": "assets/covers/B10_v1.webp",
+      "bytes": 28190
+    },
+    {
+      "path": "assets/covers/B11_v1.webp",
+      "bytes": 33374
+    },
+    {
+      "path": "assets/covers/B12_v1.webp",
+      "bytes": 23364
+    },
+    {
+      "path": "assets/covers/E01_v1.webp",
+      "bytes": 26296
+    },
+    {
+      "path": "assets/covers/E02_v1.webp",
+      "bytes": 25272
+    },
+    {
+      "path": "assets/covers/E03_v1.webp",
+      "bytes": 19924
+    },
+    {
+      "path": "assets/covers/E04_v1.webp",
+      "bytes": 20310
+    },
+    {
+      "path": "assets/covers/E05_v1.webp",
+      "bytes": 26020
+    },
+    {
+      "path": "assets/covers/E06_v1.webp",
+      "bytes": 23124
+    },
+    {
+      "path": "assets/covers/E07_v1.webp",
+      "bytes": 20600
+    },
+    {
+      "path": "assets/covers/E08_v1.webp",
+      "bytes": 22470
+    },
+    {
+      "path": "assets/covers/E09_v1.webp",
+      "bytes": 32396
+    },
+    {
+      "path": "assets/covers/E10_v1.webp",
+      "bytes": 19194
+    },
+    {
+      "path": "assets/covers/E11_v1.webp",
+      "bytes": 18900
+    },
+    {
+      "path": "assets/covers/E12_v1.webp",
+      "bytes": 18734
+    },
+    {
+      "path": "assets/covers/K01_v1.webp",
+      "bytes": 34750
+    },
+    {
+      "path": "assets/covers/K02_v1.webp",
+      "bytes": 50492
+    },
+    {
+      "path": "assets/covers/K03_v1.webp",
+      "bytes": 50518
+    },
+    {
+      "path": "assets/covers/K04_v1.webp",
+      "bytes": 53378
+    },
+    {
+      "path": "assets/covers/K05_v1.webp",
+      "bytes": 40918
+    },
+    {
+      "path": "assets/covers/K06_v1.webp",
+      "bytes": 31840
+    },
+    {
+      "path": "assets/covers/K07_v1.webp",
+      "bytes": 60126
+    },
+    {
+      "path": "assets/covers/K08_v1.webp",
+      "bytes": 66662
+    },
+    {
+      "path": "assets/covers/K09_v1.webp",
+      "bytes": 53148
+    },
+    {
+      "path": "assets/covers/K10_v1.webp",
+      "bytes": 41546
+    },
+    {
+      "path": "assets/covers/L01_v1.webp",
+      "bytes": 20602
+    },
+    {
+      "path": "assets/covers/L02_v1.webp",
+      "bytes": 25692
+    },
+    {
+      "path": "assets/covers/L03_v1.webp",
+      "bytes": 25644
+    },
+    {
+      "path": "assets/covers/M01_v1.webp",
+      "bytes": 26638
+    },
+    {
+      "path": "assets/covers/M02_v1.webp",
+      "bytes": 29278
+    },
+    {
+      "path": "assets/covers/M03_v1.webp",
+      "bytes": 36230
+    },
+    {
+      "path": "assets/covers/M04_v1.webp",
+      "bytes": 31192
+    },
+    {
+      "path": "assets/covers/M05_v1.webp",
+      "bytes": 14936
+    },
+    {
+      "path": "assets/covers/M06_v1.webp",
+      "bytes": 59948
+    },
+    {
+      "path": "assets/pins/ios17_cyber_luxury_wallpaper.png",
+      "bytes": 1588604
+    },
+    {
+      "path": "assets/pins/ios17_titanium_wallpaper.png",
+      "bytes": 1392457
+    },
+    {
+      "path": "assets/pins/nb2_20261102_023928_1de7a6.png",
+      "bytes": 1338114
+    },
+    {
+      "path": "assets/pins/pin_luxury_chess_gold.png",
+      "bytes": 1386838
+    },
+    {
+      "path": "assets/pins/pin_luxury_setup_oled.png",
+      "bytes": 1339875
+    },
+    {
+      "path": "assets/pins/pin_luxury_watch_espresso.png",
+      "bytes": 1250358
+    },
+    {
+      "path": "assets/pins/pin_ron_3am_blueprint.png",
+      "bytes": 1503446
+    },
+    {
+      "path": "assets/pins/pin_ron_escape_matrix.png",
+      "bytes": 1590970
+    },
+    {
+      "path": "assets/pins/pin_ron_threads_atm.png",
+      "bytes": 1470749
+    },
+    {
+      "path": "assets/pins/pinterest_pin_luxury_desk.png",
+      "bytes": 1280449
+    },
+    {
+      "path": "assets/ron/profile_avatar_ron.webp",
+      "bytes": 17024
+    },
+    {
+      "path": "assets/ron/profile_banner_ron.webp",
+      "bytes": 22782
+    },
+    {
+      "path": "assets/ron/stan_hero_ai.webp",
+      "bytes": 18798
+    },
+    {
+      "path": "blueprint/arbitraje-moneda-latam/index.html",
+      "bytes": 6122
+    },
+    {
+      "path": "blueprint/arquitectura-clonacion-ia/index.html",
+      "bytes": 6016
+    },
+    {
+      "path": "blueprint/efecto-halo-autoridad/index.html",
+      "bytes": 6021
+    },
+    {
+      "path": "blueprint/empleados-fantasma-ia/index.html",
+      "bytes": 6089
+    },
+    {
+      "path": "blueprint/fabrica-productos-1-hora/index.html",
+      "bytes": 6090
+    },
+    {
+      "path": "blueprint/imperio-faceless-48h/index.html",
+      "bytes": 5918
+    },
+    {
+      "path": "blueprint/maquina-silenciosa-pdf/index.html",
+      "bytes": 5999
+    },
+    {
+      "path": "blueprint/mentira-ahorro-escape-9a5/index.html",
+      "bytes": 6057
+    },
+    {
+      "path": "blueprint/pinterest-cajero-oculto/index.html",
+      "bytes": 6061
+    },
+    {
+      "path": "blueprint/psicologia-oscura-precio/index.html",
+      "bytes": 6062
+    },
+    {
+      "path": "blueprint/secuestro-atencion-3-segundos/index.html",
+      "bytes": 6001
+    },
+    {
+      "path": "blueprint/threads-algoritmo-polarizacion/index.html",
+      "bytes": 6076
+    },
+    {
+      "path": "boveda/arsenal-100-nichos-faceless/index.html",
+      "bytes": 6108
+    },
+    {
+      "path": "boveda/arsenal-auditoria-fugas-dinero/index.html",
+      "bytes": 6113
+    },
+    {
+      "path": "boveda/arsenal-disparadores-psicologia-oscura/index.html",
+      "bytes": 6148
+    },
+    {
+      "path": "boveda/arsenal-objeciones-destructores/index.html",
+      "bytes": 6120
+    },
+    {
+      "path": "boveda/arsenal-pines-caballo-troya/index.html",
+      "bytes": 6152
+    },
+    {
+      "path": "boveda/arsenal-prompts-creacion-ebooks/index.html",
+      "bytes": 6160
+    },
+    {
+      "path": "boveda/boveda-500-hooks-cinicos/index.html",
+      "bytes": 6085
+    },
+    {
+      "path": "boveda/boveda-flujos-automatizacion-local/index.html",
+      "bytes": 6095
+    },
+    {
+      "path": "boveda/boveda-guiones-hilos-efectivo/index.html",
+      "bytes": 6072
+    },
+    {
+      "path": "boveda/boveda-modelos-ingresos-asimetricos/index.html",
+      "bytes": 6106
+    },
+    {
+      "path": "boveda/boveda-prompts-ingenieria-inversa/index.html",
+      "bytes": 6171
+    },
+    {
+      "path": "boveda/boveda-respuestas-polemicas/index.html",
+      "bytes": 6108
+    },
+    {
+      "path": "content/pinterest.json",
+      "bytes": 7466
+    },
+    {
+      "path": "content/README.md",
+      "bytes": 599
+    },
+    {
+      "path": "content/threads.json",
+      "bytes": 4286
+    },
+    {
+      "path": "deliverables/l01_anatomia-post-418-usd.html",
+      "bytes": 293794
+    },
+    {
+      "path": "deliverables/l02_27-hooks-prohibidos.html",
+      "bytes": 59275
+    },
+    {
+      "path": "deliverables/l03_prompt-extractor-competencia.html",
+      "bytes": 57199
+    },
+    {
+      "path": "gratis/27-hooks-prohibidos/index.html",
+      "bytes": 5835
+    },
+    {
+      "path": "gratis/anatomia-post-418-usd/index.html",
+      "bytes": 5950
+    },
+    {
+      "path": "gratis/prompt-extractor-competencia/index.html",
+      "bytes": 5835
+    },
+    {
+      "path": "index.html",
+      "bytes": 36745
+    },
+    {
+      "path": "legal/index.html",
+      "bytes": 5193
+    },
+    {
+      "path": "legal/licencia/index.html",
+      "bytes": 5171
+    },
+    {
+      "path": "legal/privacidad/index.html",
+      "bytes": 5617
+    },
+    {
+      "path": "legal/reembolso/index.html",
+      "bytes": 5195
+    },
+    {
+      "path": "legal/terminos/index.html",
+      "bytes": 5902
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 24
+    },
+    {
+      "path": "sistema/kit-sistema-arquitectura-clonacion-ia/index.html",
+      "bytes": 6209
+    },
+    {
+      "path": "sistema/kit-sistema-efecto-halo-autoridad/index.html",
+      "bytes": 6265
+    },
+    {
+      "path": "sistema/kit-sistema-empleados-fantasma-ia/index.html",
+      "bytes": 6269
+    },
+    {
+      "path": "sistema/kit-sistema-fabrica-productos-1-hora/index.html",
+      "bytes": 6258
+    },
+    {
+      "path": "sistema/kit-sistema-imperio-faceless-48h/index.html",
+      "bytes": 6155
+    },
+    {
+      "path": "sistema/kit-sistema-maquina-silenciosa-pdf/index.html",
+      "bytes": 6191
+    },
+    {
+      "path": "sistema/kit-sistema-pinterest-cajero-oculto/index.html",
+      "bytes": 6259
+    },
+    {
+      "path": "sistema/kit-sistema-psicologia-oscura-precio/index.html",
+      "bytes": 6230
+    },
+    {
+      "path": "sistema/kit-sistema-secuestro-atencion-3-segundos/index.html",
+      "bytes": 6210
+    },
+    {
+      "path": "sistema/kit-sistema-threads-algoritmo-polarizacion/index.html",
+      "bytes": 6264
+    },
+    {
+      "path": "sitemap.xml",
+      "bytes": 3733
+    },
+    {
+      "path": "vault/bundle-escape-dolar/index.html",
+      "bytes": 6112
+    },
+    {
+      "path": "vault/bundle-ia-injusta/index.html",
+      "bytes": 6067
+    },
+    {
+      "path": "vault/bundle-imperio-faceless/index.html",
+      "bytes": 6053
+    },
+    {
+      "path": "vault/bundle-psicologia-oscura/index.html",
+      "bytes": 6086
+    },
+    {
+      "path": "vault/ronin-all-access-vault/index.html",
+      "bytes": 6168
+    },
+    {
+      "path": "vault/suite-12-micro-apps-html/index.html",
+      "bytes": 6137
+    }
+  ],
+  "total_bytes": 16519492,
+  "assets": {
+    "covers": 55,
+    "ron": 3,
+    "pins": 10,
+    "lead_magnets": 3
+  },
+  "content": {
+    "threads": 4,
+    "pinterest": 10
+  },
+  "checkout_ready": 0,
+  "blockers": [
+    "checkout:E01",
+    "checkout:E02",
+    "checkout:E03",
+    "checkout:E04",
+    "checkout:E05",
+    "checkout:E06",
+    "checkout:E07",
+    "checkout:E08",
+    "checkout:E09",
+    "checkout:E10",
+    "checkout:E11",
+    "checkout:E12",
+    "checkout:B01",
+    "checkout:B02",
+    "checkout:B03",
+    "checkout:B04",
+    "checkout:B05",
+    "checkout:B06",
+    "checkout:B07",
+    "checkout:B08",
+    "checkout:B09",
+    "checkout:B10",
+    "checkout:B11",
+    "checkout:B12",
+    "checkout:A01",
+    "checkout:A02",
+    "checkout:A03",
+    "checkout:A04",
+    "checkout:A05",
+    "checkout:A06",
+    "checkout:A07",
+    "checkout:A08",
+    "checkout:A09",
+    "checkout:A10",
+    "checkout:A11",
+    "checkout:A12",
+    "checkout:K01",
+    "checkout:K02",
+    "checkout:K03",
+    "checkout:K04",
+    "checkout:K05",
+    "checkout:K06",
+    "checkout:K07",
+    "checkout:K08",
+    "checkout:K09",
+    "checkout:K10",
+    "checkout:M01",
+    "checkout:M02",
+    "checkout:M03",
+    "checkout:M04",
+    "checkout:M05",
+    "checkout:M06"
+  ],
+  "notes": [
+    "El sitio incluye las 55 rutas puente y los 4 documentos legales.",
+    "Los 52 entregables de pago NO se copian: la entrega real sigue protegida por el backend.",
+    "Sin base_url: canonical, OG y sitemap quedan en rutas relativas. Usa --base-url https://tu-dominio para URLs absolutas."
+  ]
+}

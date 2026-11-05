@@ -1,0 +1,56 @@
+[
+  {
+    "id": "th_001",
+    "platform": "threads",
+    "text": "Subí un documento oscuro de 18 páginas un martes a las 11 PM sin mostrar la cara ni grabar un solo Reel.\n\nDesperté a las 7:12 AM con la pantalla así ($418.50 acumulados entre Gumroad y Hotmart).\n\nLa gente sigue creyendo que necesita 50.000 seguidores para facturar. No necesitas audiencia, necesitas un puente donde la gente ya tiene la tarjeta en la mano.",
+    "self_replies": [
+      "Antes de que pregunten en DM: no es dropshipping ni cripto. Dejé el desglose exacto del experimento arriba en mi perfil antes de pasarlo a privado.",
+      "Pregunta honesta: ¿cuántos de aquí tienen al menos 1 producto digital de $19 cobrando mientras duermen? Los leo 👇"
+    ],
+    "image": "assets/covers/E01_v1.webp",
+    "target_route": "/blueprint/maquina-silenciosa-pdf",
+    "target_sku_id": "E01",
+    "status": "queued",
+    "note": "Seguimiento local. El sitio no publica en Threads."
+  },
+  {
+    "id": "th_002",
+    "platform": "threads",
+    "text": "1/4 Opinión que va a molestar a varios:\n\nSi tienes acceso a Gemini, Claude y ChatGPT y sigues cambiando 45 horas de tu semana por un sueldo en moneda local devaluada, ya no es falta de oportunidades. Es pereza mental.\n\n2/4 A tu jefe no le pagan más porque sea 10 veces más inteligente que tú.\n\nLe pagan más porque él entiende el apalancamiento (comprar horas ajenas o construir activos que se venden 1.000 veces) y a ti te entrenaron para pedir permiso.\n\n3/4 Un solo activo digital de $19 vendido a 4 personas al día son $2,280 dólares al mes.\n\nConseguir 4 clics de compra al día en un buscador de 500 millones de usuarios como Pinterest no requiere talento. Requiere un sistema.\n\n4/4 Armé un simulador en HTML (1 solo archivo) donde mueves dos barras y ves cuántos días de tu sueldo reemplaza cada venta.\n\nEstá en el link de mi bio junto con la bóveda completa.",
+    "self_replies": [
+      "El que se ofendió en el primer post acaba de confirmar exactamente el punto 2.",
+      "¿Prefieres $3,000/mes con una cuenta anónima o $10,000/mes siendo influencer famoso? El 90% responde desde el ego."
+    ],
+    "image": "assets/covers/A11_v1.webp",
+    "target_route": "/app/app-reloj-escape-9a5",
+    "target_sku_id": "A11",
+    "status": "queued",
+    "note": "Seguimiento local. El sitio no publica en Threads."
+  },
+  {
+    "id": "th_003",
+    "platform": "threads",
+    "text": "LÁMINA 1: Me cansé de ver a la gente escribir posts tibios que nadie lee. Así que programé este generador en 1 solo archivo HTML (HookForge Pro).\n\nLÁMINA 2: El problema del 99% en Threads: abren con 'Hoy quiero compartir 3 consejos...'. Tu cerebro ignora eso en 0.4 segundos.\n\nLÁMINA 3: Cómo funciona el secuestro de atención: número impar + contradicción al estatus + brecha de curiosidad abierta.\n\nLÁMINA 4: En lugar de pensar media hora, seleccionas el gatillo (Envidia, Insider, Miedo) y la Micro-App te escupe 30 ganchos listos.\n\nLÁMINA 5: Puedes descargar el archivo .html completo hoy mismo en mi perfil y correrlo offline en tu PC o teléfono.",
+    "self_replies": [
+      "No requiere suscripción mensual ni servidor. Abres el archivo .html en tu navegador y es tuyo para siempre."
+    ],
+    "image": "assets/covers/A01_v1.webp",
+    "target_route": "/app/app-forjador-hooks-virales",
+    "target_sku_id": "A01",
+    "status": "queued",
+    "note": "Seguimiento local. El sitio no publica en Threads."
+  },
+  {
+    "id": "th_004",
+    "platform": "threads",
+    "text": "Desmonté 14 cuentas gringas que dicen ganar $20,000/mes en Threads.\n\n¿El secreto sucio? La mitad de sus métricas son anzuelos visuales, pero su embudo por detrás SÍ factura miles vendiendo guías de $27.\n\nNo odies al jugador: hazle ingeniería inversa a su embudo. Aquí está el mapa completo.",
+    "self_replies": [
+      "Metí los 120 prompts que uso para destripar cualquier cuenta y clonar su oferta en la Bóveda B05 de mi bio."
+    ],
+    "image": "assets/covers/B05_v1.webp",
+    "target_route": "/boveda/boveda-prompts-ingenieria-inversa",
+    "target_sku_id": "B05",
+    "status": "queued",
+    "note": "Seguimiento local. El sitio no publica en Threads."
+  }
+]
