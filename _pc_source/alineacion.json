@@ -57,31 +57,8 @@
       "README.md"
     ],
     "filtro_privacidad_codigo_o_docs": [
-      "backend/routers/api_metrics.py",
       "backend/services/gumroad_products.py",
-      "backend/services/gumroad_token.py",
-      "backend/services/ios_app_templates.py",
-      "backend/services/ios_html_templates.py",
-      "frontend/src/components/bait/IosBaitFrame.tsx",
-      "frontend/src/components/customizations/ConnectorLogos.tsx",
-      "frontend/src/components/pinterest/PinterestCloneView.tsx",
-      "frontend/src/components/Sidebar.tsx",
-      "scripts/deploy_store.ps1",
-      "tests/gumroad_fakes.py",
-      "tests/test_backend_hardening.py",
-      "tests/test_checkout_links.py",
-      "tests/test_connect_flow.py",
-      "tests/test_customizations_hub.py",
-      "tests/test_delivery_access.py",
-      "tests/test_gumroad_probe.py",
-      "tests/test_gumroad_products.py",
-      "tests/test_leads.py",
-      "tests/test_metrics_real.py",
-      "docs/CRITIQUE_LAUNCH_SET.md",
-      "docs/GENERADORES_VALIDACION.md",
-      "docs/GUMROAD_SETUP.md",
-      "docs/PUBLISHING.md",
-      "docs/RESEARCH.md"
+      "tests/test_customizations_hub.py"
     ],
     "directorios_o_raices_omitidos": [
       "backend/models/__pycache__/",
@@ -108,74 +85,30 @@
       ".agents/",
       ".pytest_cache/",
       "colas, trabajos, perfiles, conexiones, secretos, catalogo de app y entregables de pago"
+    ],
+    "suplemento_omitido": [
+      "README.md",
+      "backend/services/gumroad_products.py",
+      "docs/AUDITORIA_2026-11-04.md",
+      "docs/QA_FINAL.md",
+      "docs/REPORTE_MEJORAS_2026-11-04.md",
+      "scripts/probe_vertex.py",
+      "tests/test_customizations_hub.py"
+    ],
+    "runtime_sigue_ausente": [
+      "data/ salvo data/generated_images/ron_canonical_seed.png y frontend/public/generated_images/ron_avatar_profile.png y ron_canonical_seed.png",
+      ".venv/ y frontend/node_modules/",
+      ".env y .env.example, no incluidos en el suplemento",
+      "perfiles, colas, trabajos, secretos, sesiones y entregables de pago",
+      "fuentes woff y el resto de imagenes generadas"
     ]
   },
   "huecos_de_importacion": {
     "python": [
       {
-        "desde": "backend/routers/api_customizations.py",
-        "linea": 14,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/routers/api_leads.py",
-        "linea": 17,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/routers/api_publish.py",
-        "linea": 14,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/browser_launcher.py",
-        "linea": 15,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/catalog_seed.py",
-        "linea": 2,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/connectors_catalog.py",
-        "linea": 8,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/connectors_hub.py",
-        "linea": 5,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/connector_diagnostics.py",
-        "linea": 3,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/connect_jobs.py",
-        "linea": 15,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/connect_worker.py",
-        "linea": 14,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/gumroad_browser.py",
-        "linea": 13,
-        "modulo": "backend.config"
-      },
-      {
         "desde": "backend/services/gumroad_browser.py",
         "linea": 15,
         "modulo": "backend.services.gumroad_products"
-      },
-      {
-        "desde": "backend/services/gumroad_catalog.py",
-        "linea": 10,
-        "modulo": "backend.config"
       },
       {
         "desde": "backend/services/gumroad_catalog_sync.py",
@@ -183,154 +116,9 @@
         "modulo": "backend.services.gumroad_products"
       },
       {
-        "desde": "backend/services/metrics_service.py",
-        "linea": 4,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/playwright_bait_renderer.py",
-        "linea": 10,
-        "modulo": "backend.services.ios_app_templates"
-      },
-      {
-        "desde": "backend/services/playwright_bait_renderer.py",
-        "linea": 11,
-        "modulo": "backend.services.ios_html_templates"
-      },
-      {
-        "desde": "backend/services/probe_runners.py",
-        "linea": 7,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/product_factory.py",
-        "linea": 19,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/product_templates_sections.py",
-        "linea": 13,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/publish_content.py",
-        "linea": 12,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/publish_pack.py",
-        "linea": 24,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/publish_state.py",
-        "linea": 12,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/skills_loader.py",
-        "linea": 3,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/social_config.py",
-        "linea": 16,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/social_feed_seed.py",
-        "linea": 3,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/social_pieces.py",
-        "linea": 12,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/vault_inspector.py",
-        "linea": 18,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/vertex_image_service.py",
-        "linea": 20,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/services/vertex_image_service.py",
-        "linea": 154,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/main.py",
-        "linea": 6,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "backend/main.py",
-        "linea": 12,
-        "modulo": "backend.routers.api_metrics"
-      },
-      {
-        "desde": "scripts/batch_generate_art.py",
-        "linea": 18,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "scripts/build_publish_pack.py",
-        "linea": 21,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "scripts/campaign_tools.py",
-        "linea": 23,
-        "modulo": "backend.config"
-      },
-      {
         "desde": "scripts/gumroad_setup.py",
         "linea": 40,
         "modulo": "backend.services.gumroad_products"
-      },
-      {
-        "desde": "scripts/gumroad_setup.py",
-        "linea": 59,
-        "modulo": "backend.services.gumroad_token"
-      },
-      {
-        "desde": "scripts/gumroad_setup.py",
-        "linea": 67,
-        "modulo": "backend.services.gumroad_token"
-      },
-      {
-        "desde": "scripts/gumroad_setup.py",
-        "linea": 75,
-        "modulo": "backend.services.gumroad_token"
-      },
-      {
-        "desde": "scripts/gumroad_setup.py",
-        "linea": 177,
-        "modulo": "backend.services.gumroad_token"
-      },
-      {
-        "desde": "scripts/render_ios_variants.py",
-        "linea": 22,
-        "modulo": "backend.services.ios_app_templates"
-      },
-      {
-        "desde": "scripts/render_ios_variants.py",
-        "linea": 23,
-        "modulo": "backend.services.ios_html_templates"
-      },
-      {
-        "desde": "tests/conftest.py",
-        "linea": 76,
-        "modulo": "backend.routers.api_metrics"
-      },
-      {
-        "desde": "tests/test_bloque1.py",
-        "linea": 2,
-        "modulo": "backend.config"
       },
       {
         "desde": "tests/test_gumroad_catalog_sync.py",
@@ -338,59 +126,19 @@
         "modulo": "backend.services.gumroad_products"
       },
       {
-        "desde": "tests/test_gumroad_catalog_sync.py",
+        "desde": "tests/test_gumroad_products.py",
         "linea": 15,
-        "modulo": "tests.gumroad_fakes"
-      },
-      {
-        "desde": "tests/test_honesty.py",
-        "linea": 12,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "tests/test_store_exposure.py",
-        "linea": 11,
-        "modulo": "backend.config"
-      },
-      {
-        "desde": "desktop_launcher.py",
-        "linea": 8,
-        "modulo": "backend.config"
+        "modulo": "backend.services.gumroad_products"
       }
     ],
-    "typescript": [
-      {
-        "desde": "frontend/src/App.tsx",
-        "specifier": "./components/Sidebar"
-      },
-      {
-        "desde": "frontend/src/App.tsx",
-        "specifier": "./components/pinterest/PinterestCloneView"
-      },
-      {
-        "desde": "frontend/src/components/bait/BaitStudioView.tsx",
-        "specifier": "./IosBaitFrame"
-      },
-      {
-        "desde": "frontend/src/components/customizations/HubConnectorCard.tsx",
-        "specifier": "./ConnectorLogos"
-      },
-      {
-        "desde": "frontend/src/components/shell/ShellRoutes.tsx",
-        "specifier": "../pinterest/PinterestCloneView"
-      },
-      {
-        "desde": "frontend/src/components/threads/ThreadsCloneView.tsx",
-        "specifier": "../bait/IosBaitFrame"
-      }
-    ]
+    "typescript": []
   },
   "seguimiento_minimo": [
-    "No fusionar este PR a gh-pages en esta corrida. El prefijo _ evita la copia Jekyll actual, pero deja de proteger si el publicador cambia o si aparece .nojekyll.",
-    "Revisar en privado los 8 archivos retenidos y los 25 de codigo/docs del filtro antes de cualquier reintroduccion. No reescribirlos aqui para que los imports pasen.",
-    "backend/config.py es prerrequisito de arranque y sigue ausente.",
-    "No instalar dependencias ni ejecutar generadores, pytest de red, navegador o APIs hasta tener un entorno local completo y sin secretos en el repo publico.",
-    "Contenido de Threads/Pinterest, cambios en Gumroad, Cloudflare y diseno quedan fuera de este alineado."
+    "No fusionar a gh-pages.",
+    "Siguen fuera README.md, tres documentos de auditoria, probe_vertex.py, test_customizations_hub.py y gumroad_products.py.",
+    "backend/config.py es un export con placeholders, no la configuracion real. No se probo el arranque.",
+    "Faltan .venv, node_modules, .env, estado de data/ y entregables de pago. No se inventaron.",
+    "No estan instalados pytest, fastapi, pydantic, httpx, playwright ni Node. No hubo build ni tests."
   ],
   "resumen_conteos": {
     "zip_sha256": "a98cd40630e55a930b9cf52a0b3bfe27fae0381a1edf3f2f50946e05ed5da74e",
@@ -399,44 +147,13 @@
     "hashes_del_archivo_verificados": 213,
     "exclusiones_del_archivo": 149,
     "retenidos_en_segunda_revision": 8,
-    "alineados_en_el_repo": 205,
+    "alineados_en_el_repo": 233,
     "sintaxis_python_fallida": [],
-    "py_alineados_con_ast_ok": 87,
+    "py_alineados_con_ast_ok": 101,
     "modulos_internos_ausentes": [
-      "backend.config",
-      "backend.routers.api_metrics",
-      "backend.services.gumroad_products",
-      "backend.services.gumroad_token",
-      "backend.services.ios_app_templates",
-      "backend.services.ios_html_templates",
-      "tests.gumroad_fakes"
+      "backend.services.gumroad_products"
     ],
-    "importaciones_ts_sin_destino": [
-      {
-        "desde": "frontend/src/App.tsx",
-        "specifier": "./components/Sidebar"
-      },
-      {
-        "desde": "frontend/src/App.tsx",
-        "specifier": "./components/pinterest/PinterestCloneView"
-      },
-      {
-        "desde": "frontend/src/components/bait/BaitStudioView.tsx",
-        "specifier": "./IosBaitFrame"
-      },
-      {
-        "desde": "frontend/src/components/customizations/HubConnectorCard.tsx",
-        "specifier": "./ConnectorLogos"
-      },
-      {
-        "desde": "frontend/src/components/shell/ShellRoutes.tsx",
-        "specifier": "../pinterest/PinterestCloneView"
-      },
-      {
-        "desde": "frontend/src/components/threads/ThreadsCloneView.tsx",
-        "specifier": "../bait/IosBaitFrame"
-      }
-    ],
+    "importaciones_ts_sin_destino": [],
     "archivos_privacidad_en_manifiesto": 25,
     "motivos_exclusion_archivo": {
       "dependency/cache/agent metadata excluded without traversal": 8,
@@ -449,7 +166,14 @@
       "All runtime/private state, catalog mappings and paid deliverables excluded; public brand seed separately allowlisted": 1,
       "root outside minimal source allowlist; not read": 1,
       "excluded top-level git/dependency/cache/agent metadata; not traversed": 4
-    }
+    },
+    "por_estado": {
+      "alineado": 205,
+      "alineado_sanitizado": 16,
+      "alineado_bytes": 12
+    },
+    "suplemento_integrados": 28,
+    "suplemento_omitidos": 7
   },
   "alineados": [
     {
@@ -1886,72 +1610,558 @@
       "bytes": 259,
       "estado": "alineado",
       "repo": "_pc_source/start_ronin_os.bat"
+    },
+    {
+      "pc": "AGENTS.md",
+      "sha256": "1185e60cdeee9e5f9593e5eaf09fe70975c31bfe7e816d17c35fa226e11abf92",
+      "bytes": 5862,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/AGENTS.md",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "acaee3f90252a4460312c15cbb7c93e258c0164124af61b4c7f7dd7faa3437e2",
+        "exported_sha256": "1185e60cdeee9e5f9593e5eaf09fe70975c31bfe7e816d17c35fa226e11abf92",
+        "redaction_categories_counts": {
+          "cloud_project_id": 1,
+          "local_user_path": 2
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "backend/config.py",
+      "sha256": "ec8ef1b66b27c9b0b1bcb5699cb0e254020013045a050cd4909b4e4bf0f3fc69",
+      "bytes": 3704,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/backend/config.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "f03e9093c25b4b7be4e5850101a074d9c632a5520566af42f362e83fb1d71174",
+        "exported_sha256": "ec8ef1b66b27c9b0b1bcb5699cb0e254020013045a050cd4909b4e4bf0f3fc69",
+        "redaction_categories_counts": {
+          "cloud_project_id": 1
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "backend/routers/api_metrics.py",
+      "sha256": "8cc56f775bce80923292d6ddac3df3c2637abf3c9deb052f93b8e3a2872e4e65",
+      "bytes": 5832,
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/backend/routers/api_metrics.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": true,
+        "original_sha256": "8cc56f775bce80923292d6ddac3df3c2637abf3c9deb052f93b8e3a2872e4e65",
+        "exported_sha256": "8cc56f775bce80923292d6ddac3df3c2637abf3c9deb052f93b8e3a2872e4e65",
+        "redaction_categories_counts": {},
+        "nota": "Bytes identicos al original del PC. La revision independiente no hallo identificadores de proyecto, correos fuera de dominios reservados, IP privadas ni URLs con credenciales."
+      }
+    },
+    {
+      "pc": "backend/services/gumroad_token.py",
+      "sha256": "ca8c9b710a94190411474be36057b1f427bd6a5435c30a42ea627c246fab4467",
+      "bytes": 1306,
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/backend/services/gumroad_token.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": true,
+        "original_sha256": "ca8c9b710a94190411474be36057b1f427bd6a5435c30a42ea627c246fab4467",
+        "exported_sha256": "ca8c9b710a94190411474be36057b1f427bd6a5435c30a42ea627c246fab4467",
+        "redaction_categories_counts": {},
+        "nota": "Bytes identicos al original del PC. La revision independiente no hallo identificadores de proyecto, correos fuera de dominios reservados, IP privadas ni URLs con credenciales."
+      }
+    },
+    {
+      "pc": "backend/services/ios_app_templates.py",
+      "sha256": "ed699960447fd4101ec8b1d822dc1205fa6e744131175328927c12f217242eb4",
+      "bytes": 15156,
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/backend/services/ios_app_templates.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": true,
+        "original_sha256": "ed699960447fd4101ec8b1d822dc1205fa6e744131175328927c12f217242eb4",
+        "exported_sha256": "ed699960447fd4101ec8b1d822dc1205fa6e744131175328927c12f217242eb4",
+        "redaction_categories_counts": {},
+        "nota": "Bytes identicos al original del PC. La revision independiente no hallo identificadores de proyecto, correos fuera de dominios reservados, IP privadas ni URLs con credenciales."
+      }
+    },
+    {
+      "pc": "backend/services/ios_html_templates.py",
+      "sha256": "c38b788ba35dba9761b8ee9847d0c2e34d99a19a95216a0d7e7f4bc1dd57a805",
+      "bytes": 9194,
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/backend/services/ios_html_templates.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": true,
+        "original_sha256": "c38b788ba35dba9761b8ee9847d0c2e34d99a19a95216a0d7e7f4bc1dd57a805",
+        "exported_sha256": "c38b788ba35dba9761b8ee9847d0c2e34d99a19a95216a0d7e7f4bc1dd57a805",
+        "redaction_categories_counts": {},
+        "nota": "Bytes identicos al original del PC. La revision independiente no hallo identificadores de proyecto, correos fuera de dominios reservados, IP privadas ni URLs con credenciales."
+      }
+    },
+    {
+      "pc": "docs/CRITIQUE_LAUNCH_SET.md",
+      "sha256": "44e99789a105c16c7919590568708419363a87cf280736dca483b6111e106517",
+      "bytes": 55132,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/docs/CRITIQUE_LAUNCH_SET.md",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "5f7494b293fff21373ff3d85ce03808810ad8a0806c5c5812f38cfc210ebb2a9",
+        "exported_sha256": "44e99789a105c16c7919590568708419363a87cf280736dca483b6111e106517",
+        "redaction_categories_counts": {
+          "email_contact": 1
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "docs/GENERADORES_VALIDACION.md",
+      "sha256": "2874a53a299d98da8da8181d3355e617aa1a9820d85db054ebfa8898d9ba5f9b",
+      "bytes": 5789,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/docs/GENERADORES_VALIDACION.md",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "bedf822fc5ae86b34973bf808d790607f1c5c4cedd7df22b1bd8deed62231b27",
+        "exported_sha256": "2874a53a299d98da8da8181d3355e617aa1a9820d85db054ebfa8898d9ba5f9b",
+        "redaction_categories_counts": {
+          "local_user_path": 1
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "docs/GUMROAD_SETUP.md",
+      "sha256": "8c9908a6db191f1c961ffe48aa457d7d915e3a3d708dcfaed147211133a25503",
+      "bytes": 10989,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/docs/GUMROAD_SETUP.md",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "f9b6a9ffae8bef37180280ea65a76633a667d2108e8e1d5ef56234a0b65e84f3",
+        "exported_sha256": "8c9908a6db191f1c961ffe48aa457d7d915e3a3d708dcfaed147211133a25503",
+        "redaction_categories_counts": {
+          "email_contact": 1,
+          "local_user_path": 1,
+          "masked_credential_fragment": 1,
+          "account_identifier": 1
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "docs/PUBLISHING.md",
+      "sha256": "2278e80333523f38ec4141c0b8bc6d9e99c2c839b6395de4b6a5deddfbc01e66",
+      "bytes": 11353,
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/docs/PUBLISHING.md",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": true,
+        "original_sha256": "2278e80333523f38ec4141c0b8bc6d9e99c2c839b6395de4b6a5deddfbc01e66",
+        "exported_sha256": "2278e80333523f38ec4141c0b8bc6d9e99c2c839b6395de4b6a5deddfbc01e66",
+        "redaction_categories_counts": {},
+        "nota": "Bytes identicos al original del PC. La revision independiente no hallo identificadores de proyecto, correos fuera de dominios reservados, IP privadas ni URLs con credenciales."
+      }
+    },
+    {
+      "pc": "docs/RESEARCH.md",
+      "sha256": "7e99fbdbb1bec511b871f5b87a0aa72c40596313790f6144ae6fca30f05de828",
+      "bytes": 41460,
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/docs/RESEARCH.md",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": true,
+        "original_sha256": "7e99fbdbb1bec511b871f5b87a0aa72c40596313790f6144ae6fca30f05de828",
+        "exported_sha256": "7e99fbdbb1bec511b871f5b87a0aa72c40596313790f6144ae6fca30f05de828",
+        "redaction_categories_counts": {},
+        "nota": "Bytes identicos al original del PC. La revision independiente no hallo identificadores de proyecto, correos fuera de dominios reservados, IP privadas ni URLs con credenciales."
+      }
+    },
+    {
+      "pc": "docs/superpowers/specs/2026-11-06-ronin-pinterest-productos-industrial-design.md",
+      "sha256": "08ff02b3e2d896015288b0a566df1fdd6cd1e16fff6043d7160f0c70dbc76f7a",
+      "bytes": 15396,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/docs/superpowers/specs/2026-11-06-ronin-pinterest-productos-industrial-design.md",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "1194a2a741d8598d888dfc5b79d75164fbdeef15a6ea7b66c357b74597ff3cda",
+        "exported_sha256": "08ff02b3e2d896015288b0a566df1fdd6cd1e16fff6043d7160f0c70dbc76f7a",
+        "redaction_categories_counts": {
+          "cloud_project_id": 1,
+          "local_user_path": 1
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_avatar_profile.png",
+      "sha256": "905328a97201fa1c2b71dbf80fa7501fb33cbf70eabaf8c4e7d2852a0d53a371",
+      "bytes": 1644870,
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/frontend/public/generated_images/ron_avatar_profile.png",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": true,
+        "original_sha256": "905328a97201fa1c2b71dbf80fa7501fb33cbf70eabaf8c4e7d2852a0d53a371",
+        "exported_sha256": "905328a97201fa1c2b71dbf80fa7501fb33cbf70eabaf8c4e7d2852a0d53a371",
+        "redaction_categories_counts": {},
+        "nota": "Bytes identicos al original del PC. La revision independiente no hallo identificadores de proyecto, correos fuera de dominios reservados, IP privadas ni URLs con credenciales."
+      }
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_canonical_seed.png",
+      "sha256": "9aeb39ae0d5056c28d5f7c224ba2817f50fc67fe8e2a09289d94637cf1c9005f",
+      "bytes": 218437,
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/frontend/public/generated_images/ron_canonical_seed.png",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": true,
+        "original_sha256": "9aeb39ae0d5056c28d5f7c224ba2817f50fc67fe8e2a09289d94637cf1c9005f",
+        "exported_sha256": "9aeb39ae0d5056c28d5f7c224ba2817f50fc67fe8e2a09289d94637cf1c9005f",
+        "redaction_categories_counts": {},
+        "nota": "Bytes identicos al original del PC. La revision independiente no hallo identificadores de proyecto, correos fuera de dominios reservados, IP privadas ni URLs con credenciales."
+      }
+    },
+    {
+      "pc": "frontend/src/components/Sidebar.tsx",
+      "sha256": "e3f95641606bc5714a944db0e937589c0b872405eeff8114e1dec813f6b8ef51",
+      "bytes": 13632,
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/frontend/src/components/Sidebar.tsx",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": true,
+        "original_sha256": "e3f95641606bc5714a944db0e937589c0b872405eeff8114e1dec813f6b8ef51",
+        "exported_sha256": "e3f95641606bc5714a944db0e937589c0b872405eeff8114e1dec813f6b8ef51",
+        "redaction_categories_counts": {},
+        "nota": "Bytes identicos al original del PC. La revision independiente no hallo identificadores de proyecto, correos fuera de dominios reservados, IP privadas ni URLs con credenciales."
+      }
+    },
+    {
+      "pc": "frontend/src/components/bait/IosBaitFrame.tsx",
+      "sha256": "67a5550174d5c42d64bdf33496f88e5ff9a29c00047a22e3c0703965483a765d",
+      "bytes": 3759,
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/frontend/src/components/bait/IosBaitFrame.tsx",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": true,
+        "original_sha256": "67a5550174d5c42d64bdf33496f88e5ff9a29c00047a22e3c0703965483a765d",
+        "exported_sha256": "67a5550174d5c42d64bdf33496f88e5ff9a29c00047a22e3c0703965483a765d",
+        "redaction_categories_counts": {},
+        "nota": "Bytes identicos al original del PC. La revision independiente no hallo identificadores de proyecto, correos fuera de dominios reservados, IP privadas ni URLs con credenciales."
+      }
+    },
+    {
+      "pc": "frontend/src/components/customizations/ConnectorLogos.tsx",
+      "sha256": "b0b1d20ddb27627051c16cdc14eb39c78ec08b3f4af2ccfc82d2c054c69ca40a",
+      "bytes": 7542,
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/frontend/src/components/customizations/ConnectorLogos.tsx",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": true,
+        "original_sha256": "b0b1d20ddb27627051c16cdc14eb39c78ec08b3f4af2ccfc82d2c054c69ca40a",
+        "exported_sha256": "b0b1d20ddb27627051c16cdc14eb39c78ec08b3f4af2ccfc82d2c054c69ca40a",
+        "redaction_categories_counts": {},
+        "nota": "Bytes identicos al original del PC. La revision independiente no hallo identificadores de proyecto, correos fuera de dominios reservados, IP privadas ni URLs con credenciales."
+      }
+    },
+    {
+      "pc": "frontend/src/components/pinterest/PinterestCloneView.tsx",
+      "sha256": "e2bc6ffe8554fad0efff774de63a79ac4649061c8e013b45995c645e396ba8a7",
+      "bytes": 15914,
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/frontend/src/components/pinterest/PinterestCloneView.tsx",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": true,
+        "original_sha256": "e2bc6ffe8554fad0efff774de63a79ac4649061c8e013b45995c645e396ba8a7",
+        "exported_sha256": "e2bc6ffe8554fad0efff774de63a79ac4649061c8e013b45995c645e396ba8a7",
+        "redaction_categories_counts": {},
+        "nota": "Bytes identicos al original del PC. La revision independiente no hallo identificadores de proyecto, correos fuera de dominios reservados, IP privadas ni URLs con credenciales."
+      }
+    },
+    {
+      "pc": "scripts/deploy_store.ps1",
+      "sha256": "9121da55292f290e23307c228f3049068f0049fd031ca84778fc8908d869f4f2",
+      "bytes": 4655,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/scripts/deploy_store.ps1",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "dc8213230514099b8d5eff8a4ab3230d8ac7bdf9e1a24a39b1e104e8f8dbc067",
+        "exported_sha256": "9121da55292f290e23307c228f3049068f0049fd031ca84778fc8908d869f4f2",
+        "redaction_categories_counts": {
+          "email_contact": 1
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "tests/gumroad_fakes.py",
+      "sha256": "50687ee7e4cf02fa488cd3623694706ca3b37002da3ad5a02795c95031fa2bee",
+      "bytes": 3921,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/tests/gumroad_fakes.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "51e46f9320047d8c7439a202d7cef17da443967a3dec52600ab121a09fa7d717",
+        "exported_sha256": "50687ee7e4cf02fa488cd3623694706ca3b37002da3ad5a02795c95031fa2bee",
+        "redaction_categories_counts": {
+          "email_contact": 1
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "tests/test_backend_hardening.py",
+      "sha256": "942977b078c61316ad1f7236437c46bea7c5e147b1f82a083bfebcf840c99128",
+      "bytes": 8795,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/tests/test_backend_hardening.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "7ba23a822f4f3b2074dc30da4e1bfe7d30a1f8fdfa05a5935747191f938c4f22",
+        "exported_sha256": "942977b078c61316ad1f7236437c46bea7c5e147b1f82a083bfebcf840c99128",
+        "redaction_categories_counts": {
+          "email_contact": 5
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "tests/test_checkout_links.py",
+      "sha256": "eea3b8aad58e51e81e363ec7731adbaa2f74f51de8b2a009f9fb08a0114a1051",
+      "bytes": 4747,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/tests/test_checkout_links.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "e667244ef645473192e7acfcc31ccfb2a9f73f11a521d730708d56013e05d048",
+        "exported_sha256": "eea3b8aad58e51e81e363ec7731adbaa2f74f51de8b2a009f9fb08a0114a1051",
+        "redaction_categories_counts": {
+          "url_credentials": 1,
+          "email_contact": 1
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "tests/test_connect_flow.py",
+      "sha256": "c2ebf83071f19f0dad0cfac33eb4194edddf62648bc399d731c6b5f3fffa5e97",
+      "bytes": 1908,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/tests/test_connect_flow.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "2345bd4beb4e29bdece1d7e995e359ab49a6e639abde078609da83bcad28c9e6",
+        "exported_sha256": "c2ebf83071f19f0dad0cfac33eb4194edddf62648bc399d731c6b5f3fffa5e97",
+        "redaction_categories_counts": {
+          "credential_literal": 1,
+          "email_contact": 1,
+          "masked_credential_fragment": 1
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "tests/test_delivery_access.py",
+      "sha256": "8bce23016e419c8406573c0898a8e675e7fdfcff6a7b5dd749a9dab46954344c",
+      "bytes": 1605,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/tests/test_delivery_access.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "e6cee0ca6d3dbe465bfd923831ae1a9bd8d3aea4b2c98058b3cc53cc1c6fd0e5",
+        "exported_sha256": "8bce23016e419c8406573c0898a8e675e7fdfcff6a7b5dd749a9dab46954344c",
+        "redaction_categories_counts": {
+          "email_contact": 1,
+          "private_ip": 2
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "tests/test_gumroad_probe.py",
+      "sha256": "22ec1684bfd16f58b1d53c4ea09ed283de2bcee4387be9c9a00093084a5840de",
+      "bytes": 2081,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/tests/test_gumroad_probe.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "4bd7cfbdef402524e8683b8b5dccb6a3a569ae912dd18657871b32d0c7db825f",
+        "exported_sha256": "22ec1684bfd16f58b1d53c4ea09ed283de2bcee4387be9c9a00093084a5840de",
+        "redaction_categories_counts": {
+          "email_contact": 2
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "tests/test_gumroad_products.py",
+      "sha256": "a041a5e84ac59cfad87278c49e27631e490ce5ca25913da6f5cab76e5de9e580",
+      "bytes": 2680,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/tests/test_gumroad_products.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "ff30565a01abeb1ad5f0d81cebaab8694530517b6ceadc380bcb2f9d62f0b76e",
+        "exported_sha256": "a041a5e84ac59cfad87278c49e27631e490ce5ca25913da6f5cab76e5de9e580",
+        "redaction_categories_counts": {
+          "email_contact": 1
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "tests/test_leads.py",
+      "sha256": "ab54901fa5fca2e50a126b9f9de515cddd2e992f5411117ff0eda7708a433ba2",
+      "bytes": 1171,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/tests/test_leads.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "4422b7d01f618be4243e8d923b2a592724d844cac5b4489c45a77c2ace6a8649",
+        "exported_sha256": "ab54901fa5fca2e50a126b9f9de515cddd2e992f5411117ff0eda7708a433ba2",
+        "redaction_categories_counts": {
+          "email_contact": 2
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
+    },
+    {
+      "pc": "tests/test_metrics_real.py",
+      "sha256": "fb54e7f44aacf9ac8a1cbeeae173ea5df29c5e199b3c834d5f2fd81195a38080",
+      "bytes": 4623,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/tests/test_metrics_real.py",
+      "procedencia": {
+        "paquete": "supplement",
+        "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+        "byte_equivalent": false,
+        "original_sha256": "3a716d140fe8946b4b9e209d7ed0000fdaad1e384929e81da23983b8a550a30b",
+        "exported_sha256": "fb54e7f44aacf9ac8a1cbeeae173ea5df29c5e199b3c834d5f2fd81195a38080",
+        "redaction_categories_counts": {
+          "email_contact": 5
+        },
+        "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
+      }
     }
   ],
   "retenidos": [
     {
-      "pc": "backend/config.py",
-      "sha256": "f03e9093c25b4b7be4e5850101a074d9c632a5520566af42f362e83fb1d71174",
-      "bytes": 3716,
-      "estado": "retenido",
-      "repo": null,
-      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
-    },
-    {
       "pc": "scripts/probe_vertex.py",
-      "sha256": "8c4dc5624033f1322e0899a4b3a37e832a3fb1d3694e428809f1e2fd816c8f51",
-      "bytes": 3606,
-      "estado": "retenido",
+      "bytes": 3594,
+      "estado": "omitido",
       "repo": null,
-      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
-    },
-    {
-      "pc": "docs/superpowers/specs/2026-11-06-ronin-pinterest-productos-industrial-design.md",
-      "sha256": "1194a2a741d8598d888dfc5b79d75164fbdeef15a6ea7b66c357b74597ff3cda",
-      "bytes": 15405,
-      "estado": "retenido",
-      "repo": null,
-      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+      "motivo": "el export conserva un identificador de proyecto; archivo omitido entero",
+      "sha256_original": "8c4dc5624033f1322e0899a4b3a37e832a3fb1d3694e428809f1e2fd816c8f51",
+      "sha256_export": "e137eb05a532c053a32dc261bb7426ec6c1d0bb9930a2a53d53788934e848841"
     },
     {
       "pc": "docs/AUDITORIA_2026-11-04.md",
-      "sha256": "22266cc086ea49ecaf466e45f3e4aa324fe81ece63bc0ccad90787b34bf726e3",
-      "bytes": 42528,
-      "estado": "retenido",
+      "bytes": 42459,
+      "estado": "omitido",
       "repo": null,
-      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+      "motivo": "el export conserva un identificador de proyecto; archivo omitido entero",
+      "sha256_original": "22266cc086ea49ecaf466e45f3e4aa324fe81ece63bc0ccad90787b34bf726e3",
+      "sha256_export": "f3129eef5400f75d738089f3afc960766b7bf063688c56de5d90e4b276c9006a"
     },
     {
       "pc": "docs/QA_FINAL.md",
-      "sha256": "d18d51b6e46c452a4bc617c3a736c170677bd8c61ecf7ab8d11b552fac0e43e0",
-      "bytes": 19788,
-      "estado": "retenido",
+      "bytes": 19755,
+      "estado": "omitido",
       "repo": null,
-      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+      "motivo": "el export conserva un identificador de proyecto; archivo omitido entero",
+      "sha256_original": "d18d51b6e46c452a4bc617c3a736c170677bd8c61ecf7ab8d11b552fac0e43e0",
+      "sha256_export": "79099d4d93f3fe8c4da3680646fada114de944760eb8676171f221ad62b08df5"
     },
     {
       "pc": "docs/REPORTE_MEJORAS_2026-11-04.md",
-      "sha256": "865738204d4558569e83482c97e43261e1a38f2b4a3defc2f6b943bb684cf88b",
-      "bytes": 16718,
-      "estado": "retenido",
+      "bytes": 16703,
+      "estado": "omitido",
       "repo": null,
-      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
-    },
-    {
-      "pc": "AGENTS.md",
-      "sha256": "acaee3f90252a4460312c15cbb7c93e258c0164124af61b4c7f7dd7faa3437e2",
-      "bytes": 5868,
-      "estado": "retenido",
-      "repo": null,
-      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+      "motivo": "el export conserva un identificador de proyecto; archivo omitido entero",
+      "sha256_original": "865738204d4558569e83482c97e43261e1a38f2b4a3defc2f6b943bb684cf88b",
+      "sha256_export": "1f46e716e606bedd1844678ef1e7520507e67edbc652f0cd39504378486bffab"
     },
     {
       "pc": "README.md",
-      "sha256": "4d5fd93f140b46c351ff6d86cfbcebbb08499940204cc5a562ddcb351cfec9b2",
-      "bytes": 3994,
-      "estado": "retenido",
+      "bytes": 3985,
+      "estado": "omitido",
       "repo": null,
-      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+      "motivo": "conserva un literal de token que no es un placeholder inerte reconocible; archivo omitido entero",
+      "sha256_original": "4d5fd93f140b46c351ff6d86cfbcebbb08499940204cc5a562ddcb351cfec9b2",
+      "sha256_export": "ee6eea04291e04c7c9b8a4bf58e2e67d0dac72b763de7a993f3dec8da1cb0013"
+    },
+    {
+      "pc": "tests/test_customizations_hub.py",
+      "estado": "omitido",
+      "motivo": "el export conserva un identificador de proyecto; archivo omitido entero",
+      "bytes": 7231,
+      "sha256_original": "2665a1c5b51ac08b66a7ee79edd7c9d2cfa891194869d697323e1e905ac455ed",
+      "sha256_export": "97794b6861d238d3390069cccd7db587b4e8739c4c12c785a7621fe9ada04742"
+    },
+    {
+      "pc": "backend/services/gumroad_products.py",
+      "estado": "omitido",
+      "motivo": "el export sanitizado no conserva la sintaxis (SyntaxError, linea 56, parentesis sin pareja); archivo omitido entero",
+      "bytes": 10043,
+      "sha256_original": "5ca1447fa40264c660e7882f1e3e031e23a0b0486567eaea58a62d0d21608cae",
+      "sha256_export": "1626c56ff72c7481847883f48ed885d892b31fb911101daeaac16e7c248ce443"
     }
   ],
   "exclusiones_archivo": [
@@ -2551,5 +2761,23 @@
       "pc": ".venv/",
       "motivo": "excluded top-level git/dependency/cache/agent metadata; not traversed"
     }
-  ]
+  ],
+  "suplemento": {
+    "zip_sha256": "54eabd5bdf18a173b9868afd10a7be43fca9800ebed252369ed186c197aa99d3",
+    "zip_bytes": 1997555,
+    "incluidos_en_el_paquete": 35,
+    "sanitizados_en_el_paquete": 23,
+    "bytes_equivalentes_en_el_paquete": 12,
+    "integrados": 28,
+    "omitidos": [
+      "README.md",
+      "backend/services/gumroad_products.py",
+      "docs/AUDITORIA_2026-11-04.md",
+      "docs/QA_FINAL.md",
+      "docs/REPORTE_MEJORAS_2026-11-04.md",
+      "scripts/probe_vertex.py",
+      "tests/test_customizations_hub.py"
+    ],
+    "nota": "Los sanitizados no equivalen a la configuracion real. Los originales del PC no se tocaron. gumroad_products.py se omitio porque el export no compila."
+  }
 }
