@@ -56,10 +56,7 @@
       "AGENTS.md",
       "README.md"
     ],
-    "filtro_privacidad_codigo_o_docs": [
-      "backend/services/gumroad_products.py",
-      "tests/test_customizations_hub.py"
-    ],
+    "filtro_privacidad_codigo_o_docs": [],
     "directorios_o_raices_omitidos": [
       "backend/models/__pycache__/",
       "backend/routers/__pycache__/",
@@ -86,15 +83,7 @@
       ".pytest_cache/",
       "colas, trabajos, perfiles, conexiones, secretos, catalogo de app y entregables de pago"
     ],
-    "suplemento_omitido": [
-      "README.md",
-      "backend/services/gumroad_products.py",
-      "docs/AUDITORIA_2026-11-04.md",
-      "docs/QA_FINAL.md",
-      "docs/REPORTE_MEJORAS_2026-11-04.md",
-      "scripts/probe_vertex.py",
-      "tests/test_customizations_hub.py"
-    ],
+    "suplemento_omitido": [],
     "runtime_sigue_ausente": [
       "data/ salvo data/generated_images/ron_canonical_seed.png y frontend/public/generated_images/ron_avatar_profile.png y ron_canonical_seed.png",
       ".venv/ y frontend/node_modules/",
@@ -104,41 +93,14 @@
     ]
   },
   "huecos_de_importacion": {
-    "python": [
-      {
-        "desde": "backend/services/gumroad_browser.py",
-        "linea": 15,
-        "modulo": "backend.services.gumroad_products"
-      },
-      {
-        "desde": "backend/services/gumroad_catalog_sync.py",
-        "linea": 18,
-        "modulo": "backend.services.gumroad_products"
-      },
-      {
-        "desde": "scripts/gumroad_setup.py",
-        "linea": 40,
-        "modulo": "backend.services.gumroad_products"
-      },
-      {
-        "desde": "tests/test_gumroad_catalog_sync.py",
-        "linea": 14,
-        "modulo": "backend.services.gumroad_products"
-      },
-      {
-        "desde": "tests/test_gumroad_products.py",
-        "linea": 15,
-        "modulo": "backend.services.gumroad_products"
-      }
-    ],
+    "python": [],
     "typescript": []
   },
   "seguimiento_minimo": [
     "No fusionar a gh-pages.",
-    "Siguen fuera README.md, tres documentos de auditoria, probe_vertex.py, test_customizations_hub.py y gumroad_products.py.",
-    "backend/config.py es un export con placeholders, no la configuracion real. No se probo el arranque.",
-    "Faltan .venv, node_modules, .env, estado de data/ y entregables de pago. No se inventaron.",
-    "No estan instalados pytest, fastapi, pydantic, httpx, playwright ni Node. No hubo build ni tests."
+    "Fuente de fabrica alineada con placeholders. No es la configuracion real y no se probo el arranque.",
+    "Siguen fuera .venv, node_modules, .env, perfiles, colas, secretos, sesiones, entregables de pago y el resto de data/.",
+    "No estan instalados pytest, fastapi ni Node. No hubo tests ni build."
   ],
   "resumen_conteos": {
     "zip_sha256": "a98cd40630e55a930b9cf52a0b3bfe27fae0381a1edf3f2f50946e05ed5da74e",
@@ -147,12 +109,10 @@
     "hashes_del_archivo_verificados": 213,
     "exclusiones_del_archivo": 149,
     "retenidos_en_segunda_revision": 8,
-    "alineados_en_el_repo": 233,
+    "alineados_en_el_repo": 240,
     "sintaxis_python_fallida": [],
-    "py_alineados_con_ast_ok": 101,
-    "modulos_internos_ausentes": [
-      "backend.services.gumroad_products"
-    ],
+    "py_alineados_con_ast_ok": 104,
+    "modulos_internos_ausentes": [],
     "importaciones_ts_sin_destino": [],
     "archivos_privacidad_en_manifiesto": 25,
     "motivos_exclusion_archivo": {
@@ -169,11 +129,12 @@
     },
     "por_estado": {
       "alineado": 205,
-      "alineado_sanitizado": 16,
-      "alineado_bytes": 12
+      "alineado_sanitizado": 22,
+      "alineado_bytes": 13
     },
     "suplemento_integrados": 28,
-    "suplemento_omitidos": 7
+    "suplemento_omitidos": 7,
+    "correccion_final_integrados": 7
   },
   "alineados": [
     {
@@ -2099,71 +2060,198 @@
         },
         "nota": "Export sanitizado: solo se sustituyeron literales sensibles por ejemplos inertes. No es la configuracion real del PC ni hay equivalencia ejecutable."
       }
-    }
-  ],
-  "retenidos": [
-    {
-      "pc": "scripts/probe_vertex.py",
-      "bytes": 3594,
-      "estado": "omitido",
-      "repo": null,
-      "motivo": "el export conserva un identificador de proyecto; archivo omitido entero",
-      "sha256_original": "8c4dc5624033f1322e0899a4b3a37e832a3fb1d3694e428809f1e2fd816c8f51",
-      "sha256_export": "e137eb05a532c053a32dc261bb7426ec6c1d0bb9930a2a53d53788934e848841"
-    },
-    {
-      "pc": "docs/AUDITORIA_2026-11-04.md",
-      "bytes": 42459,
-      "estado": "omitido",
-      "repo": null,
-      "motivo": "el export conserva un identificador de proyecto; archivo omitido entero",
-      "sha256_original": "22266cc086ea49ecaf466e45f3e4aa324fe81ece63bc0ccad90787b34bf726e3",
-      "sha256_export": "f3129eef5400f75d738089f3afc960766b7bf063688c56de5d90e4b276c9006a"
-    },
-    {
-      "pc": "docs/QA_FINAL.md",
-      "bytes": 19755,
-      "estado": "omitido",
-      "repo": null,
-      "motivo": "el export conserva un identificador de proyecto; archivo omitido entero",
-      "sha256_original": "d18d51b6e46c452a4bc617c3a736c170677bd8c61ecf7ab8d11b552fac0e43e0",
-      "sha256_export": "79099d4d93f3fe8c4da3680646fada114de944760eb8676171f221ad62b08df5"
-    },
-    {
-      "pc": "docs/REPORTE_MEJORAS_2026-11-04.md",
-      "bytes": 16703,
-      "estado": "omitido",
-      "repo": null,
-      "motivo": "el export conserva un identificador de proyecto; archivo omitido entero",
-      "sha256_original": "865738204d4558569e83482c97e43261e1a38f2b4a3defc2f6b943bb684cf88b",
-      "sha256_export": "1f46e716e606bedd1844678ef1e7520507e67edbc652f0cd39504378486bffab"
-    },
-    {
-      "pc": "README.md",
-      "bytes": 3985,
-      "estado": "omitido",
-      "repo": null,
-      "motivo": "conserva un literal de token que no es un placeholder inerte reconocible; archivo omitido entero",
-      "sha256_original": "4d5fd93f140b46c351ff6d86cfbcebbb08499940204cc5a562ddcb351cfec9b2",
-      "sha256_export": "ee6eea04291e04c7c9b8a4bf58e2e67d0dac72b763de7a993f3dec8da1cb0013"
-    },
-    {
-      "pc": "tests/test_customizations_hub.py",
-      "estado": "omitido",
-      "motivo": "el export conserva un identificador de proyecto; archivo omitido entero",
-      "bytes": 7231,
-      "sha256_original": "2665a1c5b51ac08b66a7ee79edd7c9d2cfa891194869d697323e1e905ac455ed",
-      "sha256_export": "97794b6861d238d3390069cccd7db587b4e8739c4c12c785a7621fe9ada04742"
     },
     {
       "pc": "backend/services/gumroad_products.py",
-      "estado": "omitido",
-      "motivo": "el export sanitizado no conserva la sintaxis (SyntaxError, linea 56, parentesis sin pareja); archivo omitido entero",
+      "sha256": "5ca1447fa40264c660e7882f1e3e031e23a0b0486567eaea58a62d0d21608cae",
       "bytes": 10043,
-      "sha256_original": "5ca1447fa40264c660e7882f1e3e031e23a0b0486567eaea58a62d0d21608cae",
-      "sha256_export": "1626c56ff72c7481847883f48ed885d892b31fb911101daeaac16e7c248ce443"
+      "estado": "alineado_bytes",
+      "repo": "_pc_source/backend/services/gumroad_products.py",
+      "procedencia": {
+        "paquete": "final-corrections",
+        "zip_sha256": "4d66bc56a1c384c93513cfa65530e713340b3bbc7031ac46a7f48ebcec4ba4b6",
+        "byte_equivalent_to_pc_original": true,
+        "original_sha256": "5ca1447fa40264c660e7882f1e3e031e23a0b0486567eaea58a62d0d21608cae",
+        "exported_sha256": "5ca1447fa40264c660e7882f1e3e031e23a0b0486567eaea58a62d0d21608cae",
+        "previous_export_sha256": "1626c56ff72c7481847883f48ed885d892b31fb911101daeaac16e7c248ce443",
+        "redaction_categories_counts": {},
+        "exported_lines": 215,
+        "repo_lines": 215,
+        "repo_sha256": "5ca1447fa40264c660e7882f1e3e031e23a0b0486567eaea58a62d0d21608cae",
+        "repo_literal_sustituido": false,
+        "repo_lineas_sustituidas": [],
+        "nota": "Export de correccion de integridad. Bytes identicos al original del PC. La revision no hallo el identificador de proyecto ni un literal de credencial; la linea 56 es codigo (quote del token de instancia), no un secreto embebido."
+      }
+    },
+    {
+      "pc": "docs/AUDITORIA_2026-11-04.md",
+      "sha256": "0765e27b94207bfc47c0d57c994789eea66dbc65bfc1c8f6e25cc7e002f346ce",
+      "bytes": 42501,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/docs/AUDITORIA_2026-11-04.md",
+      "procedencia": {
+        "paquete": "final-corrections",
+        "zip_sha256": "4d66bc56a1c384c93513cfa65530e713340b3bbc7031ac46a7f48ebcec4ba4b6",
+        "byte_equivalent_to_pc_original": false,
+        "original_sha256": "22266cc086ea49ecaf466e45f3e4aa324fe81ece63bc0ccad90787b34bf726e3",
+        "exported_sha256": "4667204910904e7d17e6ed835be12e7219bbbc6bd943bf438f9112699e5aa08c",
+        "previous_export_sha256": "f3129eef5400f75d738089f3afc960766b7bf063688c56de5d90e4b276c9006a",
+        "redaction_categories_counts": {
+          "cloud_project_identifier": 5,
+          "private_ip": 8,
+          "local_user_path": 1
+        },
+        "exported_lines": 348,
+        "repo_lines": 348,
+        "repo_sha256": "0765e27b94207bfc47c0d57c994789eea66dbc65bfc1c8f6e25cc7e002f346ce",
+        "repo_literal_sustituido": true,
+        "repo_lineas_sustituidas": [
+          170,
+          204,
+          207,
+          208,
+          298
+        ],
+        "nota": "Export de correccion de integridad. Copia de repo: se sustituyo solo el identificador de proyecto alternativo que el export aun contenia, por example-project-id. Lineas 170,204,207,208,298. Categoria cloud_project_identifier. No es el archivo original del PC. El export de este paquete ya habia sustituido otros identificadores; esta copia de repo cambia solo el literal que seguia."
+      }
+    },
+    {
+      "pc": "docs/QA_FINAL.md",
+      "sha256": "cd294273a5c67353306476aabd91ca861d88eb5fc544e15f7ec0771cd92a3d15",
+      "bytes": 19789,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/docs/QA_FINAL.md",
+      "procedencia": {
+        "paquete": "final-corrections",
+        "zip_sha256": "4d66bc56a1c384c93513cfa65530e713340b3bbc7031ac46a7f48ebcec4ba4b6",
+        "byte_equivalent_to_pc_original": false,
+        "original_sha256": "d18d51b6e46c452a4bc617c3a736c170677bd8c61ecf7ab8d11b552fac0e43e0",
+        "exported_sha256": "c6e79f506cfbfebba5afcbfd7fcee1d90cf7deab31955332494a3422eae7f793",
+        "previous_export_sha256": "79099d4d93f3fe8c4da3680646fada114de944760eb8676171f221ad62b08df5",
+        "redaction_categories_counts": {
+          "cloud_project_identifier": 4,
+          "private_ip": 4,
+          "local_user_path": 1
+        },
+        "exported_lines": 212,
+        "repo_lines": 212,
+        "repo_sha256": "cd294273a5c67353306476aabd91ca861d88eb5fc544e15f7ec0771cd92a3d15",
+        "repo_literal_sustituido": true,
+        "repo_lineas_sustituidas": [
+          32,
+          135,
+          190
+        ],
+        "nota": "Export de correccion de integridad. Copia de repo: se sustituyo solo el identificador de proyecto alternativo que el export aun contenia, por example-project-id. Lineas 32,135,190. Categoria cloud_project_identifier. No es el archivo original del PC. El export de este paquete ya habia sustituido otros identificadores; esta copia de repo cambia solo el literal que seguia."
+      }
+    },
+    {
+      "pc": "docs/REPORTE_MEJORAS_2026-11-04.md",
+      "sha256": "c384f7b673f7f0d5dac3a0d6d0fc752480c3065d45d9caa7c856d3defe1c5d77",
+      "bytes": 16711,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/docs/REPORTE_MEJORAS_2026-11-04.md",
+      "procedencia": {
+        "paquete": "final-corrections",
+        "zip_sha256": "4d66bc56a1c384c93513cfa65530e713340b3bbc7031ac46a7f48ebcec4ba4b6",
+        "byte_equivalent_to_pc_original": false,
+        "original_sha256": "865738204d4558569e83482c97e43261e1a38f2b4a3defc2f6b943bb684cf88b",
+        "exported_sha256": "6dbfb7910aec1a9815342376ca25ceb450f3e5f47fe6e350618a851c810fd6ad",
+        "previous_export_sha256": "1f46e716e606bedd1844678ef1e7520507e67edbc652f0cd39504378486bffab",
+        "redaction_categories_counts": {
+          "cloud_project_identifier": 1,
+          "private_ip": 1
+        },
+        "exported_lines": 170,
+        "repo_lines": 170,
+        "repo_sha256": "c384f7b673f7f0d5dac3a0d6d0fc752480c3065d45d9caa7c856d3defe1c5d77",
+        "repo_literal_sustituido": true,
+        "repo_lineas_sustituidas": [
+          13
+        ],
+        "nota": "Export de correccion de integridad. Copia de repo: se sustituyo solo el identificador de proyecto alternativo que el export aun contenia, por example-project-id. Lineas 13. Categoria cloud_project_identifier. No es el archivo original del PC. El export de este paquete ya habia sustituido otros identificadores; esta copia de repo cambia solo el literal que seguia."
+      }
+    },
+    {
+      "pc": "scripts/probe_vertex.py",
+      "sha256": "5c06d5d4a7b75cea4e881cfb32c0ac000c71863b19ecc48372b77eeb9e730ca5",
+      "bytes": 3602,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/scripts/probe_vertex.py",
+      "procedencia": {
+        "paquete": "final-corrections",
+        "zip_sha256": "4d66bc56a1c384c93513cfa65530e713340b3bbc7031ac46a7f48ebcec4ba4b6",
+        "byte_equivalent_to_pc_original": false,
+        "original_sha256": "8c4dc5624033f1322e0899a4b3a37e832a3fb1d3694e428809f1e2fd816c8f51",
+        "exported_sha256": "b866a88f549bbc160ccb685f6534ab481defae0b2950ef850bbe69020e329414",
+        "previous_export_sha256": "e137eb05a532c053a32dc261bb7426ec6c1d0bb9930a2a53d53788934e848841",
+        "redaction_categories_counts": {
+          "cloud_project_identifier": 1
+        },
+        "exported_lines": 96,
+        "repo_lines": 96,
+        "repo_sha256": "5c06d5d4a7b75cea4e881cfb32c0ac000c71863b19ecc48372b77eeb9e730ca5",
+        "repo_literal_sustituido": true,
+        "repo_lineas_sustituidas": [
+          29
+        ],
+        "nota": "Export de correccion de integridad. Copia de repo: se sustituyo solo el identificador de proyecto alternativo que el export aun contenia, por example-project-id. Lineas 29. Categoria cloud_project_identifier. No es el archivo original del PC. El export de este paquete ya habia sustituido otros identificadores; esta copia de repo cambia solo el literal que seguia."
+      }
+    },
+    {
+      "pc": "tests/test_customizations_hub.py",
+      "sha256": "31dff7367962eadfbbd60b55c21e05f497b7630ba02c30c03a8acf26cc727ac3",
+      "bytes": 7216,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/tests/test_customizations_hub.py",
+      "procedencia": {
+        "paquete": "final-corrections",
+        "zip_sha256": "4d66bc56a1c384c93513cfa65530e713340b3bbc7031ac46a7f48ebcec4ba4b6",
+        "byte_equivalent_to_pc_original": false,
+        "original_sha256": "2665a1c5b51ac08b66a7ee79edd7c9d2cfa891194869d697323e1e905ac455ed",
+        "exported_sha256": "7af933c7084b73ec72cc9523318fc4be4ff29b0d9d98dc2be433d515ae8e3b66",
+        "previous_export_sha256": "97794b6861d238d3390069cccd7db587b4e8739c4c12c785a7621fe9ada04742",
+        "redaction_categories_counts": {
+          "uuid_or_numeric_identifier_literal": 0
+        },
+        "exported_lines": 190,
+        "repo_lines": 190,
+        "repo_sha256": "31dff7367962eadfbbd60b55c21e05f497b7630ba02c30c03a8acf26cc727ac3",
+        "repo_literal_sustituido": true,
+        "repo_lineas_sustituidas": [
+          41
+        ],
+        "nota": "Export de correccion de integridad. Copia de repo: se sustituyo solo el identificador de proyecto alternativo que el export aun contenia, por example-project-id. Lineas 41. Categoria cloud_project_identifier. No es el archivo original del PC. El export de este paquete ya habia sustituido otros identificadores; esta copia de repo cambia solo el literal que seguia."
+      }
+    },
+    {
+      "pc": "README.md",
+      "sha256": "811d20399b79dcad154f0e85e7778ecf5003db05418b1a01b6a04dc65685aa6b",
+      "bytes": 3991,
+      "estado": "alineado_sanitizado",
+      "repo": "_pc_source/README.md",
+      "procedencia": {
+        "paquete": "final-corrections",
+        "zip_sha256": "4d66bc56a1c384c93513cfa65530e713340b3bbc7031ac46a7f48ebcec4ba4b6",
+        "byte_equivalent_to_pc_original": false,
+        "original_sha256": "4d5fd93f140b46c351ff6d86cfbcebbb08499940204cc5a562ddcb351cfec9b2",
+        "exported_sha256": "811d20399b79dcad154f0e85e7778ecf5003db05418b1a01b6a04dc65685aa6b",
+        "previous_export_sha256": "ee6eea04291e04c7c9b8a4bf58e2e67d0dac72b763de7a993f3dec8da1cb0013",
+        "redaction_categories_counts": {
+          "cloud_project_identifier": 1,
+          "local_user_path": 1,
+          "document_credential_literal": 1
+        },
+        "exported_lines": 95,
+        "repo_lines": 95,
+        "repo_sha256": "811d20399b79dcad154f0e85e7778ecf5003db05418b1a01b6a04dc65685aa6b",
+        "repo_literal_sustituido": false,
+        "repo_lineas_sustituidas": [],
+        "nota": "Export de correccion de integridad. Sanitizado en el export (placeholders). No es la configuracion real del PC."
+      }
     }
   ],
+  "retenidos": [],
   "exclusiones_archivo": [
     {
       "pc": "backend/models/__pycache__/",
@@ -2779,5 +2867,18 @@
       "tests/test_customizations_hub.py"
     ],
     "nota": "Los sanitizados no equivalen a la configuracion real. Los originales del PC no se tocaron. gumroad_products.py se omitio porque el export no compila."
+  },
+  "correccion_final": {
+    "zip_sha256": "4d66bc56a1c384c93513cfa65530e713340b3bbc7031ac46a7f48ebcec4ba4b6",
+    "archivos": 7,
+    "integrados": 7,
+    "omitidos": [],
+    "ast_python": [
+      "backend/services/gumroad_products.py",
+      "scripts/probe_vertex.py",
+      "tests/test_customizations_hub.py"
+    ],
+    "tests_ejecutados": [],
+    "nota": "No se ejecuto la app ni pytest. gumroad_products.py del export coincide con el original y compila. En cinco archivos la copia de repo sustituye un identificador de proyecto alternativo por example-project-id. No hay equivalencia e2e con el PC."
   }
 }
