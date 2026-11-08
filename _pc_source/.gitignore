@@ -1,0 +1,31 @@
+﻿# Entornos y dependencias
+.venv/
+frontend/node_modules/
+frontend/dist/
+
+# Cachés
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secretos y datos personales (nunca se versionan)
+data/chrome_vault/
+data/secrets.json
+data/connect_jobs/
+data/leads.json
+.env
+
+# Arte y capturas regenerables (se reconstruyen con scripts/)
+data/generated_images/
+data/product_art/
+data/captures/
+
+# Salidas de publicación (se regeneran con scripts/build_publish_pack.py)
+data/publish_site/
+
+# Cuarentena y logs
+data/_cuarentena/
+data/logs/
+*.log
