@@ -1,0 +1,2555 @@
+{
+  "titulo": "Manifiesto de alineacion PC → repositorio",
+  "pc_raiz": "C:/Users/USER/Documents/ronin_ventas",
+  "prefijo_repo": "_pc_source",
+  "regla": "La ruta relativa del PC, con barras /, se conserva bajo _pc_source/. La raiz del repositorio sigue siendo solo el sitio estatico ya publicado.",
+  "separacion": {
+    "sitio_publicado": "raiz de gh-pages (Pages legacy, build_type legacy, source path /). No se modifico.",
+    "fabrica": "_pc_source/backend, _pc_source/frontend, _pc_source/scripts, _pc_source/tests, _pc_source/docs y manifiestos de raiz de la fabrica.",
+    "salida_generada_ausente": "data/publish_site y el resto de data/, salvo el PNG canonico publico, no venian en el archivo.",
+    "por_que_el_prefijo": "Pages publica la raiz con Jekyll legacy. Una carpeta que empieza por _ y no es un directorio especial de Jekyll no entra en el sitio construido. backend/ o frontend/ en la raiz serian URL del sitio si el PR se fusionara. No se anadio .nojekyll ni _config.yml, porque cambiarian el publicador actual."
+  },
+  "comparacion": {
+    "repo": {
+      "rama_unica": "gh-pages",
+      "pages": "https://samuelherrerag1-lab.github.io/ronin-ventas-store/",
+      "build_type": "legacy",
+      "source_branch": "gh-pages",
+      "source_path": "/",
+      "workflows": 0,
+      "rutas_index": {
+        "app": 12,
+        "blueprint": 12,
+        "boveda": 12,
+        "sistema": 10,
+        "vault": 6,
+        "gratis": 3,
+        "legal": 5,
+        "home": 1
+      },
+      "checkout_hrefs": 0,
+      "checkout_ready_en_manifest_publico": false
+    },
+    "pc": {
+      "remote_git": null,
+      "runtime": "FastAPI + React/Vite, escritorio y LAN, no es el sitio de Pages",
+      "publicacion_local_prevista": "data/publish_site via scripts/build_publish_pack.py",
+      "script_deploy_store": "ausente (excluido por el filtro)",
+      "dependencias": "ausentes (.venv, frontend/node_modules)",
+      "este_snapshot": "no es una distribucion ejecutable"
+    },
+    "equivalencia": "No se afirma equivalencia. El catalogo publico de 9 ofertas no esta en el snapshot y no se compara aqui con las 55 rutas del sitio."
+  },
+  "conflictos": [
+    "Ningun archivo existente de la raiz, assets, app, blueprint, boveda, sistema, vault, gratis, legal, deliverables o content fue reemplazado.",
+    "El manifest.json de la raiz del sitio publicado no es el manifiesto de este ZIP y se dejo intacto.",
+    "El .gitignore de la fabrica ignora data/generated_images/. El PNG canonico publico se versiona como excepcion ya incluida en el archivo."
+  ],
+  "no_sincronizado": {
+    "segunda_revision": [
+      "backend/config.py",
+      "scripts/probe_vertex.py",
+      "docs/superpowers/specs/2026-11-06-ronin-pinterest-productos-industrial-design.md",
+      "docs/AUDITORIA_2026-11-04.md",
+      "docs/QA_FINAL.md",
+      "docs/REPORTE_MEJORAS_2026-11-04.md",
+      "AGENTS.md",
+      "README.md"
+    ],
+    "filtro_privacidad_codigo_o_docs": [
+      "backend/routers/api_metrics.py",
+      "backend/services/gumroad_products.py",
+      "backend/services/gumroad_token.py",
+      "backend/services/ios_app_templates.py",
+      "backend/services/ios_html_templates.py",
+      "frontend/src/components/bait/IosBaitFrame.tsx",
+      "frontend/src/components/customizations/ConnectorLogos.tsx",
+      "frontend/src/components/pinterest/PinterestCloneView.tsx",
+      "frontend/src/components/Sidebar.tsx",
+      "scripts/deploy_store.ps1",
+      "tests/gumroad_fakes.py",
+      "tests/test_backend_hardening.py",
+      "tests/test_checkout_links.py",
+      "tests/test_connect_flow.py",
+      "tests/test_customizations_hub.py",
+      "tests/test_delivery_access.py",
+      "tests/test_gumroad_probe.py",
+      "tests/test_gumroad_products.py",
+      "tests/test_leads.py",
+      "tests/test_metrics_real.py",
+      "docs/CRITIQUE_LAUNCH_SET.md",
+      "docs/GENERADORES_VALIDACION.md",
+      "docs/GUMROAD_SETUP.md",
+      "docs/PUBLISHING.md",
+      "docs/RESEARCH.md"
+    ],
+    "directorios_o_raices_omitidos": [
+      "backend/models/__pycache__/",
+      "backend/routers/__pycache__/",
+      "backend/services/__pycache__/",
+      "backend/__pycache__/",
+      "frontend/dist/",
+      "frontend/node_modules/",
+      "scripts/__pycache__/",
+      "tests/__pycache__/",
+      "data/",
+      ".agents/",
+      ".git/",
+      ".pytest_cache/",
+      ".venv/",
+      ".env.example"
+    ],
+    "formatos_no_esenciales": "110 rutas de imagenes generadas y fuentes woff; lista en exclusiones_archivo",
+    "runtime": [
+      "data/ salvo data/generated_images/ron_canonical_seed.png",
+      ".venv/",
+      "frontend/node_modules/",
+      ".git/",
+      ".agents/",
+      ".pytest_cache/",
+      "colas, trabajos, perfiles, conexiones, secretos, catalogo de app y entregables de pago"
+    ]
+  },
+  "huecos_de_importacion": {
+    "python": [
+      {
+        "desde": "backend/routers/api_customizations.py",
+        "linea": 14,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/routers/api_leads.py",
+        "linea": 17,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/routers/api_publish.py",
+        "linea": 14,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/browser_launcher.py",
+        "linea": 15,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/catalog_seed.py",
+        "linea": 2,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/connectors_catalog.py",
+        "linea": 8,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/connectors_hub.py",
+        "linea": 5,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/connector_diagnostics.py",
+        "linea": 3,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/connect_jobs.py",
+        "linea": 15,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/connect_worker.py",
+        "linea": 14,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/gumroad_browser.py",
+        "linea": 13,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/gumroad_browser.py",
+        "linea": 15,
+        "modulo": "backend.services.gumroad_products"
+      },
+      {
+        "desde": "backend/services/gumroad_catalog.py",
+        "linea": 10,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/gumroad_catalog_sync.py",
+        "linea": 18,
+        "modulo": "backend.services.gumroad_products"
+      },
+      {
+        "desde": "backend/services/metrics_service.py",
+        "linea": 4,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/playwright_bait_renderer.py",
+        "linea": 10,
+        "modulo": "backend.services.ios_app_templates"
+      },
+      {
+        "desde": "backend/services/playwright_bait_renderer.py",
+        "linea": 11,
+        "modulo": "backend.services.ios_html_templates"
+      },
+      {
+        "desde": "backend/services/probe_runners.py",
+        "linea": 7,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/product_factory.py",
+        "linea": 19,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/product_templates_sections.py",
+        "linea": 13,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/publish_content.py",
+        "linea": 12,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/publish_pack.py",
+        "linea": 24,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/publish_state.py",
+        "linea": 12,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/skills_loader.py",
+        "linea": 3,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/social_config.py",
+        "linea": 16,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/social_feed_seed.py",
+        "linea": 3,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/social_pieces.py",
+        "linea": 12,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/vault_inspector.py",
+        "linea": 18,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/vertex_image_service.py",
+        "linea": 20,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/services/vertex_image_service.py",
+        "linea": 154,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/main.py",
+        "linea": 6,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "backend/main.py",
+        "linea": 12,
+        "modulo": "backend.routers.api_metrics"
+      },
+      {
+        "desde": "scripts/batch_generate_art.py",
+        "linea": 18,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "scripts/build_publish_pack.py",
+        "linea": 21,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "scripts/campaign_tools.py",
+        "linea": 23,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "scripts/gumroad_setup.py",
+        "linea": 40,
+        "modulo": "backend.services.gumroad_products"
+      },
+      {
+        "desde": "scripts/gumroad_setup.py",
+        "linea": 59,
+        "modulo": "backend.services.gumroad_token"
+      },
+      {
+        "desde": "scripts/gumroad_setup.py",
+        "linea": 67,
+        "modulo": "backend.services.gumroad_token"
+      },
+      {
+        "desde": "scripts/gumroad_setup.py",
+        "linea": 75,
+        "modulo": "backend.services.gumroad_token"
+      },
+      {
+        "desde": "scripts/gumroad_setup.py",
+        "linea": 177,
+        "modulo": "backend.services.gumroad_token"
+      },
+      {
+        "desde": "scripts/render_ios_variants.py",
+        "linea": 22,
+        "modulo": "backend.services.ios_app_templates"
+      },
+      {
+        "desde": "scripts/render_ios_variants.py",
+        "linea": 23,
+        "modulo": "backend.services.ios_html_templates"
+      },
+      {
+        "desde": "tests/conftest.py",
+        "linea": 76,
+        "modulo": "backend.routers.api_metrics"
+      },
+      {
+        "desde": "tests/test_bloque1.py",
+        "linea": 2,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "tests/test_gumroad_catalog_sync.py",
+        "linea": 14,
+        "modulo": "backend.services.gumroad_products"
+      },
+      {
+        "desde": "tests/test_gumroad_catalog_sync.py",
+        "linea": 15,
+        "modulo": "tests.gumroad_fakes"
+      },
+      {
+        "desde": "tests/test_honesty.py",
+        "linea": 12,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "tests/test_store_exposure.py",
+        "linea": 11,
+        "modulo": "backend.config"
+      },
+      {
+        "desde": "desktop_launcher.py",
+        "linea": 8,
+        "modulo": "backend.config"
+      }
+    ],
+    "typescript": [
+      {
+        "desde": "frontend/src/App.tsx",
+        "specifier": "./components/Sidebar"
+      },
+      {
+        "desde": "frontend/src/App.tsx",
+        "specifier": "./components/pinterest/PinterestCloneView"
+      },
+      {
+        "desde": "frontend/src/components/bait/BaitStudioView.tsx",
+        "specifier": "./IosBaitFrame"
+      },
+      {
+        "desde": "frontend/src/components/customizations/HubConnectorCard.tsx",
+        "specifier": "./ConnectorLogos"
+      },
+      {
+        "desde": "frontend/src/components/shell/ShellRoutes.tsx",
+        "specifier": "../pinterest/PinterestCloneView"
+      },
+      {
+        "desde": "frontend/src/components/threads/ThreadsCloneView.tsx",
+        "specifier": "../bait/IosBaitFrame"
+      }
+    ]
+  },
+  "seguimiento_minimo": [
+    "No fusionar este PR a gh-pages en esta corrida. El prefijo _ evita la copia Jekyll actual, pero deja de proteger si el publicador cambia o si aparece .nojekyll.",
+    "Revisar en privado los 8 archivos retenidos y los 25 de codigo/docs del filtro antes de cualquier reintroduccion. No reescribirlos aqui para que los imports pasen.",
+    "backend/config.py es prerrequisito de arranque y sigue ausente.",
+    "No instalar dependencias ni ejecutar generadores, pytest de red, navegador o APIs hasta tener un entorno local completo y sin secretos en el repo publico.",
+    "Contenido de Threads/Pinterest, cambios en Gumroad, Cloudflare y diseno quedan fuera de este alineado."
+  ],
+  "resumen_conteos": {
+    "zip_sha256": "a98cd40630e55a930b9cf52a0b3bfe27fae0381a1edf3f2f50946e05ed5da74e",
+    "zip_bytes": 778607,
+    "archivos_incluidos_en_el_archivo": 213,
+    "hashes_del_archivo_verificados": 213,
+    "exclusiones_del_archivo": 149,
+    "retenidos_en_segunda_revision": 8,
+    "alineados_en_el_repo": 205,
+    "sintaxis_python_fallida": [],
+    "py_alineados_con_ast_ok": 87,
+    "modulos_internos_ausentes": [
+      "backend.config",
+      "backend.routers.api_metrics",
+      "backend.services.gumroad_products",
+      "backend.services.gumroad_token",
+      "backend.services.ios_app_templates",
+      "backend.services.ios_html_templates",
+      "tests.gumroad_fakes"
+    ],
+    "importaciones_ts_sin_destino": [
+      {
+        "desde": "frontend/src/App.tsx",
+        "specifier": "./components/Sidebar"
+      },
+      {
+        "desde": "frontend/src/App.tsx",
+        "specifier": "./components/pinterest/PinterestCloneView"
+      },
+      {
+        "desde": "frontend/src/components/bait/BaitStudioView.tsx",
+        "specifier": "./IosBaitFrame"
+      },
+      {
+        "desde": "frontend/src/components/customizations/HubConnectorCard.tsx",
+        "specifier": "./ConnectorLogos"
+      },
+      {
+        "desde": "frontend/src/components/shell/ShellRoutes.tsx",
+        "specifier": "../pinterest/PinterestCloneView"
+      },
+      {
+        "desde": "frontend/src/components/threads/ThreadsCloneView.tsx",
+        "specifier": "../bait/IosBaitFrame"
+      }
+    ],
+    "archivos_privacidad_en_manifiesto": 25,
+    "motivos_exclusion_archivo": {
+      "dependency/cache/agent metadata excluded without traversal": 8,
+      "possible PII/email/phone numeric pattern": 20,
+      "credential-like literal assignment": 2,
+      "sensitive filename excluded without content read": 1,
+      "non-source/nonessential format": 110,
+      "possible PII/email/phone numeric pattern; embedded credential URL/bearer": 1,
+      "credential-like literal assignment; possible PII/email/phone numeric pattern": 1,
+      "All runtime/private state, catalog mappings and paid deliverables excluded; public brand seed separately allowlisted": 1,
+      "root outside minimal source allowlist; not read": 1,
+      "excluded top-level git/dependency/cache/agent metadata; not traversed": 4
+    }
+  },
+  "alineados": [
+    {
+      "pc": "backend/models/catalog_models.py",
+      "sha256": "d2bdbed4acbdd24d3d4afb7681cbb4d41c97742d1d7b863ab15be5190f94fafe",
+      "bytes": 3099,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/models/catalog_models.py"
+    },
+    {
+      "pc": "backend/models/diagnostic_models.py",
+      "sha256": "d7e8878698191184390d85cd27d633a2cac627453fe8c990d40273f88ee5a674",
+      "bytes": 556,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/models/diagnostic_models.py"
+    },
+    {
+      "pc": "backend/models/metrics_models.py",
+      "sha256": "cc4996333efb528e0d72ae9361da7eb05328150c398b5cdccaf7226c09b87bc4",
+      "bytes": 2638,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/models/metrics_models.py"
+    },
+    {
+      "pc": "backend/routers/api_bridge.py",
+      "sha256": "6f70216fcd41c0010c6897d522003d3310b4ce40c7a5bea7d6f067d3941f5f38",
+      "bytes": 1457,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/routers/api_bridge.py"
+    },
+    {
+      "pc": "backend/routers/api_catalog.py",
+      "sha256": "a3772bee1fd471a2c7102c91e8acff20f5d9501590a9b670315c5531db94dd57",
+      "bytes": 8914,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/routers/api_catalog.py"
+    },
+    {
+      "pc": "backend/routers/api_customizations.py",
+      "sha256": "47e186cf7769af767d4a12d00884b956ef15a577d8bae27014532dd1c3e68c99",
+      "bytes": 7279,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/routers/api_customizations.py"
+    },
+    {
+      "pc": "backend/routers/api_feeds.py",
+      "sha256": "19846487549e8a1da529ce3e042252b9985d9b70d36d4034a06084183fea3015",
+      "bytes": 5507,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/routers/api_feeds.py"
+    },
+    {
+      "pc": "backend/routers/api_leads.py",
+      "sha256": "f0270519af71d4b69066b8f8963d700e31b90cbd796c707e7dd8b37f563f14c8",
+      "bytes": 3684,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/routers/api_leads.py"
+    },
+    {
+      "pc": "backend/routers/api_publish.py",
+      "sha256": "376dee506e62f4a9ee376cf618727d6d5283c96913ecec4ef39226e79311980d",
+      "bytes": 6598,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/routers/api_publish.py"
+    },
+    {
+      "pc": "backend/routers/api_social_publish.py",
+      "sha256": "6cf35aff55a12c1badb096aeb78229ffbc7d512e052f608e89cd1cecf6774cca",
+      "bytes": 9129,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/routers/api_social_publish.py"
+    },
+    {
+      "pc": "backend/services/browser_launcher.py",
+      "sha256": "5c17ef216c56e1371e10eb20110ca693ee83e5892832dc031d465abe13ea3cf0",
+      "bytes": 3539,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/browser_launcher.py"
+    },
+    {
+      "pc": "backend/services/catalog_data.py",
+      "sha256": "209228e02e660c34e96cd64f577feb5e6c7c928b4dc512dbe91b6e2845aafe3f",
+      "bytes": 14614,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/catalog_data.py"
+    },
+    {
+      "pc": "backend/services/catalog_seed.py",
+      "sha256": "0ae935a70da54b8c9e33d8d7842f7448afe23b8d668bea852f4f4f96ba7d9889",
+      "bytes": 9457,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/catalog_seed.py"
+    },
+    {
+      "pc": "backend/services/connectors_catalog.py",
+      "sha256": "1f67a00ea6307e734036a625bedb7ef3f30d1f6cfbd0304c59a5f70a7e70c86e",
+      "bytes": 4626,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/connectors_catalog.py"
+    },
+    {
+      "pc": "backend/services/connectors_hub.py",
+      "sha256": "ab8c7e84bba47c5bd48683a3fd9a9826676daa263d25e4dfe6a32fcd12814fa8",
+      "bytes": 5881,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/connectors_hub.py"
+    },
+    {
+      "pc": "backend/services/connector_diagnostics.py",
+      "sha256": "28857afb771eba42ce347e45dfb538e1290f66b24569fdf814fc3d587fa089ae",
+      "bytes": 5491,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/connector_diagnostics.py"
+    },
+    {
+      "pc": "backend/services/connect_jobs.py",
+      "sha256": "64586402dd369c72c94aadab3e1f355fdb3968a056c549e47f91d1045a6126f9",
+      "bytes": 6023,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/connect_jobs.py"
+    },
+    {
+      "pc": "backend/services/connect_worker.py",
+      "sha256": "8d56481d2bbc736ecbe4249abca16d68648c478863da0be2411a824136c3c11f",
+      "bytes": 7577,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/connect_worker.py"
+    },
+    {
+      "pc": "backend/services/csv_sales_parser.py",
+      "sha256": "cb9172df45ab265cc11609141f057b0c0934577f9c91edd1eca4f2d15779a8e3",
+      "bytes": 8791,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/csv_sales_parser.py"
+    },
+    {
+      "pc": "backend/services/delivery.py",
+      "sha256": "181177f885b55b640353b0d980ede2f88ee4c71917ad0a0d7e0c7ef8500ad8b3",
+      "bytes": 1250,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/delivery.py"
+    },
+    {
+      "pc": "backend/services/gumroad_browser.py",
+      "sha256": "322ba9bd9e9ccebc3948e1a62637d02b2a645d9b89449e7a905a00a8779c9f9d",
+      "bytes": 9698,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/gumroad_browser.py"
+    },
+    {
+      "pc": "backend/services/gumroad_catalog.py",
+      "sha256": "6b0075ec23b708a88130a705e958d6efb4d49761b15879faf853099aa0f42776",
+      "bytes": 8417,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/gumroad_catalog.py"
+    },
+    {
+      "pc": "backend/services/gumroad_catalog_sync.py",
+      "sha256": "ffbfae88ed73bd3ef542b9049bfac81e08af4d840d8d88e26d3b26a85585cc41",
+      "bytes": 11411,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/gumroad_catalog_sync.py"
+    },
+    {
+      "pc": "backend/services/gumroad_harvest.py",
+      "sha256": "37acaa0ac10c354896786ce49de3f4ad9f1563d5f7a5f6cc1cc9686cfb4fed4d",
+      "bytes": 3602,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/gumroad_harvest.py"
+    },
+    {
+      "pc": "backend/services/gumroad_media.py",
+      "sha256": "1e70c70ec2de9d340eb0e04e19c35e0ddc74484d413d7000114b2471a1e972a0",
+      "bytes": 1018,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/gumroad_media.py"
+    },
+    {
+      "pc": "backend/services/ios_lockscreen_css.py",
+      "sha256": "98a102f78adce6c897ce413c52b543977581fb366265e809b4a39e1ccd848f6d",
+      "bytes": 6310,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/ios_lockscreen_css.py"
+    },
+    {
+      "pc": "backend/services/json_store.py",
+      "sha256": "37d540cae606a71f5a4b160aa88d964fda352277e339b6dd37c3c47c9af01e4c",
+      "bytes": 3261,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/json_store.py"
+    },
+    {
+      "pc": "backend/services/landing_renderer.py",
+      "sha256": "5f22cd2032bbaddc34ba0c30fec36ba268c27bdda6dd0b2cc76d12593b122d77",
+      "bytes": 9715,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/landing_renderer.py"
+    },
+    {
+      "pc": "backend/services/metrics_service.py",
+      "sha256": "4bdc0aa114a519afd24fee83c614404bbf724d13627750c77ca355aed0ab6bea",
+      "bytes": 9090,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/metrics_service.py"
+    },
+    {
+      "pc": "backend/services/pinterest_seed_data.py",
+      "sha256": "e1c64a9daa24d39d17073dce1e3205469221e06f50d467523d078f9799268187",
+      "bytes": 9400,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/pinterest_seed_data.py"
+    },
+    {
+      "pc": "backend/services/playwright_bait_renderer.py",
+      "sha256": "1b16e3fac63b4493312b31a3054c265da3b5c714d5997c2e5abf6e9e7b9d51af",
+      "bytes": 8223,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/playwright_bait_renderer.py"
+    },
+    {
+      "pc": "backend/services/probe_runners.py",
+      "sha256": "3d7fee6b007612705f14fede3f2b794107a72f53eda7cdddc784c12241059507",
+      "bytes": 9893,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/probe_runners.py"
+    },
+    {
+      "pc": "backend/services/probe_store.py",
+      "sha256": "faacf273b0b9bc270374e80db362371e84a9dcd29974e8fc75430dec2fe009bd",
+      "bytes": 4019,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/probe_store.py"
+    },
+    {
+      "pc": "backend/services/product_factory.py",
+      "sha256": "934f966297ce3b024445a968577fc20bd3a91894924cb2ff300596e71e7f2cf4",
+      "bytes": 5277,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/product_factory.py"
+    },
+    {
+      "pc": "backend/services/product_templates_elite.py",
+      "sha256": "cb2acf53114f4471d893bd63f89b10fa28c139a57159492d7ef37040aeb4ecc4",
+      "bytes": 4616,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/product_templates_elite.py"
+    },
+    {
+      "pc": "backend/services/product_templates_sections.py",
+      "sha256": "9a53d0980ce3c576d6f690597ea3772449113cef613e40ff6ec2686d18642e15",
+      "bytes": 19317,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/product_templates_sections.py"
+    },
+    {
+      "pc": "backend/services/publish_content.py",
+      "sha256": "f186a4ed95a84d1ef70b825018b7a31edb3d32988690b46113d780f876e4cd76",
+      "bytes": 13030,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/publish_content.py"
+    },
+    {
+      "pc": "backend/services/publish_legal.py",
+      "sha256": "9395868a268322f103f17d5120785115bb1bab73b127e850794ecb6f255e1804",
+      "bytes": 7597,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/publish_legal.py"
+    },
+    {
+      "pc": "backend/services/publish_pack.py",
+      "sha256": "d650847459baebe07752c711c8ba0c77ab8338947a5bef1717778391c6b9c85e",
+      "bytes": 8721,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/publish_pack.py"
+    },
+    {
+      "pc": "backend/services/publish_scheduler.py",
+      "sha256": "6bfdee1f63294c44655aa69218a6695dc56010c53b40fd137c876dce80c897b8",
+      "bytes": 8779,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/publish_scheduler.py"
+    },
+    {
+      "pc": "backend/services/publish_state.py",
+      "sha256": "a4b6605d8b653f0b3bd6166a6b4e9b3a6334c053009f479a5de95a542ec3ac72",
+      "bytes": 9895,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/publish_state.py"
+    },
+    {
+      "pc": "backend/services/skills_catalog.py",
+      "sha256": "0a73da73ea48ce8d4de313c2b8eb3a395c6aaf9dd8e504a6309dbc77a68c687b",
+      "bytes": 3086,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/skills_catalog.py"
+    },
+    {
+      "pc": "backend/services/skills_loader.py",
+      "sha256": "66e2c58a5bf795597cfcfbe2de06e383e36948eccdc9c0a01b58956af3c65fa3",
+      "bytes": 3001,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/skills_loader.py"
+    },
+    {
+      "pc": "backend/services/social_browser.py",
+      "sha256": "c995c7eff8fc642bb681610adc4283f563b1111f687bb09b68ca78044b4748ae",
+      "bytes": 7055,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_browser.py"
+    },
+    {
+      "pc": "backend/services/social_config.py",
+      "sha256": "0de49175af0da8204863b4fcb767b7bd598c1002affc12b0654ffbdfa466286e",
+      "bytes": 4544,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_config.py"
+    },
+    {
+      "pc": "backend/services/social_detect.py",
+      "sha256": "1264a415de06dc9a1c42c2891d50a3201b3350102a15a882621ab9fea2614dbf",
+      "bytes": 5665,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_detect.py"
+    },
+    {
+      "pc": "backend/services/social_dom.py",
+      "sha256": "14d2c72956316a66f4fc91d7a88217d37b47751b67bf8ff0db9507c643234730",
+      "bytes": 2863,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_dom.py"
+    },
+    {
+      "pc": "backend/services/social_feed_seed.py",
+      "sha256": "f67e6b5bd787a52344dca7291cb1785e9108db55845e622d6c2780fac3987f85",
+      "bytes": 12384,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_feed_seed.py"
+    },
+    {
+      "pc": "backend/services/social_jobs.py",
+      "sha256": "e6d7957972dff9d4df192c23634d251466e27ef69eb9fc0e26ed3dfc5d4364bc",
+      "bytes": 5565,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_jobs.py"
+    },
+    {
+      "pc": "backend/services/social_login_flow.py",
+      "sha256": "fa2adb906bfdae9d43646122ec59082424b21ee62025428dce8a3d3af077da3c",
+      "bytes": 8754,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_login_flow.py"
+    },
+    {
+      "pc": "backend/services/social_login_keeper.py",
+      "sha256": "85949dfc94fb6e38b026c70802aba430476d9ff2e49ea6fb70523159ffe4b50e",
+      "bytes": 5873,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_login_keeper.py"
+    },
+    {
+      "pc": "backend/services/social_pieces.py",
+      "sha256": "2acfda5deb8b900ae91e77bfcf9e69da927eaf6dde66c898ffcd3a8d95905e5d",
+      "bytes": 8631,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_pieces.py"
+    },
+    {
+      "pc": "backend/services/social_pinterest.py",
+      "sha256": "8711f6a42039d92834e22ae707fcf244568322db9b489982b51c387370bb6576",
+      "bytes": 7533,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_pinterest.py"
+    },
+    {
+      "pc": "backend/services/social_pinterest_board.py",
+      "sha256": "86407455b1c8a2894ad4e9b58c0cea339edab67d6ff525b15e08e5102d87fcdb",
+      "bytes": 3170,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_pinterest_board.py"
+    },
+    {
+      "pc": "backend/services/social_publisher.py",
+      "sha256": "9e46e834f328a65c1e2d47f48577f51ec7b754dad367344294c7c558d1db8d3c",
+      "bytes": 10375,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_publisher.py"
+    },
+    {
+      "pc": "backend/services/social_publishers.py",
+      "sha256": "64e06b45312232a6a26e5de7636141cac15e201d5e041779a0b143d1fb16be49",
+      "bytes": 3486,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_publishers.py"
+    },
+    {
+      "pc": "backend/services/social_replies.py",
+      "sha256": "bb8636f06b51d9656f4ec647291bbdec39d85c59d4494470b614067965a9d903",
+      "bytes": 4153,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_replies.py"
+    },
+    {
+      "pc": "backend/services/social_schedule_store.py",
+      "sha256": "968e085a4a7fb5c82217f51e38639d642863a3a773e69587a1921990e2a8dac2",
+      "bytes": 4215,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_schedule_store.py"
+    },
+    {
+      "pc": "backend/services/social_threads.py",
+      "sha256": "0fe4aef63a45527e7916863f2309028b43172d9b7c99138ca6558ed4156fab67",
+      "bytes": 9818,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/social_threads.py"
+    },
+    {
+      "pc": "backend/services/vault_inspector.py",
+      "sha256": "e01e7446b3f7203b4a01354218c3691513ffedb0eb3b275e3a46625af22decb2",
+      "bytes": 4868,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/vault_inspector.py"
+    },
+    {
+      "pc": "backend/services/vertex_image_service.py",
+      "sha256": "d8def4db61ebbb0e1863472f5c2da8c9373ab351bc912d50c0b6d15928c31b39",
+      "bytes": 9167,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/services/vertex_image_service.py"
+    },
+    {
+      "pc": "backend/main.py",
+      "sha256": "bd23f284a714b746fbb785005c48ebda5889724c5dc73764b145438224d48476",
+      "bytes": 6452,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/main.py"
+    },
+    {
+      "pc": "backend/security_middleware.py",
+      "sha256": "fd2318c39a91408ff2695fea07187d6e32b737f5ce97ca8fc3859a6d295f675a",
+      "bytes": 4575,
+      "estado": "alineado",
+      "repo": "_pc_source/backend/security_middleware.py"
+    },
+    {
+      "pc": "frontend/src/api/client.ts",
+      "sha256": "a56e7c365091a72fe7afe9cc31f10b327d2c43fd25dd20ff0043acec6f360cdd",
+      "bytes": 7516,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/api/client.ts"
+    },
+    {
+      "pc": "frontend/src/api/errors.ts",
+      "sha256": "f236075564b3553a2c855a57ee64862904e99bbadd91bda4b65a615f3f27c35e",
+      "bytes": 1507,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/api/errors.ts"
+    },
+    {
+      "pc": "frontend/src/api/publish.ts",
+      "sha256": "50dcd934363d7116ba5bca03d2162dd8a7dc97013adf911b45d9c40dce0aca59",
+      "bytes": 1928,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/api/publish.ts"
+    },
+    {
+      "pc": "frontend/src/components/bait/BaitConfigPanel.tsx",
+      "sha256": "3331dc43a516ca873c981b40b9ce4e5d6cd151857f3abc995f4f76f7e6dd7ba4",
+      "bytes": 4276,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/bait/BaitConfigPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/bait/BaitStudioView.tsx",
+      "sha256": "6568b40639464ef0969c4db65f588ead1769f4204a254601971ba6b758053810",
+      "bytes": 14984,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/bait/BaitStudioView.tsx"
+    },
+    {
+      "pc": "frontend/src/components/bait/BaitVertexPanel.tsx",
+      "sha256": "06ec158cc50d61dad4321ea5981f101a9a83644562f4c6a2ff9fcba89edcd024",
+      "bytes": 5784,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/bait/BaitVertexPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/bait/IosBaitChrome.tsx",
+      "sha256": "ab7f8808ec2e5c1c132d3f06e95fc4b78592867c7cd58d6172909c9bccfe368b",
+      "bytes": 4124,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/bait/IosBaitChrome.tsx"
+    },
+    {
+      "pc": "frontend/src/components/bait/IosNotificationStack.tsx",
+      "sha256": "82c98c368baa586aa2b9f7d614578e50308934ece6c5173565529eff27c2c8cf",
+      "bytes": 4226,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/bait/IosNotificationStack.tsx"
+    },
+    {
+      "pc": "frontend/src/components/bait/IosSubModes.tsx",
+      "sha256": "c18381fb909d965b4564abf2873f1de62222cf46ab2739121db520d2d7614f77",
+      "bytes": 11690,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/bait/IosSubModes.tsx"
+    },
+    {
+      "pc": "frontend/src/components/brand/BrandIdentityPanel.tsx",
+      "sha256": "01ff7249f97695552afd2681f8c8d5ce678c4defc0ca0ee62341c64822ed14e2",
+      "bytes": 5913,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/brand/BrandIdentityPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/brand/BrandSourcePanel.tsx",
+      "sha256": "6dedff244ed62873198920c3d9e5c2f43eeb92c5cc80a08e38aafb3f8906b727",
+      "bytes": 9595,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/brand/BrandSourcePanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/brand/brandSpecs.ts",
+      "sha256": "ef0c36b4f8cce4990df989e4610632565595db66d01b02cf4c3534487bb30f84",
+      "bytes": 2812,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/brand/brandSpecs.ts"
+    },
+    {
+      "pc": "frontend/src/components/brand/drawing.ts",
+      "sha256": "1ecd0b41422a418d726763f964c2e4e28dc3b8a7e6047a1ac79b8b3763d57a24",
+      "bytes": 3173,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/brand/drawing.ts"
+    },
+    {
+      "pc": "frontend/src/components/brand/IdentityStudioView.tsx",
+      "sha256": "9a1424108fa1fdd0ebf4baac059c826952aee6930d91c9fe165c639bf4f123e9",
+      "bytes": 9270,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/brand/IdentityStudioView.tsx"
+    },
+    {
+      "pc": "frontend/src/components/brand/imageIO.ts",
+      "sha256": "c9bf892daf8cd15a307fd8ade790df78dd3a1ed6a34d28523fec0df1765d9cee",
+      "bytes": 2343,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/brand/imageIO.ts"
+    },
+    {
+      "pc": "frontend/src/components/brand/painters-wide.ts",
+      "sha256": "2a42b8a69f74b3a1cea508eb666f184192f62487edaede88970481491e028d71",
+      "bytes": 5109,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/brand/painters-wide.ts"
+    },
+    {
+      "pc": "frontend/src/components/brand/painters.ts",
+      "sha256": "2803dda3b45bd1848a088fbcfb49542bb6bf55c18e0d5298290a51ced7ddeb0b",
+      "bytes": 3866,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/brand/painters.ts"
+    },
+    {
+      "pc": "frontend/src/components/brand/paintShared.ts",
+      "sha256": "658de884035d57cd1531327dc7a089ac82ee4aef67732c3bfc7351635c694d08",
+      "bytes": 342,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/brand/paintShared.ts"
+    },
+    {
+      "pc": "frontend/src/components/brand/PlatformApplyPanel.tsx",
+      "sha256": "9fa36e58bca810eabe04653dd56fbb1ba0ba903ea3be113f290adab2a492d855",
+      "bytes": 5597,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/brand/PlatformApplyPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/brand/StudioIcons.tsx",
+      "sha256": "7fea505fabca70a2090b9a4669eb7bf9c76d028accb16992cb5aaa253b9ce766",
+      "bytes": 3204,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/brand/StudioIcons.tsx"
+    },
+    {
+      "pc": "frontend/src/components/brand/VariantCard.tsx",
+      "sha256": "d9f3ec9d26e888ef0bdd4493ca3e903a3e6ca5db058e1dffe275fb0e7d5cfeac",
+      "bytes": 3928,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/brand/VariantCard.tsx"
+    },
+    {
+      "pc": "frontend/src/components/catalog/CatalogFactoryView.tsx",
+      "sha256": "7bcfe2ba3d351cdadf7797ee863a31597d79a2828ddf58f73afcbebc8a10b0aa",
+      "bytes": 17266,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/catalog/CatalogFactoryView.tsx"
+    },
+    {
+      "pc": "frontend/src/components/catalog/catalogMeta.ts",
+      "sha256": "f388143cebd3fe26451f68d1652cabd12b3f819e4a1a4c3c8c423f6f85c0d96e",
+      "bytes": 2522,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/catalog/catalogMeta.ts"
+    },
+    {
+      "pc": "frontend/src/components/catalog/CatalogToolbar.tsx",
+      "sha256": "207d12230c47577b74bd54ae34411b08c4df97263642def39de3932a819e4226",
+      "bytes": 5256,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/catalog/CatalogToolbar.tsx"
+    },
+    {
+      "pc": "frontend/src/components/catalog/CoverArt.tsx",
+      "sha256": "10bd3a649dc58f590cf23b00481a086ad2865b2ae4a3f601fd1f5bbd5e608f89",
+      "bytes": 1770,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/catalog/CoverArt.tsx"
+    },
+    {
+      "pc": "frontend/src/components/catalog/ProductCards.tsx",
+      "sha256": "6cd0dbffb8d79f7a858391a95192c35b03921006a2e715b4e3f701d248e7636a",
+      "bytes": 4657,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/catalog/ProductCards.tsx"
+    },
+    {
+      "pc": "frontend/src/components/catalog/ProductDrawer.tsx",
+      "sha256": "4a37362b21995aa1058f93a4f4055bfd2f39abde7a19f9492e7bd50c87b513e5",
+      "bytes": 8160,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/catalog/ProductDrawer.tsx"
+    },
+    {
+      "pc": "frontend/src/components/customizations/connectorMeta.ts",
+      "sha256": "883cfa0cf9ec39d679cfed308c342c78b197925e81dc904918ebe0275c072c1e",
+      "bytes": 2773,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/customizations/connectorMeta.ts"
+    },
+    {
+      "pc": "frontend/src/components/customizations/CustomizationsHubView.tsx",
+      "sha256": "dbb37688e58399945ebdaafdc6cbfec5b140293db9d263c0d5c99c143c25dd98",
+      "bytes": 8590,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/customizations/CustomizationsHubView.tsx"
+    },
+    {
+      "pc": "frontend/src/components/customizations/HubBits.tsx",
+      "sha256": "2c53f3a4f7f1f5317845ee28caea583a4b87e425c27250aa376e1d0803026573",
+      "bytes": 5329,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/customizations/HubBits.tsx"
+    },
+    {
+      "pc": "frontend/src/components/customizations/HubConnectorCard.tsx",
+      "sha256": "006ca922f16f7776144475a9ba4f361176fc909ae852175224de6a07b14cf1fd",
+      "bytes": 8464,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/customizations/HubConnectorCard.tsx"
+    },
+    {
+      "pc": "frontend/src/components/customizations/HubConnectorDeck.tsx",
+      "sha256": "91826db0a2d1e57761347accb0c9b09bad568e9be4fb11d2376b22df1cd4c078",
+      "bytes": 1572,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/customizations/HubConnectorDeck.tsx"
+    },
+    {
+      "pc": "frontend/src/components/customizations/HubDiagnosticTerminal.tsx",
+      "sha256": "3c749c4ef5b14b6e812ccfba9aaabdccba5cec2a83c2a7bc410cdee04030bde0",
+      "bytes": 4216,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/customizations/HubDiagnosticTerminal.tsx"
+    },
+    {
+      "pc": "frontend/src/components/customizations/HubHeader.tsx",
+      "sha256": "03b32b07cefa3fa1a62bf6a95b2eb3211feb8b7ab291b9a59d5cc4f00bc9763f",
+      "bytes": 4296,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/customizations/HubHeader.tsx"
+    },
+    {
+      "pc": "frontend/src/components/customizations/HubSkillsTable.tsx",
+      "sha256": "add26608cd7983fd653ed4eab2e186f466eb39c705d4a9d8d3eb2a1e221cdfcb",
+      "bytes": 8266,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/customizations/HubSkillsTable.tsx"
+    },
+    {
+      "pc": "frontend/src/components/customizations/useConnectorJobs.ts",
+      "sha256": "5376ae48095d88e7c0bbf38240960ea4e941f7215406a3b5b7358fc9f77d47a0",
+      "bytes": 2110,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/customizations/useConnectorJobs.ts"
+    },
+    {
+      "pc": "frontend/src/components/home/FunnelPanel.tsx",
+      "sha256": "1dd466dd66ff06010159e63934c600666bce7e14e9e1ef3b7f526aac07ec7d5a",
+      "bytes": 4484,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/home/FunnelPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/home/homeModelUtils.ts",
+      "sha256": "b774821a23e01e7582f8711b2c3cc55cc45a81692835b880b854bc34949c65a3",
+      "bytes": 1480,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/home/homeModelUtils.ts"
+    },
+    {
+      "pc": "frontend/src/components/home/HomeView.tsx",
+      "sha256": "f3d467e7152385d56183094869071c7e40d52dc260a6ffb40b1b90f5c19e3783",
+      "bytes": 3219,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/home/HomeView.tsx"
+    },
+    {
+      "pc": "frontend/src/components/home/KillPanel.tsx",
+      "sha256": "e91324ebc60326a8f667cde5c167709a18bc6365b09caf5c6ae45e05382d91ae",
+      "bytes": 6015,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/home/KillPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/home/KpiGrid.tsx",
+      "sha256": "3e6a894beca366f80b2ab93dbe59b77aaaabf979ea06b40b3255ba1c6af23c8a",
+      "bytes": 3172,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/home/KpiGrid.tsx"
+    },
+    {
+      "pc": "frontend/src/components/home/Panels.tsx",
+      "sha256": "5903cd9f64400aa705d96822ea196bafe0fab90ee2e303d827b126c3b10c0f19",
+      "bytes": 4802,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/home/Panels.tsx"
+    },
+    {
+      "pc": "frontend/src/components/home/useHomeModel.ts",
+      "sha256": "27ed631905114e43c9c037a9ee2fa72c60e8887275e92cf494aa3d2b0c9d3e02",
+      "bytes": 7550,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/home/useHomeModel.ts"
+    },
+    {
+      "pc": "frontend/src/components/metrics/BarsPanel.tsx",
+      "sha256": "ae66276454111f1e3216cf48be0b17b9400746872414a3e349c9a51910533bf6",
+      "bytes": 5635,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/metrics/BarsPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/metrics/DonutPanel.tsx",
+      "sha256": "899fd917393141418b8b9038253f88b57db1ffca0b34d64013e853f87ff4cebc",
+      "bytes": 4600,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/metrics/DonutPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/metrics/MetricsImportModal.tsx",
+      "sha256": "b499afc7773edbcc3d37cd817b338028cf0007a415d8e4185913953a1bdd4dc6",
+      "bytes": 12392,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/metrics/MetricsImportModal.tsx"
+    },
+    {
+      "pc": "frontend/src/components/metrics/metricsModel.ts",
+      "sha256": "46bf47bf63c8347ee428e5ee26ed01cd37b3f04b93b28c86daae3e6056853d60",
+      "bytes": 7235,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/metrics/metricsModel.ts"
+    },
+    {
+      "pc": "frontend/src/components/metrics/MetricsRadarView.tsx",
+      "sha256": "78bca5a7505e60cbb5135eca0870783612782cf9283a368b109fad84aab41aba",
+      "bytes": 15905,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/metrics/MetricsRadarView.tsx"
+    },
+    {
+      "pc": "frontend/src/components/metrics/MetricTable.tsx",
+      "sha256": "2bf6715379db61682fa621b0829b01e6d55d8990d1c805d7ee6253cfcfa56750",
+      "bytes": 5728,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/metrics/MetricTable.tsx"
+    },
+    {
+      "pc": "frontend/src/components/metrics/RouteComparePanel.tsx",
+      "sha256": "9b8e0de95dd9e0bc08201bf39357f58515b1198f580304dbff03c8b07ded8d2b",
+      "bytes": 5012,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/metrics/RouteComparePanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/metrics/TrendChart.tsx",
+      "sha256": "91600342545093589ce7747ea87af1ebf7603113e4c375c799a114f312d35df3",
+      "bytes": 6001,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/metrics/TrendChart.tsx"
+    },
+    {
+      "pc": "frontend/src/components/metrics/WhatIfPanel.tsx",
+      "sha256": "f66bbcb6e2720a56cfa1c846c525afaac2118dbf94813f6737d74b855d60bb1e",
+      "bytes": 5382,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/metrics/WhatIfPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/pinterest/PinPosterCanvas.tsx",
+      "sha256": "ec65103ebf8d1249ce8649d504a4b0604486fb9539a325fe1431580ee6b762d1",
+      "bytes": 14656,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/pinterest/PinPosterCanvas.tsx"
+    },
+    {
+      "pc": "frontend/src/components/publish/autoPublishApi.ts",
+      "sha256": "2ddd80b03076f6ed0a8df9744ef8f5b46afec5fd54e47f74f07d498cbaf25898",
+      "bytes": 4439,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/publish/autoPublishApi.ts"
+    },
+    {
+      "pc": "frontend/src/components/publish/AutoPublishPanel.tsx",
+      "sha256": "487c4f9bd44a428e2d1de97bbb05305e3588dfe637a84fff6f096ce965afe70b",
+      "bytes": 13370,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/publish/AutoPublishPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/publish/autoPublishUi.tsx",
+      "sha256": "cc79f6879cb2a6c79cad16308ab7fdb2d96afbc9754059d5353ae62f061a5ebf",
+      "bytes": 2321,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/publish/autoPublishUi.tsx"
+    },
+    {
+      "pc": "frontend/src/components/publish/CheckoutLinksPanel.tsx",
+      "sha256": "4e21dd7b2894a690601f3952f7a7dbd5f13df06dbdfff16d977cd93e3fb3db75",
+      "bytes": 11065,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/publish/CheckoutLinksPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/publish/checkoutParse.ts",
+      "sha256": "45a109cc849660e382aff368dfde975b7b5cf756d32f0286cab2f6ca9bdf1aaa",
+      "bytes": 4075,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/publish/checkoutParse.ts"
+    },
+    {
+      "pc": "frontend/src/components/publish/PublishCenterView.tsx",
+      "sha256": "9008af15f0ef619adbaf8946574b9bf57041c9d86bc4abd38b96607aded07e00",
+      "bytes": 4189,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/publish/PublishCenterView.tsx"
+    },
+    {
+      "pc": "frontend/src/components/publish/PublishExportPanel.tsx",
+      "sha256": "c3ed5a62a6e8c900e61a7b03ed3bd0f5e2bdfc37cc518fd440b248b74950873f",
+      "bytes": 4852,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/publish/PublishExportPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/publish/PublishKitPanel.tsx",
+      "sha256": "de49808a87fb60cf28856d7cd2541c814568f414e62416a5ddb210928d37547b",
+      "bytes": 6535,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/publish/PublishKitPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/publish/PublishReadinessPanel.tsx",
+      "sha256": "4339f0ad21ea075aeb0aed067c8e73fb0a5559b762c9c818e25d771557737227",
+      "bytes": 5823,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/publish/PublishReadinessPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/publish/publishUi.tsx",
+      "sha256": "8fc7b1268fab96b95ca51d33d13e992c1d72c44dd05f56e75bd8f437ff0f86d6",
+      "bytes": 6620,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/publish/publishUi.tsx"
+    },
+    {
+      "pc": "frontend/src/components/publish/useAutoPublish.ts",
+      "sha256": "574fbeeed55a77b1ab8ebf9e187259cb43161b4001c22a4ca5b8bb6395a29fec",
+      "bytes": 7168,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/publish/useAutoPublish.ts"
+    },
+    {
+      "pc": "frontend/src/components/publish/usePublishCenter.ts",
+      "sha256": "4d6c9c254e2bec423eecb57c99319d07d5690a83f9b5739197c597e0119b1650",
+      "bytes": 5545,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/publish/usePublishCenter.ts"
+    },
+    {
+      "pc": "frontend/src/components/shell/AppHeader.tsx",
+      "sha256": "809727f55c3e2934abde0bc9cb9a315f3cdb50e2f433fe5ed45435aab92c1813",
+      "bytes": 4557,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/shell/AppHeader.tsx"
+    },
+    {
+      "pc": "frontend/src/components/shell/CommandPalette.tsx",
+      "sha256": "29afddc118da5269a4eece613a39d07b55e474e916979f5ffba0b58f91d4d5a5",
+      "bytes": 6590,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/shell/CommandPalette.tsx"
+    },
+    {
+      "pc": "frontend/src/components/shell/MobileDock.tsx",
+      "sha256": "689989d1fe2ac68ea34592e07dd5d0423e26e1337815deb21d614004c4dfa4e2",
+      "bytes": 4945,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/shell/MobileDock.tsx"
+    },
+    {
+      "pc": "frontend/src/components/shell/nav.ts",
+      "sha256": "41adf160720924befb0cc597e9daaf4c25e5082437a85d3631676f0589eedf3c",
+      "bytes": 2071,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/shell/nav.ts"
+    },
+    {
+      "pc": "frontend/src/components/shell/ShellRoutes.tsx",
+      "sha256": "628b3d1acee5b8353208dcf82961aef488b78a537ac48f4021f2be70d4d89436",
+      "bytes": 3528,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/shell/ShellRoutes.tsx"
+    },
+    {
+      "pc": "frontend/src/components/shell/Sidebar.tsx",
+      "sha256": "c3eadfb59b0f2eb79b7f371619ee80842caea5d12e00420266a0d33687d878dc",
+      "bytes": 8642,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/shell/Sidebar.tsx"
+    },
+    {
+      "pc": "frontend/src/components/shell/StatusBanners.tsx",
+      "sha256": "3ec3086a939486b712b58fb778d8778d7ed9dc36749fbd084b8b47d8e0a97cb7",
+      "bytes": 2065,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/shell/StatusBanners.tsx"
+    },
+    {
+      "pc": "frontend/src/components/stan/StanAndStealthView.tsx",
+      "sha256": "98f50277766c8ffa31698a4ff9b1431133fd67492d651474829c7c4a53eda82a",
+      "bytes": 18900,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/stan/StanAndStealthView.tsx"
+    },
+    {
+      "pc": "frontend/src/components/stan/StealthForensicsPanel.tsx",
+      "sha256": "9def472b6008700edd83c7a0afe17565c2adbad092dbeaff979999a28a1c89cc",
+      "bytes": 3266,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/stan/StealthForensicsPanel.tsx"
+    },
+    {
+      "pc": "frontend/src/components/threads/ThreadsCloneView.tsx",
+      "sha256": "003c658deb97ecd6d22a84d9b802b2f52825f86244125704f03756aa0277bf76",
+      "bytes": 19253,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/threads/ThreadsCloneView.tsx"
+    },
+    {
+      "pc": "frontend/src/components/threads/ThreadsIcons.tsx",
+      "sha256": "42a51b36677d3d7ef8db474cdcc7d1f4283440294c3edf03532dbb4d64a8495f",
+      "bytes": 2136,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/threads/ThreadsIcons.tsx"
+    },
+    {
+      "pc": "frontend/src/components/ui/BrandMark.tsx",
+      "sha256": "423abd5bfbc435fc0b206c331032093eb6d1e965e56f76f112fcd1332f57eb72",
+      "bytes": 1008,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/ui/BrandMark.tsx"
+    },
+    {
+      "pc": "frontend/src/components/ui/CountUp.tsx",
+      "sha256": "546dd99dc7588877ba5676aaa3c1b67fec30d17ef86b55a5c127e44d4056f93c",
+      "bytes": 941,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/ui/CountUp.tsx"
+    },
+    {
+      "pc": "frontend/src/components/ui/Icon.tsx",
+      "sha256": "007bcf3bc1baec524d8223a17898552dcb400f687a76dd27245c5224bf74800c",
+      "bytes": 6673,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/ui/Icon.tsx"
+    },
+    {
+      "pc": "frontend/src/components/ui/primitives.tsx",
+      "sha256": "717e014e459351b6aaf17d16f58ad830f1d2254e12b09f31fd89cd5cdf6f65c7",
+      "bytes": 4589,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/ui/primitives.tsx"
+    },
+    {
+      "pc": "frontend/src/components/ui/Sparkline.tsx",
+      "sha256": "4846c56d20a2a60ea2a12c9bba51a58eeb4b6a17099b89f3036de662263b6644",
+      "bytes": 2356,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/ui/Sparkline.tsx"
+    },
+    {
+      "pc": "frontend/src/components/ui/Tooltip.tsx",
+      "sha256": "16d3d754aa69543b05ff2ffbfe8091d0e96e039795b7cdffdc440be518f3189d",
+      "bytes": 2148,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/ui/Tooltip.tsx"
+    },
+    {
+      "pc": "frontend/src/components/ErrorBoundary.tsx",
+      "sha256": "2d54047d31ae31f038405e13c9e275d8dc7c4db43d9c70ab32c9b69ca81dd419",
+      "bytes": 1758,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/ErrorBoundary.tsx"
+    },
+    {
+      "pc": "frontend/src/components/LanAccessModal.tsx",
+      "sha256": "c1df45a02a807312efd9e646d5f74de6b899382d2564f68310f788a0b99ed7c6",
+      "bytes": 3158,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/LanAccessModal.tsx"
+    },
+    {
+      "pc": "frontend/src/components/TopHudHeader.tsx",
+      "sha256": "31bee17a2b2f06c5960a9a7b1722997f843d8c2f931c1d4a8fd85732861ecc08",
+      "bytes": 4392,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/components/TopHudHeader.tsx"
+    },
+    {
+      "pc": "frontend/src/hooks/useMetrics.ts",
+      "sha256": "77f96c07dd7f8b2f842d88ff47e8bc961bd57459c3c1234c7e3f2c5cb8c1b4a1",
+      "bytes": 1769,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/hooks/useMetrics.ts"
+    },
+    {
+      "pc": "frontend/src/hooks/useSystemData.ts",
+      "sha256": "fa3a41d0b82d26523ab9587149c9af170e9fb568fe5fc0651140c21efdcb1d94",
+      "bytes": 5761,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/hooks/useSystemData.ts"
+    },
+    {
+      "pc": "frontend/src/hooks/useUi.ts",
+      "sha256": "a1961aa78140ed254ddc16fe3655a50d7dfda494cc59d4b1d966665d369af100",
+      "bytes": 3282,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/hooks/useUi.ts"
+    },
+    {
+      "pc": "frontend/src/types/connectors.ts",
+      "sha256": "636ae1c31b464cad3aa4941ccf97cf1673a1f369974a12e3837332195f17f454",
+      "bytes": 993,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/types/connectors.ts"
+    },
+    {
+      "pc": "frontend/src/types/domain.ts",
+      "sha256": "1cb1023566c121ceb59b1845bd5f54493b7e7ecb43550cc3c6d737aba1df2ede",
+      "bytes": 6109,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/types/domain.ts"
+    },
+    {
+      "pc": "frontend/src/types/metrics.ts",
+      "sha256": "8058e8c777db219f09e676d60cdbed30b765757a949d63317d19e1209b1c7bf7",
+      "bytes": 1465,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/types/metrics.ts"
+    },
+    {
+      "pc": "frontend/src/types/publish.ts",
+      "sha256": "3a119739b903b6d0145d3c3bb6e5343d551aa054b9b7da5dbb1cf1209c28e0d0",
+      "bytes": 3048,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/types/publish.ts"
+    },
+    {
+      "pc": "frontend/src/utils/clipboard.ts",
+      "sha256": "79db7272cbd476897f77a75d04ac2ec75b30674bf2c63f152228738115dac778",
+      "bytes": 1244,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/utils/clipboard.ts"
+    },
+    {
+      "pc": "frontend/src/utils/format.ts",
+      "sha256": "8213616144ba0a90506a25490b2958f6abfb7aa1ce74359ab18730ee860acb3c",
+      "bytes": 4075,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/utils/format.ts"
+    },
+    {
+      "pc": "frontend/src/App.tsx",
+      "sha256": "a61f5e3872d2897b44ab63960eb95ace7b57dd874e105cca0d7b1f28128002c1",
+      "bytes": 8313,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/App.tsx"
+    },
+    {
+      "pc": "frontend/src/index.css",
+      "sha256": "86e6db33efbfc98df33e5099b52439e2d8ff03e9f8f100a22710072db67cc97d",
+      "bytes": 1554,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/index.css"
+    },
+    {
+      "pc": "frontend/src/main.tsx",
+      "sha256": "49952a06380b0cc94a1f41c8a909d7bfb577141786cbc1d4c74d125fa89fce84",
+      "bytes": 250,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/src/main.tsx"
+    },
+    {
+      "pc": "frontend/DESIGN.md",
+      "sha256": "8f7cee7b4a05418189a084ad8f240fd98ee653e0c1de46286e9e52dfc6a075a8",
+      "bytes": 2880,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/DESIGN.md"
+    },
+    {
+      "pc": "frontend/index.html",
+      "sha256": "0a9fd4741af1acdc30bef87287942a114deb9cfb842c2bf8ff0654100f4bfee4",
+      "bytes": 3477,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/index.html"
+    },
+    {
+      "pc": "frontend/package-lock.json",
+      "sha256": "46208df2661bff19fba385b91ebec14b7ff9f4c5ac4ae5979fc7c434749c2285",
+      "bytes": 97585,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/package-lock.json"
+    },
+    {
+      "pc": "frontend/package.json",
+      "sha256": "ec6076a93195ee8d00972d5c27b88b6b0aec565a5a6dbe5db0cda222bc64c166",
+      "bytes": 735,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/package.json"
+    },
+    {
+      "pc": "frontend/postcss.config.js",
+      "sha256": "4e8fc2293b8f4ee8ab620eaacd43c1acfb65070d48888ca7041d0aab94ec2ae1",
+      "bytes": 167,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/postcss.config.js"
+    },
+    {
+      "pc": "frontend/tailwind.config.js",
+      "sha256": "3ab2b822acdb90b7ab92929129d48afa653cf380e62f1ae456bf908a46b50b5e",
+      "bytes": 1119,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/tailwind.config.js"
+    },
+    {
+      "pc": "frontend/tsconfig.json",
+      "sha256": "a82bd3a4560d78031c7ec4098e902f4c53a3af5436d3f5b5c293c49175ce3add",
+      "bytes": 410,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/tsconfig.json"
+    },
+    {
+      "pc": "frontend/vite.config.ts",
+      "sha256": "8b7ec264a5dd688ad4e9817afcf0c836d01523a5dfdb9d3e54a88783409b9ec9",
+      "bytes": 328,
+      "estado": "alineado",
+      "repo": "_pc_source/frontend/vite.config.ts"
+    },
+    {
+      "pc": "scripts/batch_generate_art.py",
+      "sha256": "6c3eac05dec82a6f86795fa94c24d37d9ecf8ff77450a19e3d68d8ecc23dd147",
+      "bytes": 6858,
+      "estado": "alineado",
+      "repo": "_pc_source/scripts/batch_generate_art.py"
+    },
+    {
+      "pc": "scripts/build_art_prompts.py",
+      "sha256": "c492df1ce710b5df69f6ad15a138e85d68c2e7fffab111d2421d12fee47866ea",
+      "bytes": 18611,
+      "estado": "alineado",
+      "repo": "_pc_source/scripts/build_art_prompts.py"
+    },
+    {
+      "pc": "scripts/build_publish_pack.py",
+      "sha256": "fb98c4d26627e10b099e9fe02244ffbef90cb499866576382fe17055e549ccb7",
+      "bytes": 4824,
+      "estado": "alineado",
+      "repo": "_pc_source/scripts/build_publish_pack.py"
+    },
+    {
+      "pc": "scripts/campaign_tools.py",
+      "sha256": "1dbd3e072e8c990f6cf8d1070d0b2893c2c2a2528b47b18d24eded0a748eb05e",
+      "bytes": 13047,
+      "estado": "alineado",
+      "repo": "_pc_source/scripts/campaign_tools.py"
+    },
+    {
+      "pc": "scripts/compare_ios_capture.py",
+      "sha256": "3c184c1257e77e0a842092158734c299a68700831d1e4513f40fffb56069250b",
+      "bytes": 5685,
+      "estado": "alineado",
+      "repo": "_pc_source/scripts/compare_ios_capture.py"
+    },
+    {
+      "pc": "scripts/gumroad_setup.py",
+      "sha256": "c6434f74fb11433247721a342d0851de71f37671913e15f4fc9e7820894ac8a4",
+      "bytes": 9574,
+      "estado": "alineado",
+      "repo": "_pc_source/scripts/gumroad_setup.py"
+    },
+    {
+      "pc": "scripts/inject_product_art.py",
+      "sha256": "717ac11228d3de0dff9465cb74da32189efcd3581882a2795d0f243cd2674794",
+      "bytes": 6694,
+      "estado": "alineado",
+      "repo": "_pc_source/scripts/inject_product_art.py"
+    },
+    {
+      "pc": "scripts/render_ios_variants.py",
+      "sha256": "35eb35763ef5beb7d9a16907267d6db8c0d3a50c9f838d6da0c6bc64673f1420",
+      "bytes": 6890,
+      "estado": "alineado",
+      "repo": "_pc_source/scripts/render_ios_variants.py"
+    },
+    {
+      "pc": "scripts/validate_deliverables.py",
+      "sha256": "cdc0afd1e460a8f5616c5316cbad661c9122c987efc633b6588b8d35cdbd6fd8",
+      "bytes": 11308,
+      "estado": "alineado",
+      "repo": "_pc_source/scripts/validate_deliverables.py"
+    },
+    {
+      "pc": "scripts/_count_words.py",
+      "sha256": "bfe2e9cdb626320c30df3745754511ad44f1b131f93311781de46b5a6f495e12",
+      "bytes": 791,
+      "estado": "alineado",
+      "repo": "_pc_source/scripts/_count_words.py"
+    },
+    {
+      "pc": "scripts/_inspect_bundles.py",
+      "sha256": "aefa86cab4e276d0c2ba095b3243dc775a29d6e16fc9d120e379dff4e160f43d",
+      "bytes": 788,
+      "estado": "alineado",
+      "repo": "_pc_source/scripts/_inspect_bundles.py"
+    },
+    {
+      "pc": "scripts/_inspect_campaign.py",
+      "sha256": "b4a625c24cd5b2b4bd6af6d70966f92cd9746ec13713768cd9517fa347da9131",
+      "bytes": 1824,
+      "estado": "alineado",
+      "repo": "_pc_source/scripts/_inspect_campaign.py"
+    },
+    {
+      "pc": "tests/conftest.py",
+      "sha256": "97290cbd16f5955021a9652b2f421c1e0e8ae6da230a665b7a26a0ce50105c6b",
+      "bytes": 4166,
+      "estado": "alineado",
+      "repo": "_pc_source/tests/conftest.py"
+    },
+    {
+      "pc": "tests/social_fakes.py",
+      "sha256": "852bb56fb3a88d9495f36762b7ebd2f761e8b990148fd6595d3cf3833ba857ec",
+      "bytes": 2868,
+      "estado": "alineado",
+      "repo": "_pc_source/tests/social_fakes.py"
+    },
+    {
+      "pc": "tests/test_bloque1.py",
+      "sha256": "64a66bf3895b25c361884bb0e46e94f6741ade29289ce02ede36e2a3ecdf4000",
+      "bytes": 6141,
+      "estado": "alineado",
+      "repo": "_pc_source/tests/test_bloque1.py"
+    },
+    {
+      "pc": "tests/test_bridge_routes.py",
+      "sha256": "9efc1f5e1d075080e0a56826e741886e89a340fa89398f5e7261ff2bf8a44d2c",
+      "bytes": 1316,
+      "estado": "alineado",
+      "repo": "_pc_source/tests/test_bridge_routes.py"
+    },
+    {
+      "pc": "tests/test_gumroad_catalog_sync.py",
+      "sha256": "371119c6c8f30f305549c11caaa1d34425821e72983c4d9ab487456cbdae4a5f",
+      "bytes": 7135,
+      "estado": "alineado",
+      "repo": "_pc_source/tests/test_gumroad_catalog_sync.py"
+    },
+    {
+      "pc": "tests/test_honesty.py",
+      "sha256": "605d1f7c650bed598f88b6c4be99f2b5f89114cb936f9cbd35f4fbdb61032c4b",
+      "bytes": 4064,
+      "estado": "alineado",
+      "repo": "_pc_source/tests/test_honesty.py"
+    },
+    {
+      "pc": "tests/test_publish_readiness.py",
+      "sha256": "5cc90354c09a3b5693c4b3b8320ed1b073215c566fce8fccdad8d9465775816c",
+      "bytes": 7801,
+      "estado": "alineado",
+      "repo": "_pc_source/tests/test_publish_readiness.py"
+    },
+    {
+      "pc": "tests/test_security_middleware.py",
+      "sha256": "72ef29dd26b6d833e0029b3852efc34e2954e2c942a2a9a27d6fed1ea46bf38d",
+      "bytes": 2565,
+      "estado": "alineado",
+      "repo": "_pc_source/tests/test_security_middleware.py"
+    },
+    {
+      "pc": "tests/test_social_login_flow.py",
+      "sha256": "23213a35c90ff2f8cd84c575f4b74472ce72b39b9cd5a2f7b8a4f8d07114535b",
+      "bytes": 4340,
+      "estado": "alineado",
+      "repo": "_pc_source/tests/test_social_login_flow.py"
+    },
+    {
+      "pc": "tests/test_social_publisher.py",
+      "sha256": "27f602bbb37307267d189913d0bb64536cee91599b6238cd20c070ebdd46a521",
+      "bytes": 10537,
+      "estado": "alineado",
+      "repo": "_pc_source/tests/test_social_publisher.py"
+    },
+    {
+      "pc": "tests/test_store_exposure.py",
+      "sha256": "5ca28fbc34cefb4ed5e7eeefc5696b2fad05c0dc6e042b9b57bcad8855546e4b",
+      "bytes": 1978,
+      "estado": "alineado",
+      "repo": "_pc_source/tests/test_store_exposure.py"
+    },
+    {
+      "pc": "docs/BACKEND_NOTES.md",
+      "sha256": "afb0a3a07f0418668db32bf0c711ecd598935ac71b7e158a7e7328ae8675d7e5",
+      "bytes": 7214,
+      "estado": "alineado",
+      "repo": "_pc_source/docs/BACKEND_NOTES.md"
+    },
+    {
+      "pc": "docs/CAPTURAS_IOS.md",
+      "sha256": "61ae8394c20a6627d456bfd6fa69ad34b948dac8979a4b3e43b1762f3bc3fdbb",
+      "bytes": 10092,
+      "estado": "alineado",
+      "repo": "_pc_source/docs/CAPTURAS_IOS.md"
+    },
+    {
+      "pc": "docs/CONTENT_CALENDAR.md",
+      "sha256": "ffb40ae03e43950fc6f5d0bb4835c1893ff974440d5427b2aeef99d4bccbb51b",
+      "bytes": 14787,
+      "estado": "alineado",
+      "repo": "_pc_source/docs/CONTENT_CALENDAR.md"
+    },
+    {
+      "pc": "docs/CRITIQUE_SYSTEM.md",
+      "sha256": "1f55820870d16e677f1ed103cde2054e559c47337c5a367e97fd71bb312d9efd",
+      "bytes": 46978,
+      "estado": "alineado",
+      "repo": "_pc_source/docs/CRITIQUE_SYSTEM.md"
+    },
+    {
+      "pc": "docs/MARKETING_STRATEGY.md",
+      "sha256": "25da60e6010cad3c2d4846a4f9a0ef4bed3b387309879a2a9e54c618056ba588",
+      "bytes": 31527,
+      "estado": "alineado",
+      "repo": "_pc_source/docs/MARKETING_STRATEGY.md"
+    },
+    {
+      "pc": "docs/PLAN.md",
+      "sha256": "aabcaa45fe56a58b5e125cf996cbe5c2f78fdcfa2f27095f21f794c23a4cc394",
+      "bytes": 13124,
+      "estado": "alineado",
+      "repo": "_pc_source/docs/PLAN.md"
+    },
+    {
+      "pc": "docs/PRODUCTOS_MEJORADOS_A.md",
+      "sha256": "dad44394af0fb0038f23ca92c0a147cdae7b4ddfc1ba39b99b16c1042e2d2545",
+      "bytes": 16216,
+      "estado": "alineado",
+      "repo": "_pc_source/docs/PRODUCTOS_MEJORADOS_A.md"
+    },
+    {
+      "pc": "docs/PRODUCTOS_MEJORADOS_B.md",
+      "sha256": "7c8733195a56438b8c2e3a224d93d3873e47452d0712ff3b1f6ea98fbfce4cc6",
+      "bytes": 13756,
+      "estado": "alineado",
+      "repo": "_pc_source/docs/PRODUCTOS_MEJORADOS_B.md"
+    },
+    {
+      "pc": "docs/PRODUCT_AUDIT_55.md",
+      "sha256": "8cbade00383eed8cdc8de15a95350fc006a87c921ed6f876cdcaeed2b9308349",
+      "bytes": 27386,
+      "estado": "alineado",
+      "repo": "_pc_source/docs/PRODUCT_AUDIT_55.md"
+    },
+    {
+      "pc": "data/generated_images/ron_canonical_seed.png",
+      "sha256": "9aeb39ae0d5056c28d5f7c224ba2817f50fc67fe8e2a09289d94637cf1c9005f",
+      "bytes": 218437,
+      "estado": "alineado",
+      "repo": "_pc_source/data/generated_images/ron_canonical_seed.png"
+    },
+    {
+      "pc": ".gitignore",
+      "sha256": "66d6a6dca93e960186104c679a8eeb3f7b6100bff5ca23d245c68a1074b280bf",
+      "bytes": 579,
+      "estado": "alineado",
+      "repo": "_pc_source/.gitignore"
+    },
+    {
+      "pc": "desktop_launcher.py",
+      "sha256": "7a339c378a342070c065666db6f0da515a6be58508526632d7bf407d038df3d3",
+      "bytes": 2251,
+      "estado": "alineado",
+      "repo": "_pc_source/desktop_launcher.py"
+    },
+    {
+      "pc": "requirements.txt",
+      "sha256": "a228f173c4f1f283847e36e5968785d232978bba51bed2e79972f6d66bbe11ce",
+      "bytes": 453,
+      "estado": "alineado",
+      "repo": "_pc_source/requirements.txt"
+    },
+    {
+      "pc": "start_ronin_os.bat",
+      "sha256": "54ac69cc782f713415373ff7c9ca9b552cda1f25cb23f5856edf4693dc0a8df7",
+      "bytes": 259,
+      "estado": "alineado",
+      "repo": "_pc_source/start_ronin_os.bat"
+    }
+  ],
+  "retenidos": [
+    {
+      "pc": "backend/config.py",
+      "sha256": "f03e9093c25b4b7be4e5850101a074d9c632a5520566af42f362e83fb1d71174",
+      "bytes": 3716,
+      "estado": "retenido",
+      "repo": null,
+      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+    },
+    {
+      "pc": "scripts/probe_vertex.py",
+      "sha256": "8c4dc5624033f1322e0899a4b3a37e832a3fb1d3694e428809f1e2fd816c8f51",
+      "bytes": 3606,
+      "estado": "retenido",
+      "repo": null,
+      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+    },
+    {
+      "pc": "docs/superpowers/specs/2026-11-06-ronin-pinterest-productos-industrial-design.md",
+      "sha256": "1194a2a741d8598d888dfc5b79d75164fbdeef15a6ea7b66c357b74597ff3cda",
+      "bytes": 15405,
+      "estado": "retenido",
+      "repo": null,
+      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+    },
+    {
+      "pc": "docs/AUDITORIA_2026-11-04.md",
+      "sha256": "22266cc086ea49ecaf466e45f3e4aa324fe81ece63bc0ccad90787b34bf726e3",
+      "bytes": 42528,
+      "estado": "retenido",
+      "repo": null,
+      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+    },
+    {
+      "pc": "docs/QA_FINAL.md",
+      "sha256": "d18d51b6e46c452a4bc617c3a736c170677bd8c61ecf7ab8d11b552fac0e43e0",
+      "bytes": 19788,
+      "estado": "retenido",
+      "repo": null,
+      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+    },
+    {
+      "pc": "docs/REPORTE_MEJORAS_2026-11-04.md",
+      "sha256": "865738204d4558569e83482c97e43261e1a38f2b4a3defc2f6b943bb684cf88b",
+      "bytes": 16718,
+      "estado": "retenido",
+      "repo": null,
+      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+    },
+    {
+      "pc": "AGENTS.md",
+      "sha256": "acaee3f90252a4460312c15cbb7c93e258c0164124af61b4c7f7dd7faa3437e2",
+      "bytes": 5868,
+      "estado": "retenido",
+      "repo": null,
+      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+    },
+    {
+      "pc": "README.md",
+      "sha256": "4d5fd93f140b46c351ff6d86cfbcebbb08499940204cc5a562ddcb351cfec9b2",
+      "bytes": 3994,
+      "estado": "retenido",
+      "repo": null,
+      "motivo": "segunda revision: identificador de proyecto cloud embebido; archivo excluido entero, sin reescritura"
+    }
+  ],
+  "exclusiones_archivo": [
+    {
+      "pc": "backend/models/__pycache__/",
+      "motivo": "dependency/cache/agent metadata excluded without traversal"
+    },
+    {
+      "pc": "backend/routers/__pycache__/",
+      "motivo": "dependency/cache/agent metadata excluded without traversal"
+    },
+    {
+      "pc": "backend/routers/api_metrics.py",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "backend/services/__pycache__/",
+      "motivo": "dependency/cache/agent metadata excluded without traversal"
+    },
+    {
+      "pc": "backend/services/gumroad_products.py",
+      "motivo": "credential-like literal assignment"
+    },
+    {
+      "pc": "backend/services/gumroad_token.py",
+      "motivo": "sensitive filename excluded without content read"
+    },
+    {
+      "pc": "backend/services/ios_app_templates.py",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "backend/services/ios_html_templates.py",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "backend/__pycache__/",
+      "motivo": "dependency/cache/agent metadata excluded without traversal"
+    },
+    {
+      "pc": "frontend/dist/",
+      "motivo": "dependency/cache/agent metadata excluded without traversal"
+    },
+    {
+      "pc": "frontend/node_modules/",
+      "motivo": "dependency/cache/agent metadata excluded without traversal"
+    },
+    {
+      "pc": "frontend/public/fonts/SFPRODISPLAYBOLD.woff",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/fonts/SFPRODISPLAYMEDIUM.woff",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/fonts/SFPRODISPLAYREGULAR.woff",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_030418_b4450b.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_031524_185fe9.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_031951_0cdad1.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_032614_bf3dc7.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_032729_e1480c.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_032838_32a03c.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_033723_5a0e15.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_033945_10537d.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_035918_133d68.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_040514_227a38.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_041647_18c558.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_042550_d59781.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_042823_82caab.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_043851_b8c610.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_090311_540bfc.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_104502_caeac3.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_110544_14c89e.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_113651_8c1346.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_115108_b4c9f3.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_120924_3c7fa6.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_123119_fe271d.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_144504_1a811a.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_144908_7c854e.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_144912_480f99.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_145211_0bd855.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_145651_a7ddcb.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_145742_0a6d06.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_145815_3cb432.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_145822_5c1d8c.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_145838_e13622.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_145926_c1ce0c.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_150050_623b01.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_150055_a29aa2.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_150058_fc6248.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_150458_4c71f4.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_150518_bdf5e7.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_150520_19a72d.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_150958_438ccc.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_151103_2de425.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_151112_eb4ebc.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_151117_e2571b.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_151401_40a8bf.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_151805_f74702.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_151852_7b4270.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_152137_accce5.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_152637_2e3e93.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_152759_3787d2.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_153308_df48ab.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_153315_8e104a.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261102_153705_4b574c.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_211111_23a0fe.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_214202_46810b.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_214403_6613e4.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_214426_6482d9.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_214607_a9fca1.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_214712_7582a0.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_220323_b707b8.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_220430_d83c5a.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_220515_d12f39.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_222600_5eb82a.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_222719_44a2a3.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_223636_ed0767.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_223834_ec7e18.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_224817_d23c13.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_224851_d80a43.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_224900_b2259d.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_224939_d8a30c.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_224959_0efefb.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_225343_b7927e.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_230103_092de0.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_230143_70342f.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_230855_621e6d.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_231522_235dda.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_bait_20261103_231610_782504.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_cyber_luxury_wallpaper.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_editorial_dark_wallpaper.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ios17_titanium_wallpaper.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/nb2_20261102_023918_bc0a7c.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/nb2_20261102_023928_1de7a6.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/nb2_20261102_031007_11572f.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/nb2_20261102_031019_4221e0.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/nb2_20261102_031032_0a0e11.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/nb2_20261102_031043_919038.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/nb2_20261102_035020_a31b7c.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/nb2_20261102_035051_b3b088.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/nb2_20261102_035110_33564d.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/nb2_20261102_035259_cca426.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/pinterest_pin_luxury_desk.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/pin_luxury_chess_gold.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/pin_luxury_setup_oled.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/pin_luxury_watch_espresso.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/pin_ron_3am_blueprint.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/pin_ron_escape_matrix.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/pin_ron_puppet_strings.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/pin_ron_threads_atm.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_avatar_profile.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_canonical_seed.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_frame_bedroom.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_frame_laptop.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_frame_spiral.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_loc_bedroom_night.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_loc_night_rain.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_panic.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_phone_in_hand.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_thumb_1.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_thumb_2.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/public/generated_images/ron_tired.png",
+      "motivo": "non-source/nonessential format"
+    },
+    {
+      "pc": "frontend/src/components/bait/IosBaitFrame.tsx",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "frontend/src/components/customizations/ConnectorLogos.tsx",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "frontend/src/components/pinterest/PinterestCloneView.tsx",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "frontend/src/components/Sidebar.tsx",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "scripts/__pycache__/",
+      "motivo": "dependency/cache/agent metadata excluded without traversal"
+    },
+    {
+      "pc": "scripts/deploy_store.ps1",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "tests/__pycache__/",
+      "motivo": "dependency/cache/agent metadata excluded without traversal"
+    },
+    {
+      "pc": "tests/gumroad_fakes.py",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "tests/test_backend_hardening.py",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "tests/test_checkout_links.py",
+      "motivo": "possible PII/email/phone numeric pattern; embedded credential URL/bearer"
+    },
+    {
+      "pc": "tests/test_connect_flow.py",
+      "motivo": "credential-like literal assignment; possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "tests/test_customizations_hub.py",
+      "motivo": "credential-like literal assignment"
+    },
+    {
+      "pc": "tests/test_delivery_access.py",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "tests/test_gumroad_probe.py",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "tests/test_gumroad_products.py",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "tests/test_leads.py",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "tests/test_metrics_real.py",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "docs/CRITIQUE_LAUNCH_SET.md",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "docs/GENERADORES_VALIDACION.md",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "docs/GUMROAD_SETUP.md",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "docs/PUBLISHING.md",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "docs/RESEARCH.md",
+      "motivo": "possible PII/email/phone numeric pattern"
+    },
+    {
+      "pc": "data/",
+      "motivo": "All runtime/private state, catalog mappings and paid deliverables excluded; public brand seed separately allowlisted"
+    },
+    {
+      "pc": ".env.example",
+      "motivo": "root outside minimal source allowlist; not read"
+    },
+    {
+      "pc": ".agents/",
+      "motivo": "excluded top-level git/dependency/cache/agent metadata; not traversed"
+    },
+    {
+      "pc": ".git/",
+      "motivo": "excluded top-level git/dependency/cache/agent metadata; not traversed"
+    },
+    {
+      "pc": ".pytest_cache/",
+      "motivo": "excluded top-level git/dependency/cache/agent metadata; not traversed"
+    },
+    {
+      "pc": ".venv/",
+      "motivo": "excluded top-level git/dependency/cache/agent metadata; not traversed"
+    }
+  ]
+}
